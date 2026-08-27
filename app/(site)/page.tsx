@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBase } from "@/lib/paths";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, FileText } from "lucide-react";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   title: `${site.company.name} — Fresh produce, spices and furniture exporter from India`,
   description:
     "Indian export house shipping fresh fruit and vegetables, dehydrated products and spices, and solid wood furniture. Real HS codes, container loadability and MOQ published for every product.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 export default function HomePage() {
@@ -28,7 +29,7 @@ export default function HomePage() {
           photograph in and the scrim and type still work. */}
       <section className="relative isolate flex min-h-[min(88vh,46rem)] items-end overflow-hidden bg-harbour">
         <Image
-          src={site.hero.image}
+          src={withBase(site.hero.image)}
           alt=""
           fill
           priority
@@ -109,7 +110,7 @@ export default function HomePage() {
                 >
                   <div className="relative aspect-3/2 overflow-hidden bg-harbour/5">
                     <Image
-                      src={category.banner_url}
+                      src={withBase(category.banner_url)}
                       alt=""
                       fill
                       sizes="(min-width: 1024px) 33vw, 90vw"

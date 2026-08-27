@@ -12,6 +12,7 @@ import { fileToStoredImage, putMedia } from "@/lib/store";
 import { createId } from "@/lib/store-core";
 import type { CategorySlug, Product, ProductImage } from "@/lib/types";
 import { slugify } from "@/lib/utils";
+import { withBase } from "@/lib/paths";
 
 const FIELD =
   "w-full rounded-crate border border-harbour/20 bg-paper px-3 py-2.5 text-[0.9375rem] " +
@@ -542,7 +543,7 @@ export function ProductEditor({ initial, onDone }: { initial: Product; onDone: (
                   <GripVertical className="size-4 shrink-0 text-slate-soft" aria-hidden="true" />
 
                   <div className="relative size-16 shrink-0 overflow-hidden rounded-crate bg-harbour/5">
-                    <Image src={image.url} alt="" fill sizes="64px" unoptimized className="object-cover" />
+                    <Image src={withBase(image.url)} alt="" fill sizes="64px" unoptimized className="object-cover" />
                   </div>
 
                   <div className="min-w-0 flex-1">

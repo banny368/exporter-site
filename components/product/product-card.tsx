@@ -11,6 +11,7 @@ import { getPrimaryImage } from "@/lib/products";
 import { productPath } from "@/lib/site";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { withBase } from "@/lib/paths";
 
 export function ProductCard({
   product,
@@ -46,7 +47,7 @@ export function ProductCard({
         aria-hidden="true"
       >
         <Image
-          src={image.url}
+          src={withBase(image.url)}
           alt=""
           fill
           sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"

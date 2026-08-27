@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHead } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Export process",
   description:
     "Six steps from inquiry to shipment, each with an expected timeline. Plus the document flow and a plain-language explanation of EXW, FOB, CFR, CIF and DDP.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 /** Who pays for what, at each handover. This is the table buyers actually want. */

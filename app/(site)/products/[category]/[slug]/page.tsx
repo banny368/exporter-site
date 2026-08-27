@@ -20,7 +20,7 @@ import {
   getProducts,
   getRelatedProducts,
 } from "@/lib/products";
-import { canonicalFor } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 import { categoryPath, productPath } from "@/lib/site";
 
 type Params = { category: string; slug: string };
@@ -44,7 +44,7 @@ export async function generateMetadata({
   return {
     title: product.meta_title,
     description: product.meta_description,
-    openGraph: { images: [product.og_image], title: product.meta_title },
+    openGraph: { images: [withBase(product.og_image)], title: product.meta_title },
     alternates: canonicalFor(productPath(product.category_id, product.slug)),
   };
 }
@@ -212,10 +212,10 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
 
             <div className="relative mt-8 aspect-3/2 overflow-hidden rounded-crate border border-harbour/12 bg-harbour/5">
               <Image
-                src={
+                src={withBase(
                   product.images.find((image) => image.shot === "packing")?.url ??
-                  getPrimaryImage(product).url
-                }
+                    getPrimaryImage(product).url,
+                )}
                 alt={`Export packing for ${product.name}`}
                 fill
                 sizes="(min-width: 1024px) 55vw, 100vw"

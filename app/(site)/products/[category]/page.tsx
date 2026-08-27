@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { getCategories, getCategoryBySlug, getProductsByCategory } from "@/lib/products";
-import { canonicalFor } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 import type { CategorySlug } from "@/lib/types";
 
 type Params = { category: string };
@@ -31,7 +31,7 @@ export async function generateMetadata({
   return {
     title: category.name,
     description: category.description.slice(0, 180),
-    openGraph: { images: [`/og/categories/${category.slug}.png`] },
+    openGraph: { images: [withBase(`/og/categories/${category.slug}.png`)] },
     alternates: canonicalFor(`/products/${category.slug}/`),
   };
 }

@@ -25,7 +25,9 @@ function run(command, args, options = {}) {
     env: { ...process.env, ...options.env },
     stdio: options.capture ? ["ignore", "pipe", "pipe"] : "inherit",
     encoding: "utf8",
-    shell: process.platform === "win32",
+    // npm needs a shell on Windows to resolve npm.cmd. git must not have one: the shell
+    // would re-split arguments, and a commit message containing spaces breaks apart.
+    shell: process.platform === "win32" && command === "npm",
   });
 }
 

@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import type { ProductImage } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { withBase } from "@/lib/paths";
 
 const SHOT_LABEL: Record<string, string> = {
   hero: "Product",
@@ -71,7 +72,7 @@ export function ProductGallery({
       >
         <Image
           key={current.id}
-          src={current.url}
+          src={withBase(current.url)}
           alt={current.alt_text}
           fill
           priority
@@ -93,7 +94,7 @@ export function ProductGallery({
           <DialogContent title={productName} className="max-w-3xl">
             <div className="relative aspect-4/3 overflow-hidden rounded-crate bg-harbour/5">
               <Image
-                src={current.url}
+                src={withBase(current.url)}
                 alt={current.alt_text}
                 fill
                 sizes="90vw"
@@ -141,7 +142,7 @@ export function ProductGallery({
                   : "border-harbour/12 hover:border-harbour/40",
               )}
             >
-              <Image src={image.url} alt="" fill sizes="140px" className="object-cover" />
+              <Image src={withBase(image.url)} alt="" fill sizes="140px" className="object-cover" />
             </button>
           </li>
         ))}

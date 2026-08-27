@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBase } from "@/lib/paths";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -34,7 +35,7 @@ export function PageHero({
     <section className={cn("relative isolate overflow-hidden bg-harbour", className)}>
       {image ? (
         <>
-          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />
+          <Image src={withBase(image)} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />
           <div
             className="absolute inset-0 bg-gradient-to-t from-harbour-deep via-harbour-deep/80 to-harbour-deep/50"
             aria-hidden="true"

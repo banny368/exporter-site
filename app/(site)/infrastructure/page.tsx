@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withBase } from "@/lib/paths";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Infrastructure",
   description:
     "Pack house at 12 MT per day, 600 MT of cold storage across four independently controlled chambers, 1,500 MT dry warehouse, on-site fumigation and a dock-level loading bay.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 export default function InfrastructurePage() {
@@ -56,7 +57,7 @@ export default function InfrastructurePage() {
                 }`}
               >
                 <Image
-                  src={item.photo}
+                  src={withBase(item.photo)}
                   alt={`${item.name} placeholder image`}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

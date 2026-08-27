@@ -5,12 +5,13 @@ import { WorldMap } from "@/components/global/world-map";
 import { Chip } from "@/components/ui/chip";
 import { Section, SectionHead } from "@/components/ui/section";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Global reach",
   description:
     "Twelve markets across the Middle East, Europe, North America, Southeast Asia and the CIS, loaded from six Indian ports with published transit times.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 export default function GlobalReachPage() {

@@ -9,6 +9,7 @@ import { Chip } from "@/components/ui/chip";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useStore } from "@/components/providers/store-provider";
 import { deleteMedia, listMedia, type MediaRecord } from "@/lib/store";
+import { withBase } from "@/lib/paths";
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -88,7 +89,7 @@ export default function AdminMediaPage() {
               <li key={record.id} className="overflow-hidden rounded-crate border border-harbour/12">
                 <div className="relative aspect-4/3 bg-harbour/5">
                   <Image
-                    src={record.dataUrl}
+                    src={withBase(record.dataUrl)}
                     alt={record.name}
                     fill
                     sizes="(min-width: 1280px) 25vw, 45vw"

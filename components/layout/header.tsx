@@ -10,6 +10,7 @@ import { Logo } from "./logo";
 import { useStore } from "@/components/providers/store-provider";
 import { useScrolledPast } from "@/lib/client-hooks";
 import { cn } from "@/lib/utils";
+import { withBase } from "@/lib/paths";
 
 const LINKS = [
   { href: "/about", label: "About" },
@@ -113,7 +114,7 @@ export function Header() {
                       >
                         <div className="relative mb-3 aspect-4/3 overflow-hidden rounded-crate bg-harbour/5">
                           <Image
-                            src={category.banner_url}
+                            src={withBase(category.banner_url)}
                             alt=""
                             fill
                             sizes="240px"

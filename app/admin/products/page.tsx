@@ -13,6 +13,7 @@ import { getPrimaryImage } from "@/lib/products";
 import { createId } from "@/lib/store-core";
 import type { Product } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
+import { withBase } from "@/lib/paths";
 
 const FIELD =
   "rounded-crate border border-harbour/20 bg-paper px-3 py-2 text-[0.875rem] focus-visible:border-brass";
@@ -232,7 +233,7 @@ export default function AdminProductsPage() {
                     <div className="flex items-center gap-3">
                       <div className="relative size-11 shrink-0 overflow-hidden rounded-crate bg-harbour/5">
                         {image ? (
-                          <Image src={image.url} alt="" fill sizes="44px" unoptimized className="object-cover" />
+                          <Image src={withBase(image.url)} alt="" fill sizes="44px" unoptimized className="object-cover" />
                         ) : null}
                       </div>
                       <div className="min-w-0">

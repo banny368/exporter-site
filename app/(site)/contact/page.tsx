@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withBase } from "@/lib/paths";
 import Image from "next/image";
 import { Clock, Mail, Phone } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Send a product, quantity, destination port and Incoterm and get a written quotation within 48 hours. WhatsApp, phone and email, Mon–Sat 9:30 AM – 7:00 PM IST.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 export default function ContactPage() {
@@ -130,7 +131,7 @@ export default function ContactPage() {
             <li key={item.name}>
               <div className="relative aspect-4/3 overflow-hidden rounded-crate border border-harbour/12 bg-harbour/5">
                 <Image
-                  src={item.photo}
+                  src={withBase(item.photo)}
                   alt={`${item.name} placeholder image`}
                   fill
                   sizes="(min-width: 1024px) 25vw, 45vw"

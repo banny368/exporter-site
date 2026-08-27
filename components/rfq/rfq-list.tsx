@@ -10,6 +10,7 @@ import { useStore } from "@/components/providers/store-provider";
 import { getPrimaryImage } from "@/lib/products";
 import { INCOTERMS } from "@/lib/countries";
 import { productPath, site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 const FIELD =
   "w-full rounded-crate border border-harbour/20 bg-paper px-3 py-2.5 text-[0.9375rem] " +
@@ -87,7 +88,7 @@ export function RfqList() {
             return (
               <li key={product.id} className="grid gap-4 bg-paper p-5 sm:grid-cols-[6rem_1fr]">
                 <div className="relative aspect-4/3 overflow-hidden rounded-crate bg-harbour/5 sm:aspect-square">
-                  <Image src={image.url} alt="" fill sizes="96px" className="object-cover" />
+                  <Image src={withBase(image.url)} alt="" fill sizes="96px" className="object-cover" />
                 </div>
 
                 <div className="min-w-0">

@@ -5,12 +5,13 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Section } from "@/components/ui/section";
 import { getProducts } from "@/lib/products";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Product catalogue",
   description:
     "Full export catalogue: fresh fruit and vegetables, dehydrated products and spices, and solid wood furniture. HS code, grade, packing, MOQ and container loadability published for every item.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 export default function ProductsPage() {

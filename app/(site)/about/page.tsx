@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withBase } from "@/lib/paths";
 import Image from "next/image";
 import { PageHero } from "@/components/layout/page-hero";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "About us",
   description:
     "How the company grew from a single container of turmeric to three export verticals, and the pack house, cold storage and warehouse capacity behind it today.",
-  openGraph: { images: ["/og/default.png"] },
+  openGraph: { images: [withBase("/og/default.png")] },
 };
 
 export default function AboutPage() {
@@ -72,7 +73,7 @@ export default function AboutPage() {
               <article className="flex h-full flex-col overflow-hidden rounded-crate border border-harbour/12">
                 <div className="relative aspect-4/3 bg-harbour/5">
                   <Image
-                    src={item.photo}
+                    src={withBase(item.photo)}
                     alt=""
                     fill
                     sizes="(min-width: 1024px) 25vw, 45vw"
@@ -103,7 +104,7 @@ export default function AboutPage() {
             <div key={member.role} className="overflow-hidden rounded-crate border border-kraft/15">
               <div className="relative aspect-3/4 bg-kraft/5">
                 <Image
-                  src={member.photo}
+                  src={withBase(member.photo)}
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 25vw, 45vw"
