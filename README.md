@@ -111,10 +111,10 @@ To use real photographs, drop files into `public/products/<slug>/` with the name
 
 ## Accessibility and performance
 
-Lighthouse on the production export, mobile profile: **accessibility 100, best practices
-100, SEO 100** on the home, category and contact pages. Performance scores 46-63 and
-misses the 90 target; the measured cause and the one tractable fix are written up in
-ROADMAP.md.
+Lighthouse against the live site: **accessibility 100, best practices 100, SEO 100**, and
+performance 68-69, which misses the 90 target. The measured breakdown and the tractable
+fix are in ROADMAP.md. Measure against the deployed URL, not a local file server -
+compression is worth about 20 points here.
 
 Keyboard navigable end to end with visible focus rings, AA contrast, semantic heading
 order, alt text on every image, and `prefers-reduced-motion` respected in both CSS and the

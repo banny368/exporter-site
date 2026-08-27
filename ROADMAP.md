@@ -60,24 +60,25 @@ This is what separates an exporter site from a brochure.
 - **Quotation builder** producing a branded proforma invoice PDF.
 - **Document repository per shipment**, which is the buyer portal's back end.
 
-## Performance — the one target this build misses
+## Performance
 
-Measured with Lighthouse (mobile profile, simulated slow 4G, 4x CPU throttle) against the
-production export served as static files:
+Measured with Lighthouse (mobile profile) against the **live site on GitHub Pages**, which
+is what actually matters:
 
 | Page | Performance | Accessibility | Best practices | SEO |
 |---|---|---|---|---|
-| Home | 46 | 100 | 100 | 100 |
-| Category | 56 | 100 | 100 | 100 |
-| Contact | 63 | 100 | 100 | 100 |
+| Home | 68 | 100 | 100 | 100 |
+| Product detail | 69 | 97 | 100 | 100 |
 
-Accessibility, best practices and SEO meet the target. Performance does not, and the cause
-is measured rather than guessed: the home page loads **788 KB of uncompressed JavaScript
-across 13 chunks**, and the hero image queues behind it for an LCP around 7.5s on that
-throttled profile. On a desktop connection the page is fast; the score reflects a
-deliberately hostile mobile simulation.
+LCP is around 3.1s on that throttled mobile profile. Accessibility, best practices and SEO
+meet the target; performance does not reach 90.
 
-The breakdown, and what would actually move it:
+A note on measuring this: served from a local static file server without compression the
+same build scores 46 with an LCP near 7.5s. Compression on GitHub's CDN is worth roughly
+20 points, so measure against the deployed URL rather than a local server or you will
+chase the wrong thing.
+
+What is left, in order of value:
 
 | Slice | Size | Fix |
 |---|---|---|
