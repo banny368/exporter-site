@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /rfq/
+
+Sitemap: https://banny368.github.io/exporter-site/sitemap.xml

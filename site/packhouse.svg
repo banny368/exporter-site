@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 900" width="2400" height="900" role="img">
+  
+  <defs>
+    <pattern id="hatch" width="96" height="96" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <line x1="0" y1="0" x2="0" y2="96" stroke="#E8DFD0" stroke-opacity="0.06" stroke-width="30"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E2A33" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0E2A33" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="2400" height="900" fill="#0E2A33"/>
+  <rect width="2400" height="900" fill="url(#hatch)"/>
+  
+      <rect x="0" y="558" width="2400" height="342" fill="#E8DFD0" fill-opacity="0.1"/>
+      <rect x="288" y="488" width="150" height="70"
+          fill="#E8DFD0" fill-opacity="0.07"/><rect x="464" y="488" width="150" height="70"
+          fill="#E8DFD0" fill-opacity="0.095"/><rect x="640" y="488" width="150" height="70"
+          fill="#E8DFD0" fill-opacity="0.12000000000000001"/><rect x="816" y="488" width="150" height="70"
+          fill="#E8DFD0" fill-opacity="0.07"/><rect x="992" y="444" width="150" height="114"
+          fill="#E8DFD0" fill-opacity="0.095"/>
+      <line x1="0" y1="558" x2="2400" y2="558" stroke="#F2A93B" stroke-opacity="0.5" stroke-width="2"/>
+  <rect width="2400" height="900" fill="url(#fade)"/>
+  
+  <g stroke="#F2A93B" stroke-width="3" stroke-opacity="0.85" fill="none">
+    <path d="M64 104 V64 H104"/>
+    <path d="M2296 64 H2336 V104"/>
+    <path d="M64 796 V836 H104"/>
+    <path d="M2296 836 H2336 V796"/>
+  </g>
+  
+  
+  <g>
+    <rect x="2044" y="796" width="300" height="44" fill="#F2A93B" fill-opacity="0.14"
+      stroke="#F2A93B" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="2194" y="825" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17"
+      letter-spacing="2.6" fill="#F2A93B">PLACEHOLDER IMAGE</text>
+  </g>
+</svg>
