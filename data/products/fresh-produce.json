@@ -1,0 +1,372 @@
+[
+  {
+    "id": "prd-alphonso-mango",
+    "name": "Alphonso Mango",
+    "slug": "alphonso-mango",
+    "category_id": "fresh-produce",
+    "sub_category": "Mango",
+    "short_description": "Export-grade Hapus from Ratnagiri and Devgad. 200–350 g, fibreless saffron flesh, shipped at 12–13 °C in ventilated 3 kg and 5 kg trays.",
+    "long_description": [
+      "Alphonso, called Hapus in Maharashtra, is the mango most importers ask for by name. Fruit from the Ratnagiri and Devgad belt on the Konkan coast carries a thin skin, almost no fibre, and a saffron-orange flesh that holds its aroma through a three-week sea passage. Laterite soil and sea air are the reason the same variety grown inland does not eat the same way, and buyers in the Gulf and the UK grade on it.",
+      "We pick at 80–85% maturity for sea freight and at 85–90% for air, based on specific gravity and shoulder fill rather than calendar date. Fruit moves from orchard to the pack house within six hours, is washed, hot-water treated where the destination requires it, graded by weight into 200–250 g, 250–300 g and 300–350 g counts, and pre-cooled before it goes into the reefer.",
+      "Vapour heat treatment and hot water treatment are both available for markets that mandate them, and every consignment is residue-tested against EU MRL limits before dispatch. Buyers taking their first container usually start with a mixed count 3 kg box, which retails well and reduces ripening variance on arrival."
+    ],
+    "hs_code": "0804.50.20",
+    "variety": "Alphonso (Hapus) · Grade A, export",
+    "origin": "Ratnagiri & Devgad, Maharashtra",
+    "season": "March – June",
+    "season_months": [3, 4, 5, 6],
+    "packing": "5-ply CFB box with moulded fibre trays and vent holes — 3 kg (12 pcs) or 5 kg (20 pcs)",
+    "moq": "1 × 20ft reefer (approx. 3,000 boxes) · air freight from 500 kg",
+    "shelf_life": "12–18 days from harvest under cold chain",
+    "storage_temp": "12–13 °C, 85–90% RH",
+    "lead_time": "7–10 days from confirmed order, within season",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF · CIP (air)",
+    "loading_ports": ["Nhava Sheva (JNPT)", "Mumbai Air Cargo (BOM)"],
+    "loadability": {
+      "20ft": "Not offered — cold chain only",
+      "40ft": "Not offered — cold chain only",
+      "40ft_hq": "Not offered — cold chain only",
+      "reefer": "20ft reefer · 3,000 boxes (3 kg) · 9 MT"
+    },
+    "specs": [
+      { "label": "Trade name", "value": "Alphonso / Hapus mango" },
+      { "label": "Botanical name", "value": "Mangifera indica L." },
+      { "label": "Count sizes", "value": "200–250 g · 250–300 g · 300–350 g" },
+      { "label": "Maturity at pack", "value": "80–85% (sea) · 85–90% (air)" },
+      { "label": "Treatment", "value": "Hot water treatment or VHT on request" },
+      { "label": "Pre-cooling", "value": "Forced air to 13 °C before stuffing" }
+    ],
+    "quality_params": [
+      { "parameter": "Total soluble solids", "specification": "16–20 °Brix at ripeness", "method": "Refractometer" },
+      { "parameter": "Fruit weight", "specification": "200–350 g", "method": "Gravimetric grading" },
+      { "parameter": "Pesticide residue", "specification": "Within EU MRL", "method": "LC-MS/MS, NABL lab" },
+      { "parameter": "Defect tolerance", "specification": "Max 5% by count", "method": "Visual, pre-shipment" },
+      { "parameter": "Spongy tissue", "specification": "Nil", "method": "Destructive sampling, 1 per 100 boxes" }
+    ],
+    "certifications": ["APEDA", "FSSAI", "GLOBALG.A.P.", "Phytosanitary", "Non-GMO"],
+    "markets": ["UAE", "United Kingdom", "Netherlands", "Japan", "Singapore"],
+    "packing_note": "Each fruit sits in its own moulded tray so it cannot bruise against a neighbour. Boxes are vented on four faces for forced-air pre-cooling. Private labelling on the carton is available from 1,000 boxes.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List",
+      "Bill of Lading / Airway Bill",
+      "Certificate of Origin",
+      "Phytosanitary Certificate",
+      "Certificate of Analysis (residue)",
+      "Insurance Certificate",
+      "Non-GMO Declaration"
+    ],
+    "is_featured": true,
+    "is_published": true,
+    "sort_order": 1,
+    "meta_title": "Alphonso Mango Exporter from India — Ratnagiri & Devgad Hapus",
+    "meta_description": "Export-grade Alphonso mango from Ratnagiri and Devgad. HS 0804.50.20, 200–350 g, 3 kg and 5 kg trays, reefer at 12–13 °C. MOQ one 20ft reefer, air freight from 500 kg.",
+    "og_image": "/og/products/alphonso-mango.png",
+    "images": [
+      { "id": "img-alphonso-1", "product_id": "prd-alphonso-mango", "url": "/products/alphonso-mango/hero.svg", "alt_text": "Export-grade Alphonso mangoes graded by count", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-alphonso-2", "product_id": "prd-alphonso-mango", "url": "/products/alphonso-mango/macro.svg", "alt_text": "Alphonso mango halved, showing fibreless saffron flesh", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-alphonso-3", "product_id": "prd-alphonso-mango", "url": "/products/alphonso-mango/packing.svg", "alt_text": "Five-ply export carton with moulded fibre mango trays", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-alphonso-4", "product_id": "prd-alphonso-mango", "url": "/products/alphonso-mango/context.svg", "alt_text": "Alphonso mangoes on the tree in a Konkan orchard", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T09:00:00.000Z",
+    "updated_at": "2026-01-12T09:00:00.000Z"
+  },
+  {
+    "id": "prd-bhagwa-pomegranate",
+    "name": "Bhagwa Pomegranate",
+    "slug": "bhagwa-pomegranate",
+    "category_id": "fresh-produce",
+    "sub_category": "Pomegranate",
+    "short_description": "Deep-red Bhagwa from Solapur and Sangola. Two bahars give near year-round supply, 45–60 day shelf life at 4–5 °C, 3.2 kg and 4 kg cartons.",
+    "long_description": [
+      "Bhagwa is the variety that made Indian pomegranate exportable at scale: a hard, glossy, deep-red rind that travels, soft seeds, and arils that hold colour for weeks. It outsells older varieties like Ganesh in every destination we ship to, and Solapur, Sangola and Nashik between them account for most of the export-grade crop.",
+      "Two flowering cycles matter for planning. Mrig Bahar fruit ships August to February and carries the deepest colour; Hasta Bahar covers February to May and bridges the gap before the next cycle. Between the two we can quote a buyer almost year-round, which is the reason importers hold Bhagwa on contract rather than spot.",
+      "Fruit is graded on weight into 200–250 g, 250–300 g and 300 g-plus, sleeved in EPE net to stop rind scuffing, and pre-cooled to 5 °C before stuffing. Sun-scald, cracking and aril browning are the three defects that cost a buyer money on arrival, so each is checked on a sample from every pallet at the pre-shipment stage."
+    ],
+    "hs_code": "0810.90.10",
+    "variety": "Bhagwa · Sizes 200–250 g / 250–300 g / 300 g+",
+    "origin": "Solapur, Sangola & Nashik, Maharashtra",
+    "season": "Mrig Bahar Aug – Feb · Hasta Bahar Feb – May",
+    "season_months": [1, 2, 3, 4, 5, 8, 9, 10, 11, 12],
+    "packing": "3.2 kg or 4 kg CFB carton with EPE net sleeves and corner cushions",
+    "moq": "1 × 20ft reefer (approx. 5,000 cartons / 16 MT)",
+    "shelf_life": "45–60 days under cold chain",
+    "storage_temp": "4–5 °C, 90–95% RH",
+    "lead_time": "10–14 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Nhava Sheva (JNPT)", "Mundra"],
+    "loadability": {
+      "20ft": "Not offered — cold chain only",
+      "40ft": "Not offered — cold chain only",
+      "40ft_hq": "Not offered — cold chain only",
+      "reefer": "20ft reefer · 5,000 cartons (3.2 kg) · 16 MT"
+    },
+    "specs": [
+      { "label": "Trade name", "value": "Bhagwa / Kesar pomegranate" },
+      { "label": "Botanical name", "value": "Punica granatum L." },
+      { "label": "Size grades", "value": "200–250 g · 250–300 g · 300 g+" },
+      { "label": "Rind colour", "value": "Deep red, glossy, unblemished" },
+      { "label": "Sleeving", "value": "EPE net per fruit" },
+      { "label": "Pre-cooling", "value": "Forced air to 5 °C before stuffing" }
+    ],
+    "quality_params": [
+      { "parameter": "Total soluble solids", "specification": "15–17 °Brix", "method": "Refractometer" },
+      { "parameter": "Aril colour", "specification": "Deep ruby, uniform", "method": "Visual, cut sample per pallet" },
+      { "parameter": "Cracked fruit", "specification": "Nil", "method": "Visual, 100% grading line" },
+      { "parameter": "Sun scald", "specification": "Max 3% by count", "method": "Visual, pre-shipment" },
+      { "parameter": "Pesticide residue", "specification": "Within EU MRL", "method": "LC-MS/MS, NABL lab" }
+    ],
+    "certifications": ["APEDA", "FSSAI", "GLOBALG.A.P.", "Phytosanitary", "Non-GMO"],
+    "markets": ["Netherlands", "Germany", "UAE", "Russia", "Bangladesh"],
+    "packing_note": "Cartons are stacked five high on a pallet with corner posts, strapped and shrink-netted. Buyer-specified carton print and PLU stickers are available from 2,000 cartons.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Phytosanitary Certificate",
+      "Certificate of Analysis (residue)",
+      "Insurance Certificate",
+      "Non-GMO Declaration"
+    ],
+    "is_featured": true,
+    "is_published": true,
+    "sort_order": 2,
+    "meta_title": "Bhagwa Pomegranate Exporter from India — Solapur & Sangola",
+    "meta_description": "Bhagwa pomegranate for export. HS 0810.90.10, 200 g to 300 g+ grades, 3.2 kg and 4 kg cartons, 45–60 day shelf life at 4–5 °C. Mrig and Hasta bahar supply.",
+    "og_image": "/og/products/bhagwa-pomegranate.png",
+    "images": [
+      { "id": "img-pom-1", "product_id": "prd-bhagwa-pomegranate", "url": "/products/bhagwa-pomegranate/hero.svg", "alt_text": "Deep red Bhagwa pomegranates graded for export", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-pom-2", "product_id": "prd-bhagwa-pomegranate", "url": "/products/bhagwa-pomegranate/macro.svg", "alt_text": "Pomegranate cut open showing ruby arils", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-pom-3", "product_id": "prd-bhagwa-pomegranate", "url": "/products/bhagwa-pomegranate/packing.svg", "alt_text": "Export carton of pomegranates in EPE net sleeves", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-pom-4", "product_id": "prd-bhagwa-pomegranate", "url": "/products/bhagwa-pomegranate/context.svg", "alt_text": "Pomegranate orchard in Solapur at harvest", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T09:05:00.000Z",
+    "updated_at": "2026-01-12T09:05:00.000Z"
+  },
+  {
+    "id": "prd-thompson-seedless-grapes",
+    "name": "Thompson Seedless Grapes",
+    "slug": "thompson-seedless-grapes",
+    "category_id": "fresh-produce",
+    "sub_category": "Table grapes",
+    "short_description": "Nashik and Sangli Thompson Seedless at 16+ Brix, 16–18 mm berries. GLOBALG.A.P. and GRASP certified, SO2 pads, 45–60 days at 0–2 °C.",
+    "long_description": [
+      "Thompson Seedless is India's highest-volume table grape export and the one European retailers audit hardest. Nashik and Sangli ship from January to April, which lands in the window between the Southern Hemisphere and Mediterranean crops, and that timing is why Dutch and British programmes hold Indian volume every year.",
+      "Bunches are field-graded, trimmed of loose and undersized berries, and moved to a pre-cooling chamber within four hours of cutting. Sulphur dioxide pads go in at packing to hold botrytis for the full transit, with the pad type matched to whether the box is punnet-packed or loose.",
+      "Because retail programmes drive this product, we work to the buyer's specification rather than a house standard: berry size, bunch weight, punnet format and label are all set before the first container. GLOBALG.A.P. with the GRASP social module is in place at farm level and the certificate travels with the documents."
+    ],
+    "hs_code": "0806.10.00",
+    "variety": "Thompson Seedless · Berry 16–18 mm, 16+ Brix",
+    "origin": "Nashik & Sangli, Maharashtra",
+    "season": "January – April",
+    "season_months": [1, 2, 3, 4],
+    "packing": "4.5 kg punnet box (10 × 500 g) or 8.2 kg loose, with SO2 pad and perforated liner",
+    "moq": "1 × 40ft reefer",
+    "shelf_life": "45–60 days under unbroken cold chain",
+    "storage_temp": "0–2 °C, 90–95% RH",
+    "lead_time": "10–14 days from confirmed order, within season",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Nhava Sheva (JNPT)"],
+    "loadability": {
+      "20ft": "Not offered — cold chain only",
+      "40ft": "Not offered — cold chain only",
+      "40ft_hq": "Not offered — cold chain only",
+      "reefer": "40ft reefer · 4,480 boxes (4.5 kg) · 20 MT"
+    },
+    "specs": [
+      { "label": "Trade name", "value": "Thompson Seedless / Sonaka" },
+      { "label": "Botanical name", "value": "Vitis vinifera L." },
+      { "label": "Berry diameter", "value": "16–18 mm" },
+      { "label": "Bunch weight", "value": "350–600 g, buyer specified" },
+      { "label": "Preservative", "value": "SO2 pad, single or dual phase" },
+      { "label": "Pre-cooling", "value": "Forced air to 1 °C within 6 hours of harvest" }
+    ],
+    "quality_params": [
+      { "parameter": "Total soluble solids", "specification": "Minimum 16 °Brix", "method": "Refractometer" },
+      { "parameter": "Berry diameter", "specification": "16–18 mm", "method": "Calliper, sample per lot" },
+      { "parameter": "Loose berries", "specification": "Max 1% by weight", "method": "Gravimetric, pre-shipment" },
+      { "parameter": "SO2 residue", "specification": "Within EU limit, 10 mg/kg", "method": "Titration, NABL lab" },
+      { "parameter": "Pesticide residue", "specification": "Within EU MRL, full panel", "method": "LC-MS/MS + GC-MS/MS" }
+    ],
+    "certifications": ["APEDA", "FSSAI", "GLOBALG.A.P.", "GRASP", "Phytosanitary"],
+    "markets": ["Netherlands", "United Kingdom", "Germany", "Denmark", "Russia"],
+    "packing_note": "Punnet format, liner type and SO2 pad grade are set from the buyer's retail specification. Own-label punnets and printed cartons are available on programme volumes.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Phytosanitary Certificate",
+      "GLOBALG.A.P. Certificate",
+      "Certificate of Analysis (residue)",
+      "Insurance Certificate"
+    ],
+    "is_featured": true,
+    "is_published": true,
+    "sort_order": 3,
+    "meta_title": "Thompson Seedless Grapes Exporter from India — Nashik & Sangli",
+    "meta_description": "GLOBALG.A.P. certified Thompson Seedless grapes. HS 0806.10.00, 16+ Brix, 16–18 mm berries, 4.5 kg punnet or 8.2 kg loose, 40ft reefer at 0–2 °C.",
+    "og_image": "/og/products/thompson-seedless-grapes.png",
+    "images": [
+      { "id": "img-grape-1", "product_id": "prd-thompson-seedless-grapes", "url": "/products/thompson-seedless-grapes/hero.svg", "alt_text": "Bunches of pale green Thompson Seedless grapes", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-grape-2", "product_id": "prd-thompson-seedless-grapes", "url": "/products/thompson-seedless-grapes/macro.svg", "alt_text": "Close detail of seedless grape berries with natural bloom", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-grape-3", "product_id": "prd-thompson-seedless-grapes", "url": "/products/thompson-seedless-grapes/packing.svg", "alt_text": "Grape punnets packed in an export box with SO2 pad", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-grape-4", "product_id": "prd-thompson-seedless-grapes", "url": "/products/thompson-seedless-grapes/context.svg", "alt_text": "Grape vineyard trellis in Nashik", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T09:10:00.000Z",
+    "updated_at": "2026-01-12T09:10:00.000Z"
+  },
+  {
+    "id": "prd-cavendish-banana",
+    "name": "Cavendish Banana (Grand Naine G9)",
+    "slug": "cavendish-banana",
+    "category_id": "fresh-produce",
+    "sub_category": "Banana",
+    "short_description": "Green mature G9 hands, 6–9 inch length and 32–42 mm girth, in 13.5 kg telescopic cartons. Year-round supply, 21–28 days green life at 13.5 °C.",
+    "long_description": [
+      "Grand Naine, sold as G9, is the Cavendish clone that carries almost all of India's banana export volume. It ships green and mature, ripens predictably in the destination chamber, and holds a uniform hand shape that retailers can merchandise without sorting. Gujarat, Maharashtra and Tamil Nadu together give us fruit in every month of the year.",
+      "Green life is the number that decides whether a container arrives sellable. We cut at 75–80% grade, de-hand and wash in the field pack house, treat the crowns, and get fruit into a 13.5 °C reefer within a day of cutting. Below 13 °C the fruit chills and greys; above 14.5 °C it starts ripening in transit, so the reefer set point is checked and logged at stuffing.",
+      "Middle East programmes take the bulk of this product on repeat monthly volumes. For those buyers we hold fixed hand-count specifications and a standing carton print, so a repeat order needs a quantity and a vessel, nothing more."
+    ],
+    "hs_code": "0803.90.10",
+    "variety": "Grand Naine (G9) · Hand length 6–9 in, girth 32–42 mm",
+    "origin": "Gujarat, Maharashtra & Tamil Nadu",
+    "season": "Year-round",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "13.5 kg telescopic carton with perforated polybag liner and crown pads",
+    "moq": "1 × 40ft reefer (approx. 1,540 cartons / 20.8 MT)",
+    "shelf_life": "21–28 days green life under cold chain",
+    "storage_temp": "13.5 °C, 90% RH",
+    "lead_time": "7–10 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Mundra", "Nhava Sheva (JNPT)", "Tuticorin"],
+    "loadability": {
+      "20ft": "Not offered — cold chain only",
+      "40ft": "Not offered — cold chain only",
+      "40ft_hq": "Not offered — cold chain only",
+      "reefer": "40ft reefer · 1,540 cartons (13.5 kg) · 20.8 MT"
+    },
+    "specs": [
+      { "label": "Trade name", "value": "Cavendish banana, Grand Naine G9" },
+      { "label": "Botanical name", "value": "Musa acuminata (AAA)" },
+      { "label": "Hand length", "value": "6–9 inch" },
+      { "label": "Finger girth", "value": "32–42 mm" },
+      { "label": "Cut maturity", "value": "75–80% grade, green mature" },
+      { "label": "Crown treatment", "value": "Post-harvest dip, food grade" }
+    ],
+    "quality_params": [
+      { "parameter": "Green life", "specification": "21–28 days at 13.5 °C", "method": "Ripening trial per lot" },
+      { "parameter": "Finger girth", "specification": "32–42 mm", "method": "Calliper, sample per pallet" },
+      { "parameter": "Crown rot", "specification": "Nil at loading", "method": "Visual, 100% inspection" },
+      { "parameter": "Latex staining", "specification": "Max 2% by count", "method": "Visual, pre-shipment" },
+      { "parameter": "Pesticide residue", "specification": "Within destination MRL", "method": "LC-MS/MS, NABL lab" }
+    ],
+    "certifications": ["APEDA", "FSSAI", "GLOBALG.A.P.", "Phytosanitary", "Halal"],
+    "markets": ["Iran", "Iraq", "UAE", "Oman", "Saudi Arabia", "Qatar"],
+    "packing_note": "Telescopic cartons take a printed lid at no tooling cost from 3,000 cartons. Polybag gauge and perforation pattern are matched to the transit time on the buyer's route.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Phytosanitary Certificate",
+      "Certificate of Analysis (residue)",
+      "Halal Certificate",
+      "Insurance Certificate"
+    ],
+    "is_featured": false,
+    "is_published": true,
+    "sort_order": 4,
+    "meta_title": "Cavendish Banana G9 Exporter from India — Year-Round Supply",
+    "meta_description": "Grand Naine G9 Cavendish banana for export. HS 0803.90.10, 6–9 inch hands, 32–42 mm girth, 13.5 kg telescopic cartons, 40ft reefer at 13.5 °C.",
+    "og_image": "/og/products/cavendish-banana.png",
+    "images": [
+      { "id": "img-banana-1", "product_id": "prd-cavendish-banana", "url": "/products/cavendish-banana/hero.svg", "alt_text": "Green mature Cavendish banana hands graded for export", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-banana-2", "product_id": "prd-cavendish-banana", "url": "/products/cavendish-banana/macro.svg", "alt_text": "Close detail of banana finger girth and matte green skin", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-banana-3", "product_id": "prd-cavendish-banana", "url": "/products/cavendish-banana/packing.svg", "alt_text": "Telescopic export carton packed with banana hands", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-banana-4", "product_id": "prd-cavendish-banana", "url": "/products/cavendish-banana/context.svg", "alt_text": "Banana plantation with bagged bunches", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T09:15:00.000Z",
+    "updated_at": "2026-01-12T09:15:00.000Z"
+  },
+  {
+    "id": "prd-kagzi-lime",
+    "name": "Fresh Kagzi Lime",
+    "slug": "kagzi-lime",
+    "category_id": "fresh-produce",
+    "sub_category": "Citrus",
+    "short_description": "Thin-skinned acid lime, 35–55 mm, dark green and high in juice. Year-round with a June–October peak, 10 kg and 15 kg cartons or mesh bags.",
+    "long_description": [
+      "Kagzi lime is the small, thin-skinned acid lime that Gulf buyers use for fresh juice and food service. The name means paper-skinned, and that thinness is the point: juice recovery runs well above what a thicker-rind lime gives, which is what a juice bar or a catering kitchen is actually buying.",
+      "Andhra Pradesh, Gujarat and Maharashtra carry fruit through the whole year, with the heaviest and best-coloured crop between June and October. Off-peak fruit runs slightly paler and we say so at quotation rather than at arrival.",
+      "Fruit is washed, waxed where the destination allows it, graded to 35–45 mm and 45–55 mm, and shipped at 9–10 °C. Below 8 °C limes take chilling injury and pit, so the reefer is set conservatively and the set point is recorded on the stuffing report."
+    ],
+    "hs_code": "0805.50.00",
+    "variety": "Kagzi acid lime · 35–45 mm and 45–55 mm",
+    "origin": "Andhra Pradesh, Gujarat & Maharashtra",
+    "season": "Year-round · peak June – October",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "10 kg or 15 kg CFB carton, or 20 kg ventilated mesh bag",
+    "moq": "1 × 20ft reefer",
+    "shelf_life": "21–30 days under cold chain",
+    "storage_temp": "9–10 °C, 85–90% RH",
+    "lead_time": "7–10 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Nhava Sheva (JNPT)", "Chennai", "Mundra"],
+    "loadability": {
+      "20ft": "Not offered — cold chain only",
+      "40ft": "Not offered — cold chain only",
+      "40ft_hq": "Not offered — cold chain only",
+      "reefer": "20ft reefer · 1,000 cartons (10 kg) · 10 MT"
+    },
+    "specs": [
+      { "label": "Trade name", "value": "Kagzi lime / Indian acid lime" },
+      { "label": "Botanical name", "value": "Citrus aurantifolia Swingle" },
+      { "label": "Diameter", "value": "35–45 mm · 45–55 mm" },
+      { "label": "Colour", "value": "Dark green, uniform" },
+      { "label": "Surface", "value": "Unwaxed or food-grade waxed" },
+      { "label": "Chilling threshold", "value": "Do not carry below 8 °C" }
+    ],
+    "quality_params": [
+      { "parameter": "Juice content", "specification": "Minimum 45% by weight", "method": "Press extraction, sample per lot" },
+      { "parameter": "Acidity", "specification": "6–8% as citric acid", "method": "Titration" },
+      { "parameter": "Diameter", "specification": "35–55 mm as graded", "method": "Ring sizer" },
+      { "parameter": "Yellowing", "specification": "Max 3% by count", "method": "Visual, pre-shipment" },
+      { "parameter": "Pesticide residue", "specification": "Within destination MRL", "method": "LC-MS/MS, NABL lab" }
+    ],
+    "certifications": ["APEDA", "FSSAI", "Phytosanitary", "Halal", "Non-GMO"],
+    "markets": ["UAE", "Oman", "Qatar", "Kuwait", "Maldives"],
+    "packing_note": "Mesh bags cost less per kilo and suit wholesale markets; cartons protect better for retail and long transits. We will recommend one over the other for your route rather than quoting whichever is cheaper.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Phytosanitary Certificate",
+      "Certificate of Analysis (residue)",
+      "Insurance Certificate",
+      "Non-GMO Declaration"
+    ],
+    "is_featured": false,
+    "is_published": true,
+    "sort_order": 5,
+    "meta_title": "Kagzi Lime Exporter from India — Fresh Acid Lime Supplier",
+    "meta_description": "Fresh Kagzi acid lime for export. HS 0805.50.00, 35–55 mm, dark green, 10 kg and 15 kg cartons or mesh bags, 20ft reefer at 9–10 °C. Year-round supply.",
+    "og_image": "/og/products/kagzi-lime.png",
+    "images": [
+      { "id": "img-lime-1", "product_id": "prd-kagzi-lime", "url": "/products/kagzi-lime/hero.svg", "alt_text": "Dark green Kagzi limes graded for export", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-lime-2", "product_id": "prd-kagzi-lime", "url": "/products/kagzi-lime/macro.svg", "alt_text": "Halved lime showing pale green juicy segments", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-lime-3", "product_id": "prd-kagzi-lime", "url": "/products/kagzi-lime/packing.svg", "alt_text": "Export carton and ventilated mesh bag of limes", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-lime-4", "product_id": "prd-kagzi-lime", "url": "/products/kagzi-lime/context.svg", "alt_text": "Acid lime orchard with fruit on the branch", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T09:20:00.000Z",
+    "updated_at": "2026-01-12T09:20:00.000Z"
+  }
+]

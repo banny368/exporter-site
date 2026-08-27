@@ -1,0 +1,696 @@
+{
+  "company": {
+    "name": "Your Company Name",
+    "legal_name": "Your Company Name LLP",
+    "tagline": "From Indian soil to your port",
+    "established": "20XX",
+    "blurb": "An Indian export house shipping fresh produce, dehydrated products and spices, and solid wood furniture to buyers across the Middle East, Europe, North America and Southeast Asia. Direct sourcing, in-house quality control, and a full documentation set on every shipment.",
+    "logo_text": "Your Logo"
+  },
+  "contact": {
+    "whatsapp": "910000000000",
+    "whatsapp_display": "+91 XXXXX XXXXX",
+    "whatsapp_configured": false,
+    "phone": "+910000000000",
+    "phone_display": "+91 XXXXX XXXXX",
+    "email": "export@yourcompany.com",
+    "hours": "Mon–Sat, 9:30 AM – 7:00 PM IST",
+    "hours_note": "Messages outside these hours are answered the next working day. We reply to every inquiry within 24 hours, Mon–Sat.",
+    "address_lines": [
+      "Your Registered Office Address",
+      "Street / Industrial Area",
+      "Your City, Your State, PIN",
+      "India"
+    ],
+    "map_query": "Nhava Sheva Port, Navi Mumbai, Maharashtra, India"
+  },
+  "registrations": [
+    {
+      "label": "IEC",
+      "value": "XXXXXXXXXX"
+    },
+    {
+      "label": "GST",
+      "value": "XXAAAAA0000A1ZX"
+    },
+    {
+      "label": "APEDA RCMC",
+      "value": "XXXXXXXXXX"
+    },
+    {
+      "label": "Spices Board",
+      "value": "XXXXXXXXXX"
+    },
+    {
+      "label": "FSSAI",
+      "value": "XXXXXXXXXXXXXX"
+    }
+  ],
+  "loading_ports": [
+    "Nhava Sheva (JNPT)",
+    "Mundra",
+    "Kandla",
+    "Chennai",
+    "Tuticorin",
+    "Cochin"
+  ],
+  "markets": [
+    "UAE",
+    "Saudi Arabia",
+    "Oman",
+    "Qatar",
+    "United Kingdom",
+    "Netherlands",
+    "Germany",
+    "USA",
+    "Canada",
+    "Malaysia",
+    "Vietnam",
+    "Russia"
+  ],
+  "socials": [
+    {
+      "network": "LinkedIn",
+      "url": "https://www.linkedin.com/",
+      "emphasis": true
+    },
+    {
+      "network": "Instagram",
+      "url": "https://www.instagram.com/"
+    },
+    {
+      "network": "Facebook",
+      "url": "https://www.facebook.com/"
+    },
+    {
+      "network": "YouTube",
+      "url": "https://www.youtube.com/"
+    },
+    {
+      "network": "X",
+      "url": "https://x.com/"
+    },
+    {
+      "network": "Pinterest",
+      "url": "https://www.pinterest.com/"
+    }
+  ],
+  "marketplaces": [
+    {
+      "network": "IndiaMART",
+      "url": "https://www.indiamart.com/"
+    },
+    {
+      "network": "TradeIndia",
+      "url": "https://www.tradeindia.com/"
+    },
+    {
+      "network": "ExportersIndia",
+      "url": "https://www.exportersindia.com/"
+    },
+    {
+      "network": "Alibaba",
+      "url": "https://www.alibaba.com/"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-apeda",
+      "name": "APEDA",
+      "abbr": "APEDA",
+      "description": "Registration with the Agricultural and Processed Food Products Export Development Authority, required to export scheduled agricultural products from India.",
+      "sort_order": 1
+    },
+    {
+      "id": "cert-fssai",
+      "name": "FSSAI Licence",
+      "abbr": "FSSAI",
+      "description": "Food Safety and Standards Authority of India licence covering handling, storage and export of food products.",
+      "sort_order": 2
+    },
+    {
+      "id": "cert-spices",
+      "name": "Spices Board",
+      "abbr": "SPICES BOARD",
+      "description": "Certificate of registration as a spice exporter, with quality certification available per consignment.",
+      "sort_order": 3
+    },
+    {
+      "id": "cert-iso",
+      "name": "ISO 22000",
+      "abbr": "ISO 22000",
+      "description": "Food safety management system covering hazard analysis, traceability and process control across the facility.",
+      "sort_order": 4
+    },
+    {
+      "id": "cert-haccp",
+      "name": "HACCP",
+      "abbr": "HACCP",
+      "description": "Hazard Analysis and Critical Control Points plan applied at every processing and packing stage.",
+      "sort_order": 5
+    },
+    {
+      "id": "cert-globalgap",
+      "name": "GLOBALG.A.P.",
+      "abbr": "GLOBALG.A.P.",
+      "description": "Farm-level good agricultural practice certification, with the GRASP social module for retail programmes.",
+      "sort_order": 6
+    },
+    {
+      "id": "cert-halal",
+      "name": "Halal",
+      "abbr": "HALAL",
+      "description": "Halal certification for consignments to the Gulf, Malaysia, Indonesia and other markets that require it.",
+      "sort_order": 7
+    },
+    {
+      "id": "cert-phyto",
+      "name": "Phytosanitary",
+      "abbr": "PHYTO",
+      "description": "Phytosanitary certificate issued per consignment for plant products, confirming freedom from quarantine pests.",
+      "sort_order": 8
+    }
+  ],
+  "hero": {
+    "image": "/site/hero.webp",
+    "heading": "Containers that arrive matching the specification you signed",
+    "sub": "Fresh produce, dehydrated products and spices, and solid wood furniture — sourced direct, tested before dispatch, documented in full.",
+    "primary_cta": {
+      "label": "See the product range",
+      "href": "/products"
+    },
+    "secondary_cta": {
+      "label": "Send an inquiry",
+      "href": "/contact"
+    }
+  },
+  "stats": [
+    {
+      "value": 12,
+      "suffix": "+",
+      "label": "Years exporting"
+    },
+    {
+      "value": 12,
+      "suffix": "",
+      "label": "Countries served"
+    },
+    {
+      "value": 500,
+      "suffix": "+",
+      "label": "Containers shipped"
+    },
+    {
+      "value": 300,
+      "suffix": "+",
+      "label": "Grower partnerships"
+    }
+  ],
+  "differentiators": [
+    {
+      "title": "Direct sourcing from 300+ growers",
+      "body": "We buy at the farm gate in the clusters each product comes from, not through a mandi agent. That is what makes traceability to a grower block possible when a buyer asks for it."
+    },
+    {
+      "title": "In-house pack house, 12 MT per day",
+      "body": "Grading, washing, treatment and packing run under our own supervision rather than a rented line, so a specification change does not need a third party to agree to it."
+    },
+    {
+      "title": "Cold chain from field to port",
+      "body": "Pre-cooling within hours of harvest, reefer transport to the port, and a set point logged at stuffing. The temperature record travels with the documents."
+    },
+    {
+      "title": "Full documentation set on every shipment",
+      "body": "Invoice, packing list, B/L, certificate of origin, phytosanitary or fumigation certificate, certificate of analysis and insurance — prepared as one set, not chased after the vessel sails."
+    },
+    {
+      "title": "Third-party lab reports before dispatch",
+      "body": "Residue, moisture, aflatoxin and microbiological testing at NABL-accredited labs, with the report issued before the container is sealed rather than after arrival."
+    },
+    {
+      "title": "48-hour quote turnaround",
+      "body": "A complete inquiry — product, quantity, destination port, Incoterm — is quoted within two working days. If we cannot supply it, we say so in the same window."
+    }
+  ],
+  "documents": [
+    "Commercial Invoice",
+    "Packing List",
+    "Bill of Lading / Airway Bill",
+    "Certificate of Origin",
+    "Phytosanitary Certificate",
+    "Fumigation Certificate",
+    "Certificate of Analysis",
+    "Insurance Certificate",
+    "Non-GMO Declaration"
+  ],
+  "testimonials": [
+    {
+      "quote": "The specification we agreed at sample stage is the specification that arrived. Six containers in, we have not had to open a claim.",
+      "name": "Procurement Manager",
+      "company": "Fresh produce importer",
+      "country": "Netherlands",
+      "flag": "🇳🇱"
+    },
+    {
+      "quote": "Documentation reaches us before the vessel does, which sounds small until you have cleared a container without it.",
+      "name": "Import Head",
+      "company": "Food ingredients distributor",
+      "country": "UAE",
+      "flag": "🇦🇪"
+    },
+    {
+      "quote": "They told us the cheaper chilli grade was wrong for our application before we ordered it. That is not a common conversation.",
+      "name": "Category Buyer",
+      "company": "Spice trading house",
+      "country": "United Kingdom",
+      "flag": "🇬🇧"
+    }
+  ],
+  "team": [
+    {
+      "name": "Name to be added",
+      "role": "Managing Director",
+      "photo": "/site/team-1.svg"
+    },
+    {
+      "name": "Name to be added",
+      "role": "Head of Exports",
+      "photo": "/site/team-2.svg"
+    },
+    {
+      "name": "Name to be added",
+      "role": "Quality Assurance Manager",
+      "photo": "/site/team-3.svg"
+    },
+    {
+      "name": "Name to be added",
+      "role": "Logistics Head",
+      "photo": "/site/team-4.svg"
+    }
+  ],
+  "milestones": [
+    {
+      "year": "20XX",
+      "title": "First export shipment",
+      "body": "One 20ft container of dried turmeric fingers to a distributor in Dubai, against an LC at sight. The buyer is still on the books."
+    },
+    {
+      "year": "20XX",
+      "title": "Pack house commissioned",
+      "body": "Grading, washing and packing brought in-house, which moved fresh produce from a trading line into a controlled one."
+    },
+    {
+      "year": "20XX",
+      "title": "Cold storage and reefer capability",
+      "body": "Pre-cooling and cold storage added, opening mango, pomegranate and grape programmes into Europe."
+    },
+    {
+      "year": "20XX",
+      "title": "Furniture vertical added",
+      "body": "Jodhpur and Saharanpur workshops brought under a single quality and packing standard, with ISPM-15 handling in-house."
+    },
+    {
+      "year": "20XX",
+      "title": "12 markets, 500+ containers",
+      "body": "Regular programmes running across the Gulf, Europe, North America and Southeast Asia."
+    }
+  ],
+  "infrastructure": [
+    {
+      "name": "Pack House",
+      "capacity": "12 MT per day",
+      "body": "Washing, grading, treatment and packing lines with weight-based sizing and a dedicated area for buyer-specific packing formats.",
+      "photo": "/site/infra-packhouse.svg"
+    },
+    {
+      "name": "Cold Storage",
+      "capacity": "600 MT, 4 chambers",
+      "body": "Independently controlled chambers running from 0 °C to 14 °C so mango, pomegranate, grapes and banana can be held simultaneously at their own set points.",
+      "photo": "/site/infra-coldstorage.svg"
+    },
+    {
+      "name": "Dry Warehouse",
+      "capacity": "1,500 MT",
+      "body": "Humidity-controlled storage for spices, dehydrated vegetables and powders, with segregated bays to prevent aroma transfer between lots.",
+      "photo": "/site/infra-warehouse.svg"
+    },
+    {
+      "name": "Fumigation & Loading Bay",
+      "capacity": "4 containers per day",
+      "body": "On-site fumigation chamber and ISPM-15 pallet handling, with a dock-level loading bay so reefers are stuffed without breaking the cold chain.",
+      "photo": "/site/infra-loading.svg"
+    }
+  ],
+  "regions": [
+    {
+      "region": "Middle East",
+      "countries": [
+        "UAE",
+        "Saudi Arabia",
+        "Oman",
+        "Qatar",
+        "Kuwait",
+        "Bahrain"
+      ],
+      "verticals": [
+        "Fresh Fruits & Vegetables",
+        "Dehydrated Products & Spices",
+        "Wooden Furniture & Handicrafts"
+      ]
+    },
+    {
+      "region": "Europe",
+      "countries": [
+        "Netherlands",
+        "Germany",
+        "United Kingdom",
+        "France",
+        "Denmark",
+        "Spain"
+      ],
+      "verticals": [
+        "Fresh Fruits & Vegetables",
+        "Dehydrated Products & Spices",
+        "Wooden Furniture & Handicrafts"
+      ]
+    },
+    {
+      "region": "North America",
+      "countries": [
+        "USA",
+        "Canada"
+      ],
+      "verticals": [
+        "Dehydrated Products & Spices",
+        "Wooden Furniture & Handicrafts"
+      ]
+    },
+    {
+      "region": "Southeast Asia",
+      "countries": [
+        "Malaysia",
+        "Vietnam",
+        "Singapore",
+        "Indonesia"
+      ],
+      "verticals": [
+        "Fresh Fruits & Vegetables",
+        "Dehydrated Products & Spices"
+      ]
+    },
+    {
+      "region": "CIS & Russia",
+      "countries": [
+        "Russia",
+        "Kazakhstan",
+        "Uzbekistan"
+      ],
+      "verticals": [
+        "Fresh Fruits & Vegetables",
+        "Dehydrated Products & Spices"
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "port": "Nhava Sheva (JNPT)",
+      "code": "INNSA",
+      "lat": 18.95,
+      "lon": 72.95,
+      "transits": [
+        {
+          "to": "Jebel Ali",
+          "days": "5–7"
+        },
+        {
+          "to": "Rotterdam",
+          "days": "18–22"
+        },
+        {
+          "to": "Felixstowe",
+          "days": "20–24"
+        },
+        {
+          "to": "New York",
+          "days": "28–32"
+        }
+      ]
+    },
+    {
+      "port": "Mundra",
+      "code": "INMUN",
+      "lat": 22.74,
+      "lon": 69.7,
+      "transits": [
+        {
+          "to": "Jebel Ali",
+          "days": "4–6"
+        },
+        {
+          "to": "Hamburg",
+          "days": "20–24"
+        },
+        {
+          "to": "Jeddah",
+          "days": "8–10"
+        }
+      ]
+    },
+    {
+      "port": "Kandla",
+      "code": "INIXY",
+      "lat": 23.03,
+      "lon": 70.22,
+      "transits": [
+        {
+          "to": "Jebel Ali",
+          "days": "4–6"
+        },
+        {
+          "to": "Dammam",
+          "days": "8–10"
+        }
+      ]
+    },
+    {
+      "port": "Chennai",
+      "code": "INMAA",
+      "lat": 13.1,
+      "lon": 80.3,
+      "transits": [
+        {
+          "to": "Colombo",
+          "days": "2–3"
+        },
+        {
+          "to": "Singapore",
+          "days": "6–8"
+        },
+        {
+          "to": "Port Klang",
+          "days": "7–9"
+        }
+      ]
+    },
+    {
+      "port": "Tuticorin",
+      "code": "INTUT",
+      "lat": 8.75,
+      "lon": 78.2,
+      "transits": [
+        {
+          "to": "Colombo",
+          "days": "1–2"
+        },
+        {
+          "to": "Singapore",
+          "days": "7–9"
+        }
+      ]
+    },
+    {
+      "port": "Cochin",
+      "code": "INCOK",
+      "lat": 9.97,
+      "lon": 76.27,
+      "transits": [
+        {
+          "to": "Jebel Ali",
+          "days": "6–8"
+        },
+        {
+          "to": "Colombo",
+          "days": "2–3"
+        }
+      ]
+    }
+  ],
+  "story": [
+    "The company started as a single-product trading operation, shipping dried turmeric to one buyer in Dubai against an LC at sight. There was no pack house and no cold store — material was bought, cleaned by a third party, and stuffed at a CFS. It worked because the specification was simple and the buyer checked everything.",
+    "The limits showed up the first time a buyer asked for something specific: a curcumin percentage, then a residue report, then a packing format nobody at the cleaning yard wanted to change for one container. Bringing grading and packing in-house was less a growth decision than the only way to keep saying yes.",
+    "Cold storage came next, and with it fresh produce — mango and pomegranate first, then grapes and banana. Fresh is unforgiving: a broken cold chain is not a quality dispute, it is a total loss, and it teaches process discipline faster than any certification audit. The systems built for fresh produce are the ones now applied to every vertical.",
+    "The furniture vertical was added because buyers asked. Jodhpur and Saharanpur workshops were already exporting, but rarely to a single moisture and packing standard. Bringing them under one specification, with kiln drying and ISPM-15 handling controlled centrally, made the difference between a workshop that ships and a supplier a retailer can programme."
+  ],
+  "vision": "To be the supplier an overseas buyer names first when they need Indian produce, spices or furniture — because the specification we quote is the specification that arrives, container after container.",
+  "mission": [
+    {
+      "title": "Consistent quality",
+      "body": "Sell against a number, not a description. Curcumin percentage, Brix, moisture, ASTA colour, moisture content in timber — each is agreed before the order and verified before the container is sealed. Where a lot does not meet it, we say so before shipping rather than after."
+    },
+    {
+      "title": "Transparent trade",
+      "body": "One price, one specification, one set of documents. No quality downgrade between sample and shipment, no charges introduced after the proforma invoice, and a straight answer when we cannot supply what was asked for."
+    },
+    {
+      "title": "Farmer partnership",
+      "body": "Buy direct at the farm gate, pay on agreed terms, and return the destination market's quality feedback to the grower so the next season's crop is planted against it. A supply base that earns properly is the only one that stays reliable."
+    },
+    {
+      "title": "On-time delivery",
+      "body": "Book the vessel before confirming the date, not after. Where a delay is unavoidable, the buyer hears it from us early enough to act on it, with the revised ETA and the reason."
+    }
+  ],
+  "motive": [
+    "India grows and makes far more export-grade product than reaches an overseas buyer intact. The gap is not agricultural — it is the number of hands between the grower and the importer, each taking a margin and none carrying responsibility for what the buyer actually receives.",
+    "This company exists to remove those layers. We buy direct from growers and workshops, control the grading, testing and packing ourselves, and sell direct to the importer. The grower is paid a fair, agreed price rather than a residual. The buyer gets a source they can verify, visit and audit.",
+    "That is also why the specifications on this site are published in full rather than kept for the quotation stage. An importer comparing three suppliers should be able to see the HS code, the grade, the packing, the loadability and the payment terms before they write the first email. If our numbers do not suit the requirement, that is worth finding out in ten seconds rather than in ten days."
+  ],
+  "values": [
+    {
+      "name": "Integrity",
+      "body": "The lot that ships is the lot that was sampled. Where it is not, the buyer is told before the container leaves."
+    },
+    {
+      "name": "Traceability",
+      "body": "Every consignment traces back to a grower block or a workshop, and the record is available on request."
+    },
+    {
+      "name": "Punctuality",
+      "body": "Dates are quoted against booked space, and a slipping date is reported early rather than explained late."
+    },
+    {
+      "name": "Sustainability",
+      "body": "Reclaimed timber where the design allows it, low-VOC finishes, and packing specified to protect the goods rather than to fill the container."
+    },
+    {
+      "name": "Partnership",
+      "body": "Growers on agreed terms and buyers on repeat programmes both plan better than either does on spot transactions."
+    },
+    {
+      "name": "Accountability",
+      "body": "A claim is investigated against our own records first. Where the fault is ours, it is settled without arbitration."
+    }
+  ],
+  "export_process": [
+    {
+      "step": "01",
+      "title": "Inquiry received",
+      "timeline": "Same working day",
+      "body": "Send the product, quantity, destination port and preferred Incoterm. If any of those are open, we will suggest what suits the route rather than quoting the cheapest option and letting you discover the difference on arrival."
+    },
+    {
+      "step": "02",
+      "title": "Quotation and samples",
+      "timeline": "Within 48 hours",
+      "body": "A written quotation against a named specification, with packing, loadability and lead time stated. Samples are couriered on request; sample and courier cost is credited against the first container."
+    },
+    {
+      "step": "03",
+      "title": "Order confirmation and PI",
+      "timeline": "1–2 days",
+      "body": "A proforma invoice covering specification, quantity, price basis, payment terms, port of loading and discharge, and expected shipment window. Production starts on LC receipt or on the agreed TT advance."
+    },
+    {
+      "step": "04",
+      "title": "Procurement, production and QC",
+      "timeline": "7–60 days by product",
+      "body": "Sourcing or manufacture against the confirmed specification, with in-process checks and third-party lab testing where the product calls for it. Buyer or third-party inspection is welcome at this stage."
+    },
+    {
+      "step": "05",
+      "title": "Documentation and customs clearance",
+      "timeline": "3–5 days",
+      "body": "Invoice, packing list, certificate of origin, phytosanitary or fumigation certificate, certificate of analysis and insurance prepared as one set. Draft documents go to the buyer for approval before they are finalised."
+    },
+    {
+      "step": "06",
+      "title": "Shipment and tracking",
+      "timeline": "Transit by route",
+      "body": "Container stuffed under supervision, reefer set point logged where applicable, and the B/L plus complete document set couriered or released against the agreed terms. Container number and vessel details are shared at sailing."
+    }
+  ],
+  "quality_stages": [
+    {
+      "stage": "01",
+      "title": "Sourcing",
+      "body": "Grower blocks and workshops are selected on track record and audited before the first purchase. Material is bought against a named specification, not on availability."
+    },
+    {
+      "stage": "02",
+      "title": "Incoming inspection",
+      "body": "Every lot is checked at receipt for moisture, foreign matter, size and visible defects. Lots outside specification are rejected at the gate rather than reworked into a shipment."
+    },
+    {
+      "stage": "03",
+      "title": "Grading and processing",
+      "body": "Weight or size grading, cleaning, Sortex where applicable, and treatment appropriate to the destination. Timber is kiln dried and held at 8–12% before it reaches the packing line."
+    },
+    {
+      "stage": "04",
+      "title": "Laboratory testing",
+      "body": "Residue, aflatoxin, moisture, microbiological and heavy metal testing at NABL-accredited laboratories, against the destination market's limits rather than a domestic minimum."
+    },
+    {
+      "stage": "05",
+      "title": "Pre-shipment inspection",
+      "body": "A sample drawn from the packed consignment is checked against the approved specification and the buyer's sample. Third-party inspection by SGS, Bureau Veritas or Intertek is welcome and the container is held for it."
+    },
+    {
+      "stage": "06",
+      "title": "Loading supervision",
+      "body": "Container inspected for cleanliness and odour, reefer pre-cooled and set point verified, stuffing supervised and photographed, seal number recorded on the packing list."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is your minimum order quantity?",
+      "answer": "It varies by product. Dehydrated products and spices start at 5 MT, moringa powder at 1 MT, furniture at one 20ft container or 50 pieces depending on the item, and fresh produce at one reefer container. Each product page states its own MOQ. Mixed-model containers are accepted in the furniture range."
+    },
+    {
+      "question": "Which Incoterms do you work on?",
+      "answer": "EXW, FOB, CFR and CIF as standard, and CIP on air freight consignments. FOB is the most common for first orders because it gives the buyer control of the freight. We will explain the cost split at quotation if you are unsure which suits your route."
+    },
+    {
+      "question": "What are your payment terms?",
+      "answer": "Letter of credit at sight, or 30% TT advance with the balance against a copy of the bill of lading. Terms for repeat buyers are reviewed after the first two shipments. We do not ship on open account for a first order."
+    },
+    {
+      "question": "Can I get samples before placing an order?",
+      "answer": "Yes. Samples are couriered for dehydrated products, spices and furniture finishes, and the sample plus courier cost is credited against your first container. Fresh produce samples are only meaningful in season and are usually handled as a trial consignment instead."
+    },
+    {
+      "question": "How long does a shipment take?",
+      "answer": "Production or procurement runs from 7 days for fresh produce in season to 75 days for hand-carved furniture. Sea transit is separate: 4–7 days to the Gulf, 18–24 days to North West Europe, 28–32 days to the US East Coast. Both figures are stated in the quotation."
+    },
+    {
+      "question": "Do you accept third-party inspection?",
+      "answer": "Yes, and we hold the container for it. SGS, Bureau Veritas and Intertek all inspect at our facility regularly. Inspection is at the buyer's cost and is worth it on a first order."
+    },
+    {
+      "question": "What documents come with the shipment?",
+      "answer": "Commercial invoice, packing list, bill of lading, certificate of origin, and then whatever the product and destination require — phytosanitary certificate, fumigation certificate, certificate of analysis, health certificate, insurance certificate, non-GMO declaration. Draft documents are sent for your approval before they are finalised."
+    },
+    {
+      "question": "Can you supply private label or custom packaging?",
+      "answer": "Yes. Buyer-branded cartons and bags are available from 10 MT on dehydrated products, from 1,000–3,000 cartons on fresh produce depending on the format, and on any volume for furniture. Send your artwork and we will confirm the format and any tooling cost."
+    },
+    {
+      "question": "Do you ship by air?",
+      "answer": "On fresh produce, yes — mango and lime move by air from 500 kg where a buyer needs arrival inside 48 hours. Dehydrated products and furniture ship by sea; air freight on those rarely makes commercial sense and we will say so."
+    },
+    {
+      "question": "How do I start?",
+      "answer": "Send the product, quantity, destination port and Incoterm through the contact form or on WhatsApp. A complete inquiry is quoted within 48 hours. If we cannot supply what you need, you will hear that in the same window rather than a week later."
+    }
+  ]
+}

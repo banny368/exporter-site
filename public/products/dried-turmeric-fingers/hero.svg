@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img">
+  
+  <defs>
+    <pattern id="hatch" width="96" height="96" patternUnits="userSpaceOnUse" patternTransform="rotate(60)">
+      <line x1="0" y1="0" x2="0" y2="96" stroke="#E8DFD0" stroke-opacity="0.06" stroke-width="30"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#07171D" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#07171D" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="#07171D"/>
+  <rect width="1600" height="1200" fill="url(#hatch)"/>
+  <rect x="351.99999999999994" y="280" width="896.0000000000001" height="600"
+    fill="#E8DFD0" fill-opacity="0.07" stroke="#DDA84A" stroke-opacity="0.35" stroke-width="2"/>
+  <rect width="1600" height="1200" fill="url(#fade)"/>
+  <rect x="56" y="56" width="1488" height="1088"
+    fill="none" stroke="#E8DFD0" stroke-opacity="0.28" stroke-width="2" stroke-dasharray="14 10"/>
+  
+  <g stroke="#DDA84A" stroke-width="3" stroke-opacity="0.85" fill="none">
+    <path d="M56 90 V56 H90"/>
+    <path d="M1510 56 H1544 V90"/>
+    <path d="M56 1110 V1144 H90"/>
+    <path d="M1510 1144 H1544 V1110"/>
+  </g>
+  <text x="90" y="128" font-family="ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="22" letter-spacing="4"
+    fill="#DDA84A">HERO · PRODUCT</text>
+  <text x="800" y="548" text-anchor="middle" font-family="'Fraunces', Georgia, 'Times New Roman', serif"
+          font-size="76" font-weight="600" fill="#E8DFD0">Dried Turmeric</text><text x="800" y="632" text-anchor="middle" font-family="'Fraunces', Georgia, 'Times New Roman', serif"
+          font-size="76" font-weight="600" fill="#E8DFD0">Fingers</text>
+  <text x="800" y="740" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Courier New', monospace"
+    font-size="26" letter-spacing="3" fill="#E8DFD0" fill-opacity="0.75">HS 0910.30.20</text>
+  <text x="90" y="1122" font-family="ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="22" letter-spacing="2.4"
+    fill="#E8DFD0" fill-opacity="0.6">NIZAMABAD (TELANGANA), ERODE &amp; SALEM (TAMIL NADU), SANGLI (MAHARASHTRA)</text>
+  
+  <g>
+    <rect x="1244" y="1096" width="300" height="44" fill="#DDA84A" fill-opacity="0.14"
+      stroke="#DDA84A" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="1394" y="1125" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17"
+      letter-spacing="2.6" fill="#DDA84A">PLACEHOLDER IMAGE</text>
+  </g>
+</svg>

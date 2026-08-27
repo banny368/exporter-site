@@ -1,0 +1,372 @@
+[
+  {
+    "id": "prd-sheesham-dining-set",
+    "name": "Sheesham Wood 6-Seater Dining Set",
+    "slug": "sheesham-dining-set",
+    "category_id": "furniture",
+    "sub_category": "Dining",
+    "short_description": "Solid Indian rosewood from Jodhpur, kiln dried to 8–12%. Knock-down flat pack on ISPM-15 pallets, 60–70 sets in a 40ft HQ, 45–60 day lead time.",
+    "long_description": [
+      "Sheesham — Indian rosewood, Dalbergia sissoo — is the timber Jodhpur built its furniture trade on. It is dense, takes a matte lacquer without blotching, and shows dark grain streaks against a warm mid-brown ground that buyers recognise on sight. A six-seater set is one table and six chairs, built as a matched lot from the same timber batch so the colour reads as one piece of furniture rather than seven.",
+      "Moisture content is the whole game on wooden furniture export. We kiln dry to 8–12% and hold it there, because a set built at Indian ambient humidity and shipped to a heated house in Germany or a dry winter in Chicago will split at the joints within a season. The moisture reading is taken at packing and recorded on the packing list.",
+      "Sets ship knock-down as flat pack, which roughly doubles what fits in a container and cuts transit damage close to nil. Assembly needs one Allen key and no glue. Natural, walnut and distressed matte finishes are standard; custom dimensions and buyer finishes are accepted from one container."
+    ],
+    "hs_code": "9403.60.00",
+    "variety": "Solid Sheesham (Dalbergia sissoo) · 6-seater, 1 table + 6 chairs",
+    "origin": "Jodhpur, Rajasthan",
+    "season": "Year-round",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "Knock-down flat pack — EPE foam, 5-ply corrugated, corner protectors, ISPM-15 heat-treated pallets",
+    "moq": "1 × 20ft container, mixed models accepted",
+    "shelf_life": "Not applicable — durable goods",
+    "storage_temp": "Ambient, dry warehouse, RH under 65%",
+    "lead_time": "45–60 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Mundra", "Nhava Sheva (JNPT)", "Kandla"],
+    "loadability": {
+      "20ft": "28–32 sets · knock-down",
+      "40ft": "55–60 sets · knock-down",
+      "40ft_hq": "60–70 sets · knock-down",
+      "reefer": "Not applicable — dry cargo only"
+    },
+    "specs": [
+      { "label": "Timber", "value": "Solid Sheesham, Dalbergia sissoo" },
+      { "label": "Moisture content", "value": "8–12%, kiln dried" },
+      { "label": "Table size", "value": "180 × 90 × 76 cm, custom accepted" },
+      { "label": "Finish", "value": "Natural · walnut · distressed matte lacquer" },
+      { "label": "Assembly", "value": "Knock-down, Allen key, no glue" },
+      { "label": "Pallets", "value": "ISPM-15 heat treated and stamped" }
+    ],
+    "quality_params": [
+      { "parameter": "Moisture content", "specification": "8–12% at packing", "method": "Pin moisture meter, every unit" },
+      { "parameter": "Joint integrity", "specification": "No gap above 0.5 mm", "method": "Dry assembly check, sample per lot" },
+      { "parameter": "Finish thickness", "specification": "Even matte, no runs or blotching", "method": "Visual, 100% inspection" },
+      { "parameter": "Load test", "specification": "Chair to 120 kg static", "method": "Sample per production batch" },
+      { "parameter": "Colour match", "specification": "Within one shade across the set", "method": "Visual against master sample" }
+    ],
+    "certifications": ["ISPM-15", "Fumigation", "FSC (on request)", "Non-GMO"],
+    "markets": ["USA", "United Kingdom", "Germany", "Australia", "UAE"],
+    "packing_note": "Every wooden shipment carries a fumigation certificate and travels on ISPM-15 heat-treated, stamped pallets. Private label, custom finish and buyer-specified packaging are available. Sample orders are accepted before bulk confirmation.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List with moisture readings",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Fumigation Certificate",
+      "ISPM-15 Pallet Declaration",
+      "Legal Timber Declaration",
+      "Insurance Certificate"
+    ],
+    "is_featured": true,
+    "is_published": true,
+    "sort_order": 12,
+    "meta_title": "Sheesham Wood Furniture Exporter Jodhpur — 6-Seater Dining Set",
+    "meta_description": "Solid Sheesham rosewood 6-seater dining set from Jodhpur. HS 9403.60.00, kiln dried 8–12%, knock-down flat pack, ISPM-15 pallets, 60–70 sets per 40ft HQ.",
+    "og_image": "/og/products/sheesham-dining-set.png",
+    "images": [
+      { "id": "img-dining-1", "product_id": "prd-sheesham-dining-set", "url": "/products/sheesham-dining-set/hero.svg", "alt_text": "Solid Sheesham six-seater dining table and chairs", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-dining-2", "product_id": "prd-sheesham-dining-set", "url": "/products/sheesham-dining-set/macro.svg", "alt_text": "Macro detail of Sheesham grain and chamfered table edge", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-dining-3", "product_id": "prd-sheesham-dining-set", "url": "/products/sheesham-dining-set/packing.svg", "alt_text": "Knock-down components foam wrapped on an ISPM-15 pallet", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-dining-4", "product_id": "prd-sheesham-dining-set", "url": "/products/sheesham-dining-set/context.svg", "alt_text": "Dining set staged in a bright modern dining room", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T09:55:00.000Z",
+    "updated_at": "2026-01-12T09:55:00.000Z"
+  },
+  {
+    "id": "prd-reclaimed-wood-sideboard",
+    "name": "Reclaimed Wood Sideboard",
+    "slug": "reclaimed-wood-sideboard",
+    "category_id": "furniture",
+    "sub_category": "Storage",
+    "short_description": "Recycled hardwood on an iron frame, multi-tone or natural. Shipped assembled on ISPM-15 pallets, 90–110 units in a 40ft HQ. Lead with the sustainability story.",
+    "long_description": [
+      "This piece is built from reclaimed hardwood — old doors, beams and shutters pulled from buildings across Rajasthan and Uttar Pradesh, cut down, planed and rebuilt into panelled fronts on a black iron frame. No two units are identical, and that is the product, not a defect: buyers who want uniform should be looking at the mango wood range instead.",
+      "The sustainability angle here is real and worth leading with in your own marketing. The timber is genuinely recovered rather than newly felled, the finishes are low-VOC, and the iron is locally fabricated. Retailers in the USA and Northern Europe increasingly ask for a substantiated claim rather than a word on a swing tag, and we can supply the recovered-timber declaration to back it.",
+      "Because the panels are reclaimed, colour variance between units in a container is expected and is described in the specification we quote against. Buyers who need a tighter range can specify natural-only or multi-colour-only and we will grade to it, at a slightly longer lead time."
+    ],
+    "hs_code": "9403.60.00",
+    "variety": "Reclaimed hardwood + powder-coated iron · natural or multi-colour",
+    "origin": "Jodhpur, Rajasthan & Saharanpur, Uttar Pradesh",
+    "season": "Year-round",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "Assembled, foam wrapped, 5-ply carton, ISPM-15 heat-treated pallets",
+    "moq": "1 × 20ft container, mixed models accepted",
+    "shelf_life": "Not applicable — durable goods",
+    "storage_temp": "Ambient, dry warehouse, RH under 65%",
+    "lead_time": "45–60 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Mundra", "Nhava Sheva (JNPT)", "Kandla"],
+    "loadability": {
+      "20ft": "40–48 units · assembled",
+      "40ft": "80–95 units · assembled",
+      "40ft_hq": "90–110 units · assembled",
+      "reefer": "Not applicable — dry cargo only"
+    },
+    "specs": [
+      { "label": "Timber", "value": "Reclaimed mixed hardwood" },
+      { "label": "Frame", "value": "Powder-coated MS iron, black" },
+      { "label": "Moisture content", "value": "8–12%, kiln dried after recovery" },
+      { "label": "Size", "value": "150 × 40 × 80 cm, custom accepted" },
+      { "label": "Finish", "value": "Low-VOC matte · natural or multi-colour" },
+      { "label": "Variance", "value": "Colour and grain vary by unit, inherent to reclaimed stock" }
+    ],
+    "quality_params": [
+      { "parameter": "Moisture content", "specification": "8–12% at packing", "method": "Pin moisture meter, every unit" },
+      { "parameter": "Nail and fixing removal", "specification": "Nil metal in timber", "method": "Metal detector, every panel" },
+      { "parameter": "Drawer runout", "specification": "Opens and closes without bind", "method": "Function check, 100% inspection" },
+      { "parameter": "Frame weld", "specification": "No visible weld spatter or porosity", "method": "Visual, 100% inspection" },
+      { "parameter": "Finish adhesion", "specification": "No lift on tape test", "method": "Sample per production batch" }
+    ],
+    "certifications": ["ISPM-15", "Fumigation", "Recovered Timber Declaration", "FSC (on request)"],
+    "markets": ["USA", "United Kingdom", "Netherlands", "France"],
+    "packing_note": "Shipped assembled because the panelled front does not survive repeat knock-down handling. Every wooden shipment carries a fumigation certificate and ISPM-15 stamped pallets.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List with moisture readings",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Fumigation Certificate",
+      "ISPM-15 Pallet Declaration",
+      "Recovered Timber Declaration",
+      "Insurance Certificate"
+    ],
+    "is_featured": true,
+    "is_published": true,
+    "sort_order": 13,
+    "meta_title": "Reclaimed Wood Sideboard Exporter India — Recycled Hardwood",
+    "meta_description": "Reclaimed hardwood sideboard with iron frame from Jodhpur and Saharanpur. HS 9403.60.00, kiln dried 8–12%, shipped assembled, 90–110 units per 40ft HQ.",
+    "og_image": "/og/products/reclaimed-wood-sideboard.png",
+    "images": [
+      { "id": "img-sideboard-1", "product_id": "prd-reclaimed-wood-sideboard", "url": "/products/reclaimed-wood-sideboard/hero.svg", "alt_text": "Reclaimed wood sideboard with black iron frame", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-sideboard-2", "product_id": "prd-reclaimed-wood-sideboard", "url": "/products/reclaimed-wood-sideboard/macro.svg", "alt_text": "Macro detail of multi-tone reclaimed timber panels", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-sideboard-3", "product_id": "prd-reclaimed-wood-sideboard", "url": "/products/reclaimed-wood-sideboard/packing.svg", "alt_text": "Assembled sideboard foam wrapped on an ISPM-15 pallet", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-sideboard-4", "product_id": "prd-reclaimed-wood-sideboard", "url": "/products/reclaimed-wood-sideboard/context.svg", "alt_text": "Sideboard staged against a white interior wall", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T10:00:00.000Z",
+    "updated_at": "2026-01-12T10:00:00.000Z"
+  },
+  {
+    "id": "prd-mango-wood-coffee-table",
+    "name": "Mango Wood & Iron Coffee Table",
+    "slug": "mango-wood-coffee-table",
+    "category_id": "furniture",
+    "sub_category": "Living",
+    "short_description": "Solid mango wood top on a powder-coated iron base. Knock-down in two parts, 180–220 pcs in a 40ft HQ, MOQ 50 pcs. Custom sizes and finishes accepted.",
+    "long_description": [
+      "Mango wood is a by-product timber — orchards replant when fruit yield drops, and the felled trees go to furniture instead of firewood. It works easily, takes a natural or lightly stained finish well, and sits at a pale honey colour that suits the industrial look this piece is built for.",
+      "The table ships as two parts: a solid top and a powder-coated mild steel base, packed separately. That keeps the container efficient at 180 to 220 pieces in a 40ft HQ and means the base cannot scuff the top in transit. Assembly is four bolts.",
+      "This is the easiest piece on our furniture list to customise. Dimensions, top thickness, base geometry and powder-coat colour are all changed at tooling cost of nothing, because the base is fabricated rather than cast. Buyers running their own range usually start here."
+    ],
+    "hs_code": "9403.60.00",
+    "variety": "Solid mango wood top + powder-coated MS iron base",
+    "origin": "Jodhpur, Rajasthan",
+    "season": "Year-round",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "Knock-down in two parts — top and base packed separately, EPE foam and 5-ply carton on ISPM-15 pallets",
+    "moq": "50 pcs",
+    "shelf_life": "Not applicable — durable goods",
+    "storage_temp": "Ambient, dry warehouse, RH under 65%",
+    "lead_time": "35–45 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Mundra", "Nhava Sheva (JNPT)", "Kandla"],
+    "loadability": {
+      "20ft": "80–95 pcs · knock-down",
+      "40ft": "160–190 pcs · knock-down",
+      "40ft_hq": "180–220 pcs · knock-down",
+      "reefer": "Not applicable — dry cargo only"
+    },
+    "specs": [
+      { "label": "Timber", "value": "Solid mango wood, Mangifera indica" },
+      { "label": "Base", "value": "Powder-coated MS iron, black or buyer colour" },
+      { "label": "Moisture content", "value": "8–12%, kiln dried" },
+      { "label": "Size", "value": "110 × 60 × 45 cm, custom accepted" },
+      { "label": "Finish", "value": "Natural matte · light stain · buyer specified" },
+      { "label": "Assembly", "value": "Four bolts, tool supplied" }
+    ],
+    "quality_params": [
+      { "parameter": "Moisture content", "specification": "8–12% at packing", "method": "Pin moisture meter, every unit" },
+      { "parameter": "Top flatness", "specification": "Max 1 mm deviation over 1 m", "method": "Straight edge, sample per lot" },
+      { "parameter": "Powder coat thickness", "specification": "60–80 micron", "method": "Coating thickness gauge" },
+      { "parameter": "Salt spray resistance", "specification": "No rust bloom at 96 hours", "method": "Sample per production batch" },
+      { "parameter": "Bolt alignment", "specification": "Assembles without reaming", "method": "Dry assembly, sample per lot" }
+    ],
+    "certifications": ["ISPM-15", "Fumigation", "Legal Timber Declaration"],
+    "markets": ["USA", "United Kingdom", "Germany", "Sweden", "Denmark"],
+    "packing_note": "Top and base ship separately so metal never rests against finished timber in transit. Custom dimensions, top thickness and powder-coat colour carry no tooling cost.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List with moisture readings",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Fumigation Certificate",
+      "ISPM-15 Pallet Declaration",
+      "Legal Timber Declaration",
+      "Insurance Certificate"
+    ],
+    "is_featured": false,
+    "is_published": true,
+    "sort_order": 14,
+    "meta_title": "Mango Wood Coffee Table Exporter Jodhpur — Industrial Iron Base",
+    "meta_description": "Solid mango wood and iron coffee table from Jodhpur. HS 9403.60.00, kiln dried 8–12%, knock-down two-part packing, 180–220 pcs per 40ft HQ. MOQ 50 pcs.",
+    "og_image": "/og/products/mango-wood-coffee-table.png",
+    "images": [
+      { "id": "img-coffee-1", "product_id": "prd-mango-wood-coffee-table", "url": "/products/mango-wood-coffee-table/hero.svg", "alt_text": "Mango wood coffee table with black iron base", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-coffee-2", "product_id": "prd-mango-wood-coffee-table", "url": "/products/mango-wood-coffee-table/macro.svg", "alt_text": "Macro detail of pale honey mango wood grain", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-coffee-3", "product_id": "prd-mango-wood-coffee-table", "url": "/products/mango-wood-coffee-table/packing.svg", "alt_text": "Table top and iron base packed separately on a pallet", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-coffee-4", "product_id": "prd-mango-wood-coffee-table", "url": "/products/mango-wood-coffee-table/context.svg", "alt_text": "Coffee table staged in a living room setting", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T10:05:00.000Z",
+    "updated_at": "2026-01-12T10:05:00.000Z"
+  },
+  {
+    "id": "prd-carved-rosewood-bed",
+    "name": "Hand-Carved Rosewood Bed (King)",
+    "slug": "carved-rosewood-bed",
+    "category_id": "furniture",
+    "sub_category": "Bedroom",
+    "short_description": "Solid Sheesham with a hand-carved headboard and traditional joinery. Six-part knock-down, 25–30 units in a 40ft HQ, MOQ 10 units, 60–75 day lead time.",
+    "long_description": [
+      "The headboard is carved by hand, which is why the lead time on this piece is 60 to 75 days and why no two are line-for-line identical. Jodhpur and Saharanpur both hold carving workshops where the motifs and the tooling have not changed much in a century, and the depth of relief is what separates this from a machine-routed imitation.",
+      "Construction is traditional mortise and tenon at the corners rather than screw-and-dowel. It is slower to build and it is the reason a bed of this weight stays square after years of use. Side rails lock into the posts with steel bed bolts so the frame can be knocked down and reassembled without loosening the joinery.",
+      "King is standard at 193 × 203 cm. UK king, US queen and custom sizes are made to order at the same price band, and the carving pattern can be changed to a buyer's drawing on volumes from 20 units."
+    ],
+    "hs_code": "9403.50.10",
+    "variety": "Solid Sheesham · hand-carved headboard · king 193 × 203 cm",
+    "origin": "Jodhpur, Rajasthan & Saharanpur, Uttar Pradesh",
+    "season": "Year-round",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "Knock-down in 6 parts — EPE foam, 5-ply carton, corner protectors, ISPM-15 heat-treated pallets",
+    "moq": "10 units",
+    "shelf_life": "Not applicable — durable goods",
+    "storage_temp": "Ambient, dry warehouse, RH under 65%",
+    "lead_time": "60–75 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Mundra", "Nhava Sheva (JNPT)", "Kandla"],
+    "loadability": {
+      "20ft": "11–13 units · knock-down",
+      "40ft": "22–26 units · knock-down",
+      "40ft_hq": "25–30 units · knock-down",
+      "reefer": "Not applicable — dry cargo only"
+    },
+    "specs": [
+      { "label": "Timber", "value": "Solid Sheesham, Dalbergia sissoo" },
+      { "label": "Carving", "value": "Hand carved, traditional motifs" },
+      { "label": "Joinery", "value": "Mortise and tenon, steel bed bolts on rails" },
+      { "label": "Moisture content", "value": "8–12%, kiln dried" },
+      { "label": "Sizes", "value": "King 193 × 203 cm · UK king · US queen · custom" },
+      { "label": "Parts", "value": "6-part knock-down" }
+    ],
+    "quality_params": [
+      { "parameter": "Moisture content", "specification": "8–12% at packing", "method": "Pin moisture meter, every unit" },
+      { "parameter": "Carving depth", "specification": "Within 2 mm of master sample", "method": "Depth gauge against approved sample" },
+      { "parameter": "Frame squareness", "specification": "Diagonals within 3 mm", "method": "Dry assembly, every unit" },
+      { "parameter": "Rail load", "specification": "250 kg distributed, no deflection above 5 mm", "method": "Sample per production batch" },
+      { "parameter": "Finish", "specification": "Even matte into carved recesses, no pooling", "method": "Visual, 100% inspection" }
+    ],
+    "certifications": ["ISPM-15", "Fumigation", "Legal Timber Declaration", "FSC (on request)"],
+    "markets": ["UAE", "Saudi Arabia", "United Kingdom", "USA"],
+    "packing_note": "The carved headboard face is foam-boxed separately inside the pallet so nothing rests against the relief. Buyer carving patterns are accepted from 20 units against an approved master sample.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List with moisture readings",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Fumigation Certificate",
+      "ISPM-15 Pallet Declaration",
+      "Legal Timber Declaration",
+      "Insurance Certificate"
+    ],
+    "is_featured": false,
+    "is_published": true,
+    "sort_order": 15,
+    "meta_title": "Hand-Carved Rosewood Bed Exporter India — Sheesham King Bed",
+    "meta_description": "Hand-carved solid Sheesham king bed from Jodhpur and Saharanpur. HS 9403.50.10, mortise and tenon joinery, 6-part knock-down, 25–30 units per 40ft HQ. MOQ 10 units.",
+    "og_image": "/og/products/carved-rosewood-bed.png",
+    "images": [
+      { "id": "img-bed-1", "product_id": "prd-carved-rosewood-bed", "url": "/products/carved-rosewood-bed/hero.svg", "alt_text": "Hand-carved solid Sheesham king bed with relief headboard", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-bed-2", "product_id": "prd-carved-rosewood-bed", "url": "/products/carved-rosewood-bed/macro.svg", "alt_text": "Macro detail of hand-carved headboard relief", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-bed-3", "product_id": "prd-carved-rosewood-bed", "url": "/products/carved-rosewood-bed/packing.svg", "alt_text": "Six-part knock-down bed components on a pallet", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-bed-4", "product_id": "prd-carved-rosewood-bed", "url": "/products/carved-rosewood-bed/context.svg", "alt_text": "Carved bed staged in a bedroom setting", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T10:10:00.000Z",
+    "updated_at": "2026-01-12T10:10:00.000Z"
+  },
+  {
+    "id": "prd-rattan-lounge-chair",
+    "name": "Cane & Rattan Lounge Chair",
+    "slug": "rattan-lounge-chair",
+    "category_id": "furniture",
+    "sub_category": "Living",
+    "short_description": "Hand-woven natural rattan on a solid wood frame, from Jodhpur and Moradabad. Shipped assembled, 120–150 pcs in a 40ft HQ, MOQ 50 pcs.",
+    "long_description": [
+      "The weave is done by hand on a steam-bent solid wood frame, and the tightness of that weave is what decides whether the chair still holds its shape in three years. Machine-woven cane looks similar in a photograph and goes slack under load; this does not, which is the reason it costs more and the reason it keeps selling.",
+      "Jodhpur builds the frames, Moradabad supplies much of the cane work, and the two trades have shipped together for long enough that the joint is not a coordination problem. Natural rattan is the standard finish; black, white and honey stains are available without a lead-time penalty.",
+      "Chairs ship assembled because a woven seat cannot be knocked down and rebuilt. Shrink wrap over the weave, then a fitted carton. At 120 to 150 pieces in a 40ft HQ this remains one of the better volume-to-value pieces in the range for a buyer filling a mixed container."
+    ],
+    "hs_code": "9401.69.00",
+    "variety": "Solid wood frame + hand-woven natural rattan / cane",
+    "origin": "Jodhpur, Rajasthan & Moradabad, Uttar Pradesh",
+    "season": "Year-round",
+    "season_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "packing": "Assembled — shrink wrap over the weave, fitted 5-ply carton, ISPM-15 heat-treated pallets",
+    "moq": "50 pcs",
+    "shelf_life": "Not applicable — durable goods",
+    "storage_temp": "Ambient, dry warehouse, RH under 65%",
+    "lead_time": "40–55 days from confirmed order",
+    "payment_terms": "LC at sight, or 30% TT advance with balance against B/L copy",
+    "incoterms": "EXW · FOB · CFR · CIF",
+    "loading_ports": ["Mundra", "Nhava Sheva (JNPT)", "Kandla"],
+    "loadability": {
+      "20ft": "55–65 pcs · assembled",
+      "40ft": "105–130 pcs · assembled",
+      "40ft_hq": "120–150 pcs · assembled",
+      "reefer": "Not applicable — dry cargo only"
+    },
+    "specs": [
+      { "label": "Frame", "value": "Solid hardwood, steam bent" },
+      { "label": "Weave", "value": "Hand-woven natural rattan / cane" },
+      { "label": "Moisture content", "value": "8–12%, kiln dried frame" },
+      { "label": "Size", "value": "72 × 78 × 88 cm, custom accepted" },
+      { "label": "Finish", "value": "Natural · black · white · honey" },
+      { "label": "Assembly", "value": "Ships assembled, no site assembly" }
+    ],
+    "quality_params": [
+      { "parameter": "Moisture content", "specification": "8–12% at packing, frame", "method": "Pin moisture meter, every unit" },
+      { "parameter": "Weave tension", "specification": "No slack above 3 mm under 20 kg", "method": "Load check, sample per lot" },
+      { "parameter": "Frame joint", "specification": "No movement at the bend", "method": "Manual flex test, every unit" },
+      { "parameter": "Load test", "specification": "120 kg static, no deformation", "method": "Sample per production batch" },
+      { "parameter": "Cane finish", "specification": "No splinters or raised fibre", "method": "Hand pass, 100% inspection" }
+    ],
+    "certifications": ["ISPM-15", "Fumigation", "Legal Timber Declaration"],
+    "markets": ["USA", "Australia", "Netherlands", "Spain"],
+    "packing_note": "Ships assembled — a hand-woven seat cannot be knocked down without cutting the weave. Shrink wrap goes over the weave first so carton fibre never abrades the cane.",
+    "documents": [
+      "Commercial Invoice",
+      "Packing List with moisture readings",
+      "Bill of Lading",
+      "Certificate of Origin",
+      "Fumigation Certificate",
+      "ISPM-15 Pallet Declaration",
+      "Legal Timber Declaration",
+      "Insurance Certificate"
+    ],
+    "is_featured": true,
+    "is_published": true,
+    "sort_order": 16,
+    "meta_title": "Cane & Rattan Lounge Chair Exporter India — Jodhpur & Moradabad",
+    "meta_description": "Hand-woven natural rattan lounge chair on a solid wood frame. HS 9401.69.00, kiln dried frame, shipped assembled, 120–150 pcs per 40ft HQ. MOQ 50 pcs.",
+    "og_image": "/og/products/rattan-lounge-chair.png",
+    "images": [
+      { "id": "img-rattan-1", "product_id": "prd-rattan-lounge-chair", "url": "/products/rattan-lounge-chair/hero.svg", "alt_text": "Hand-woven rattan lounge chair on a curved wood frame", "sort_order": 1, "is_primary": true, "shot": "hero" },
+      { "id": "img-rattan-2", "product_id": "prd-rattan-lounge-chair", "url": "/products/rattan-lounge-chair/macro.svg", "alt_text": "Macro detail of hand-woven cane weave", "sort_order": 2, "is_primary": false, "shot": "macro" },
+      { "id": "img-rattan-3", "product_id": "prd-rattan-lounge-chair", "url": "/products/rattan-lounge-chair/packing.svg", "alt_text": "Assembled chair shrink wrapped in a fitted export carton", "sort_order": 3, "is_primary": false, "shot": "packing" },
+      { "id": "img-rattan-4", "product_id": "prd-rattan-lounge-chair", "url": "/products/rattan-lounge-chair/context.svg", "alt_text": "Rattan chair staged in a bright interior", "sort_order": 4, "is_primary": false, "shot": "context" }
+    ],
+    "created_at": "2026-01-12T10:15:00.000Z",
+    "updated_at": "2026-01-12T10:15:00.000Z"
+  }
+]

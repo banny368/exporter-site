@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — dock water, aged brass, carton board.
+  Palette and radius are fixed by the build brief (§4) and must not drift:
+  the whole identity re-skins from data/site.json, not from here.
+*/
+@theme {
+  --color-harbour: #0e2a33;
+  --color-harbour-deep: #07171d;
+  --color-harbour-soft: #163a45;
+  --color-brass: #c08a2e;
+  /* Brass at AA contrast for small text on paper and kraft; #c08a2e is 2.9:1 there and
+     is kept for rules, borders and text on the dark harbour ground. */
+  --color-brass-ink: #7e5814;
+  --color-brass-bright: #dda84a;
+  --color-kraft: #e8dfd0;
+  --color-kraft-edge: #d5c7ae;
+  --color-amber: #f2a93b;
+  --color-paper: #faf8f4;
+  --color-slate: #46545a;
+  /* Darkened from #75838a, which failed AA at 3.7:1 on paper and 3.0:1 on kraft. */
+  --color-slate-soft: #556269;
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Industrial, not friendly-app. 4px everywhere. */
+  --radius-crate: 4px;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-slate);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-harbour);
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    font-optical-sizing: auto;
+  }
+
+  /*
+    text-wrap: balance and pretty each add a line-breaking pass. Applied to every
+    heading and paragraph they measured as the single largest cost on the page, so they
+    are scoped to the display headings where the ragged edge is actually noticeable.
+  */
+  h1,
+  h2 {
+    text-wrap: balance;
+  }
+
+  /* Non-negotiable accessibility floor: focus is always visible. */
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-harbour);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* 1280px content column with the gutters the brief asks for. */
+  .page-shell {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  /*
+    Mono is a structural device here, not a font choice: it marks anything that
+    would appear on a shipping document — HS codes, MOQ, ports, field labels.
+  */
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-slate-soft);
+  }
+
+  .mono-data {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    color: var(--color-harbour);
+  }
+
+  /* Hairline dividers instead of heavy borders. */
+  .rule-brass {
+    border: 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-brass) 30%, transparent);
+  }
+
+  /* Scroll reveal — the only motion on the site, driven by useReveal(). */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Safety net: content is never hidden when motion is suppressed. */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

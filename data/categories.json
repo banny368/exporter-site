@@ -1,0 +1,313 @@
+[
+  {
+    "id": "cat-fresh-produce",
+    "name": "Fresh Fruits & Vegetables",
+    "slug": "fresh-produce",
+    "description": "Reefer-shipped fresh produce from the growing clusters that supply India's export trade — Konkan mango, Solapur pomegranate, Nashik grapes, and year-round banana and lime. Every consignment moves through an unbroken cold chain from field to port, is residue-tested against the destination's MRL, and travels with a phytosanitary certificate. Seasons are short and fixed: book against the calendar below rather than against a lead time.",
+    "banner_url": "/categories/fresh-produce.webp",
+    "icon": "leaf",
+    "sort_order": 1,
+    "export_note": "Fresh produce ships in reefer containers only. Set points are fixed per product and logged at stuffing — banana at 13.5 °C, mango at 12–13 °C, pomegranate at 4–5 °C, grapes at 0–2 °C, lime at 9–10 °C. Air freight is available on mango and lime for buyers who need arrival inside 48 hours. Pre-shipment inspection by SGS, Bureau Veritas or Intertek is welcome at the buyer's cost, and we will hold the container for it.",
+    "packing_summary": "5-ply CFB cartons with moulded fibre trays, EPE net sleeves or perforated polybag liners depending on the product, palletised, corner-posted and shrink-netted. Buyer-printed cartons and PLU stickers available on programme volumes.",
+    "season_calendar": [
+      {
+        "item": "Alphonso Mango",
+        "months": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "item": "Bhagwa Pomegranate",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Thompson Seedless Grapes",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "item": "Cavendish Banana G9",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Kagzi Lime",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cat-dehydrated",
+    "name": "Dehydrated Products & Spices",
+    "slug": "dehydrated",
+    "description": "Whole spices, dehydrated vegetables and botanicals from the clusters that specialise in each — Nizamabad turmeric, Mahuva onion, Guntur and Byadgi chilli, Cochin ginger. All ambient dry cargo, all available year-round from stock, all sold against a number rather than a description: curcumin percentage, ASTA colour, Scoville units, mesh size, moisture. Nominate the specification at order and the certificate of analysis will match it.",
+    "banner_url": "/categories/dehydrated.webp",
+    "icon": "package",
+    "sort_order": 2,
+    "export_note": "Dehydrated products are volume-limited before they are weight-limited. Onion flakes carry 8–9 MT in a 20ft and moringa powder 6–7 MT, against 18 MT for turmeric fingers — so the container size is set by the product, not by the order value. We will size it at quotation rather than at stuffing. New crop arrives February to April for turmeric and chilli, March for onion and garlic, December for ginger; material outside those windows ships from conditioned stock.",
+    "packing_summary": "25 kg and 50 kg PP woven or jute bags with food-grade liners for whole spices; 20 kg export cartons with double liners for dehydrated vegetables and powders. Buyer-branded bags and cartons available from 10 MT.",
+    "season_calendar": [
+      {
+        "item": "Dried Turmeric Fingers",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "White Onion Flakes",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Garlic Flakes & Granules",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Dried Red Chilli",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Dried Ginger",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Moringa Leaf Powder",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cat-furniture",
+    "name": "Wooden Furniture & Handicrafts",
+    "slug": "furniture",
+    "description": "Solid wood furniture from Jodhpur, Saharanpur and Moradabad — Sheesham dining and bedroom, reclaimed hardwood storage, mango wood and iron, hand-woven cane. Every piece is kiln dried to 8–12% moisture before it is packed, because furniture built at Indian humidity splits in a heated European or North American home. Lead times run 35 to 75 days depending on how much of the piece is made by hand.",
+    "banner_url": "/categories/furniture.webp",
+    "icon": "armchair",
+    "sort_order": 3,
+    "export_note": "Fumigation certificate and ISPM-15 heat-treated, stamped pallets on every wooden shipment, without exception. Moisture content is controlled at 8–12% and the reading for each unit is recorded on the packing list, so a buyer can check it on arrival rather than argue about it later. Private label, custom finish and buyer-specified packaging are available. Sample orders are accepted before bulk confirmation, and the sample cost is credited against the first container.",
+    "packing_summary": "Knock-down flat pack where the piece allows it, assembled where it does not. EPE foam, 5-ply corrugated, corner protectors, ISPM-15 heat-treated pallets throughout. Mixed-model containers accepted from one 20ft.",
+    "season_calendar": [
+      {
+        "item": "Sheesham Dining Set",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Reclaimed Wood Sideboard",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Mango Wood Coffee Table",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Carved Rosewood Bed",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "item": "Cane & Rattan Lounge Chair",
+        "months": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      }
+    ]
+  }
+]

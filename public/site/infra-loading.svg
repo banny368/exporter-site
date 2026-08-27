@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100" role="img">
+  
+  <defs>
+    <pattern id="hatch" width="96" height="96" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <line x1="0" y1="0" x2="0" y2="96" stroke="#0E2A33" stroke-opacity="0.06" stroke-width="30"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8DFD0" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#E8DFD0" stop-opacity="0.55"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1100" fill="#E8DFD0"/>
+  <rect width="1600" height="1100" fill="url(#hatch)"/>
+  
+      <rect x="0" y="682" width="1600" height="418" fill="#0E2A33" fill-opacity="0.1"/>
+      <rect x="192" y="524" width="150" height="158"
+          fill="#0E2A33" fill-opacity="0.07"/><rect x="368" y="568" width="150" height="114"
+          fill="#0E2A33" fill-opacity="0.095"/><rect x="544" y="524" width="150" height="158"
+          fill="#0E2A33" fill-opacity="0.12000000000000001"/><rect x="720" y="568" width="150" height="114"
+          fill="#0E2A33" fill-opacity="0.07"/><rect x="896" y="612" width="150" height="70"
+          fill="#0E2A33" fill-opacity="0.095"/>
+      <line x1="0" y1="682" x2="1600" y2="682" stroke="#C08A2E" stroke-opacity="0.5" stroke-width="2"/>
+  <rect width="1600" height="1100" fill="url(#fade)"/>
+  
+  <g stroke="#C08A2E" stroke-width="3" stroke-opacity="0.85" fill="none">
+    <path d="M64 104 V64 H104"/>
+    <path d="M1496 64 H1536 V104"/>
+    <path d="M64 996 V1036 H104"/>
+    <path d="M1496 1036 H1536 V996"/>
+  </g>
+  
+  
+  <g>
+    <rect x="1244" y="996" width="300" height="44" fill="#C08A2E" fill-opacity="0.14"
+      stroke="#C08A2E" stroke-opacity="0.5" stroke-width="1.5"/>
+    <text x="1394" y="1025" text-anchor="middle" font-family="ui-monospace, 'JetBrains Mono', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17"
+      letter-spacing="2.6" fill="#C08A2E">PLACEHOLDER IMAGE</text>
+  </g>
+</svg>
