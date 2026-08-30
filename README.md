@@ -4,7 +4,7 @@ A production-quality B2B export company website: fresh produce, dehydrated produ
 spices, and solid wood furniture. Sixteen products with real export specifications,
 a WhatsApp-first inquiry funnel, and a working admin panel.
 
-Built to run **free**, deployed as a **static export on GitHub Pages**.
+Built to run **free**, server-rendered on **Vercel** with a custom domain.
 
 ---
 
@@ -20,7 +20,7 @@ Admin panel: <http://localhost:3000/admin> — passcode `demo1234`.
 
 ```bash
 npm test             # Vitest: data layer, WhatsApp links, store, base paths
-npm run build        # static export into ./out
+npm run build        # production build
 npm run serve        # serve ./out on http://localhost:3000
 ```
 
@@ -63,7 +63,7 @@ those function bodies with queries — no component changes.
 
 ### How the admin panel works without a server
 
-GitHub Pages serves static files, so there is no API to write to.
+The inquiry endpoint is a Next.js route handler; see DEPLOY.md for the environment it needs.
 
 - Public pages are prerendered from `data/`, which is what crawlers and first paint get.
 - `StoreProvider` merges the browser's saved edits over that seed **after mount**, never
@@ -89,7 +89,7 @@ Copy `.env.example` to `.env.local`. All are optional; the site builds with none
 
 | Variable | Purpose |
 |---|---|
-| `NEXT_PUBLIC_BASE_PATH` | `/repo-name` for a GitHub Pages project site. CI sets it. |
+| `NEXT_PUBLIC_BASE_PATH` | Empty on a root domain. Only set for a sub-path deployment. |
 | `NEXT_PUBLIC_SITE_URL` | Absolute origin for canonicals, sitemap and OG tags. |
 | `NEXT_PUBLIC_ADMIN_PASSCODE` | Admin gate. Defaults to `demo1234`. |
 | `NEXT_PUBLIC_GA4_ID` and friends | Analytics. Nothing loads without both an ID and consent. |
@@ -111,10 +111,11 @@ To use real photographs, drop files into `public/products/<slug>/` with the name
 
 ## Accessibility and performance
 
-Lighthouse against the live site: **accessibility 100, best practices 100, SEO 100**, and
-performance 68-69, which misses the 90 target. The measured breakdown and the tractable
-fix are in ROADMAP.md. Measure against the deployed URL, not a local file server -
-compression is worth about 20 points here.
+Lighthouse against the deployed site: **accessibility 100, best practices 100, SEO 100**
+on every page, with performance between 75 and 88 against a 90 target. Baseline before
+the move to Vercel was 68. The measured breakdown and what is left are in ROADMAP.md.
+Measure the deployed URL, never a local file server — compression alone is worth about
+20 points.
 
 Keyboard navigable end to end with visible focus rings, AA contrast, semantic heading
 order, alt text on every image, and `prefers-reduced-motion` respected in both CSS and the

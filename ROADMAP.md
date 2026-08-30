@@ -62,34 +62,48 @@ This is what separates an exporter site from a brochure.
 
 ## Performance
 
-Measured with Lighthouse (mobile profile) against the **live site on GitHub Pages**, which
-is what actually matters:
+Measured with Lighthouse (mobile profile) against the **deployed site on Vercel**, which
+is the only measurement worth quoting — a local file server without compression
+understates the score by roughly twenty points.
 
-| Page | Performance | Accessibility | Best practices | SEO |
-|---|---|---|---|---|
-| Home | 68 | 100 | 100 | 100 |
-| Product detail | 69 | 97 | 100 | 100 |
+| Page | Performance | Accessibility | Best practices | SEO | JS shipped |
+|---|---|---|---|---|---|
+| Home | 75 | 100 | 100 | 100 | 218 KB |
+| Products listing | 88 | 100 | 100 | 100 | 224 KB |
+| Product detail | 79 | 100 | 100 | 100 | 224 KB |
+| Contact | 79 | 100 | 100 | 100 | 295 KB |
 
-LCP is around 3.1s on that throttled mobile profile. Accessibility, best practices and SEO
-meet the target; performance does not reach 90.
+Baseline before the move off static export was 68 with 600 KB of JavaScript. Accessibility,
+best practices and SEO are at target. Performance is not yet at 90 on three of the four.
 
-A note on measuring this: served from a local static file server without compression the
-same build scores 46 with an LCP near 7.5s. Compression on GitHub's CDN is worth roughly
-20 points, so measure against the deployed URL rather than a local server or you will
-chase the wrong thing.
+What produced the gain, in case it needs repeating elsewhere:
+
+- **The catalogue left the client bundle.** `store-provider` imported `getAllProducts()`
+  at module scope, so all sixteen full records reached every visitor on every page.
+  Server components now pass only the products a page renders, trimmed to `ProductSummary`.
+- **Reveal stopped being a client component.** One shared IntersectionObserver replaced
+  one React tree per revealed block. This alone took home-page blocking time from 1,090ms
+  to about 490ms.
+- **The quote form loads on demand.** zod and react-hook-form were in every product page
+  bundle for a modal that starts closed. `next/dynamic` took the product page from 302 KB
+  to 224 KB.
+- **Images are optimised.** AVIF with a real srcset per device width, which static export
+  could not do.
 
 What is left, in order of value:
 
-| Slice | Size | Fix |
+| Item | Where it costs | Fix |
 |---|---|---|
-| React and the Next App Router client runtime | ~495 KB | Structural — fewer client components, or a framework with less client runtime. |
-| The seed catalogue and site settings | ~110 KB | **The tractable one.** `StoreProvider` imports the whole catalogue so it can merge admin edits over it. Pass server-rendered products in as props instead and add a `useMergedProducts(seed)` hook; the catalogue then lands only in the admin chunk. Roughly ten files. |
-| Radix and lucide | ~41 KB | Lift the WhatsApp preview dialog to one app-level instance instead of one per product card. |
+| `ProductCard` is a client component | 8 instances on the home page, 16 on the products listing, each hydrating its own tree and its own WhatsApp dialog | Split it: server-render the card body, keep a small client island for the RFQ and WhatsApp buttons. This is the largest remaining item. |
+| One WhatsApp dialog per card | Same pages | Lift to a single app-level dialog driven by context. |
+| React and the App Router client runtime | Every page, ~150 KB | Structural. Only fewer client components move it. |
 
-Ruled out by measurement, so nobody repeats the work: the placeholder SVGs and their hatch
-pattern, `text-wrap: balance`, and the three self-hosted font families (all loaded inside
-1.7s). zod and react-hook-form are already correctly split out of the pages that do not
-use them.
+Ruled out by measurement, so nobody repeats the work: the placeholder artwork, the fonts
+(all three families load inside 1.7s), and CSS (11 KB total).
+
+A note on measuring SEO: Vercel adds `X-Robots-Tag: noindex` to generated `*.vercel.app`
+URLs so they do not compete with the real domain. Lighthouse reads that as "blocked from
+indexing" and scores SEO 66 regardless of the markup. Measure on the custom domain.
 
 ## Known limitations in this build
 

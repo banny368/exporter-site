@@ -1,90 +1,81 @@
-# Deploying to GitHub Pages
+# Deploying
 
-The site is a static export. Hosting is free and there is nothing to keep running.
+The site runs on **Vercel**, server-rendered. It was a static export on GitHub Pages
+during the demo phase; that changed when the client moved to a real domain, because
+static hosting blocks image optimisation, the inquiry endpoint, and server rendering.
 
-This repository is currently deployed the **branch way**: the built site lives on a
-`gh-pages` branch and GitHub Pages serves it directly. That needs no special token
-permissions, which is why it was used.
+Live: https://exporter-site.vercel.app
 
-The **Actions way** is nicer once it is available — it rebuilds on every push and runs
-the test suite first. The workflow is ready at `deploy/github-pages-workflow.yml`; it is
-not at `.github/workflows/` because pushing a file to that path requires a token with the
-`workflow` scope.
+## Everyday deploys
 
-## Redeploying, as set up today
+The GitHub repository is connected to the Vercel project, so:
 
 ```bash
-npm run deploy
+git push
 ```
 
-That builds the static export and force-pushes `out/` to the `gh-pages` branch. Pages
-picks it up within a minute or so.
+is the deploy. Every push to `main` builds and goes to production; every other branch
+gets its own preview URL.
 
-## Switching to the Actions way
-
-1. Give your GitHub CLI the extra scope:
-
-   ```bash
-   gh auth refresh -h github.com -s workflow
-   ```
-
-2. Move the workflow into place and push it:
-
-   ```bash
-   mkdir -p .github/workflows
-   git mv deploy/github-pages-workflow.yml .github/workflows/deploy.yml
-   git commit -m "Deploy from GitHub Actions"
-   git push
-   ```
-
-3. Repository, then Settings, then Pages, and set *Source* to **GitHub Actions**.
-
-From then on every push to `main` runs the tests, builds, and publishes.
-
-## Why the base path matters
-
-
-
-A GitHub Pages *project* site is served from `/<repo>`, not from the domain root, so every
-asset URL needs that prefix. The workflow sets it from the repository name, so renaming the
-repository follows automatically. Two things depend on it:
-
-- `next.config.ts` passes it to `basePath` and `assetPrefix`.
-- `lib/paths.ts` exposes `withBase()` for any raw path read out of JSON. `next/link` and
-  `next/image` handle the prefix themselves.
-
-Test the prefixed build locally — this is where base-path bugs surface, not in dev:
+To deploy from your machine without pushing:
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/your-repo npm run build
-npm run serve
+npm run deploy:preview   # preview URL
+npm run deploy           # production
 ```
 
-Then open `http://localhost:3000/your-repo/`.
+## First-time setup on a new machine
 
-## Using a root domain instead
+```bash
+npm install
+vercel login
+vercel link --yes --project exporter-site
+vercel env pull          # writes .env.local
+npm run dev
+```
 
-For a user site named `<you>.github.io`, remove the `NEXT_PUBLIC_BASE_PATH` line from the
-workflow — no prefix is needed.
+## Environment variables
 
-For a custom domain, add it under Settings, then Pages; create `public/CNAME` containing
-the domain; drop `NEXT_PUBLIC_BASE_PATH`; and set `NEXT_PUBLIC_SITE_URL` to the domain so
-canonicals and the sitemap point at the right origin.
+Set in the Vercel dashboard, or with `vercel env add <NAME> <environment>`.
 
-## What is already handled
+| Variable | Needed for | Notes |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | canonical URLs, sitemap, `robots.txt`, OG tags | Must be the full origin with no trailing slash. Without it `robots.txt` omits its `Sitemap:` line, because a relative sitemap URL is invalid. |
+| `NEXT_PUBLIC_ADMIN_PASSCODE` | the `/admin` gate | Defaults to `demo1234`. Change it before the site is public. |
+| `NEXT_PUBLIC_GA4_ID` | Google Analytics | Optional. Analytics stays off until the visitor accepts the cookie banner, whatever this is set to. |
 
-- `public/.nojekyll` — without it, Pages strips `_next/`.
-- `trailingSlash: true` — directory-style URLs, which Pages serves as `index.html`.
-- `app/not-found.tsx` exports `404.html`, which Pages serves for unmatched paths.
-- `images: { unoptimized: true }` — there is no Image Optimization API on static hosting.
+After changing any of these, redeploy — they are read at build time.
 
-## Before you call it live
+## Adding the custom domain
 
-- Replace every product photograph. Do not ship the placeholders.
-- Put a real WhatsApp number in Admin, then Site settings, and tick "this number is real".
-- Replace registration numbers, address, statistics, team names and testimonials.
-- Change `NEXT_PUBLIC_ADMIN_PASSCODE` from `demo1234`, and understand that it is a demo
-  gate, not authentication — anyone can read the page source. Move to Supabase Auth before
-  the admin panel holds anything real.
-- Set `NEXT_PUBLIC_SITE_URL` so canonicals, the sitemap and OG tags are absolute.
-- Submit `sitemap.xml` in Google Search Console.
+1. Vercel dashboard → the project → **Settings → Domains** → add the domain.
+2. At the registrar, point DNS at Vercel: an `A` record to `76.76.21.21` for the apex,
+   and a `CNAME` to `cname.vercel-dns.com` for `www`. Vercel shows the exact values.
+3. SSL is issued automatically, usually within a minute of DNS resolving.
+4. Update `NEXT_PUBLIC_SITE_URL` to the new origin and redeploy, so canonical URLs, the
+   sitemap and OG tags all point at the real domain.
+
+**Measure SEO only after this step.** Vercel adds `X-Robots-Tag: noindex` to the
+generated `*.vercel.app` URLs to stop them competing with your real domain in search
+results. Lighthouse reads that as "blocked from indexing" and scores SEO 66 no matter how
+correct the markup is. On the custom domain the header is gone and the score is 100.
+
+## Deployment protection
+
+Production is public. Vercel Authentication is off for this project — with it on, every
+URL returns a 302 to a login page, including for Google's crawler.
+
+## Checks before a production deploy
+
+```bash
+npm run lint
+npm test
+npm run build
+```
+
+## The old GitHub Pages route
+
+`deploy/github-pages-workflow.yml` is kept for reference only. It does not run, and the
+site can no longer be served as a static export — the inquiry endpoint and image
+optimisation both need a server. Delete it once the domain is live and nobody is asking
+about the old link.

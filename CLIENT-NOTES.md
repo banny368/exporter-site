@@ -59,6 +59,13 @@ Google Analytics or Search Console access if they already have it.
 
 ## Costs, as things stand
 
-Nothing. The site is a static export on GitHub Pages, the fonts are self-hosted, and there
-are no third-party scripts. Costs begin only when the database and authentication go in, or
-when a custom domain is bought.
+Nothing yet. The site runs on Vercel's free tier, the fonts are self-hosted, and there are
+no third-party scripts.
+
+The only certain cost ahead is the **domain**, which is bought from a registrar and
+renewed yearly — Vercel does not charge to attach it, and SSL is included.
+
+Costs after that are optional and only arrive with specific features: a transactional
+email provider once the inquiry form needs to deliver to an inbox (free tiers cover a
+site of this size), and a database if admin changes ever need to reach every visitor
+without a redeploy.
