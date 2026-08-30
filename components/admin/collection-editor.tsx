@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/components/providers/store-provider";
+import { openAfterDelete, openAfterMove, swap } from "@/lib/list-edit";
 import type { CollectionSchema, FieldSchema } from "@/lib/collections";
 import type { SiteSettings } from "@/lib/types";
 
@@ -108,9 +109,17 @@ export function CollectionEditor({ schema }: { schema: CollectionSchema }) {
   function move(index: number, by: number) {
     const target = index + by;
     if (target < 0 || target >= rows.length) return;
-    const next = [...rows];
-    [next[index], next[target]] = [next[target], next[index]];
-    write(next);
+
+    write(swap(rows, index, target));
+    // The open row is tracked by position, so it has to travel with the row it
+    // belongs to. Without this the panel stays put and quietly rebinds to whichever
+    // row slid into that slot — the client carries on typing into the wrong record.
+    setOpen((current) => openAfterMove(current, index, target));
+  }
+
+  function remove(index: number) {
+    write(rows.filter((_, i) => i !== index));
+    setOpen((current) => openAfterDelete(current, index));
   }
 
   return (
@@ -179,7 +188,7 @@ export function CollectionEditor({ schema }: { schema: CollectionSchema }) {
                     </Button>
                     <button
                       type="button"
-                      onClick={() => write(rows.filter((_, i) => i !== index))}
+                      onClick={() => remove(index)}
                       aria-label={`Delete ${title}`}
                       className="rounded-crate p-2 text-slate transition-colors hover:bg-harbour/5 hover:text-[#9B2C1B]"
                     >
