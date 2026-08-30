@@ -110,3 +110,29 @@ export function FaqJsonLd({ faqs }: { faqs: { question: string; answer: string }
     />
   );
 }
+
+/**
+ * Names the site for search engines.
+ *
+ * Google takes the site name it displays above a result from WebSite structured data on
+ * the home page, falling back to guessing from the domain. Declaring it means the
+ * client's own name appears rather than something derived from the URL.
+ *
+ * No potentialAction: there is no site search to point one at, and declaring a search
+ * endpoint that does not exist is worse than declaring nothing.
+ */
+export function WebSiteJsonLd() {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: site.company.name,
+        alternateName: site.company.legal_name,
+        url: absoluteUrl("/"),
+        publisher: { "@type": "Organization", name: site.company.name },
+        inLanguage: "en",
+      }}
+    />
+  );
+}

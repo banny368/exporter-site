@@ -40,7 +40,7 @@ Set in the Vercel dashboard, or with `vercel env add <NAME> <environment>`.
 
 | Variable | Needed for | Notes |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | canonical URLs, sitemap, `robots.txt`, OG tags | Must be the full origin with no trailing slash. Without it `robots.txt` omits its `Sitemap:` line, because a relative sitemap URL is invalid. |
+| `NEXT_PUBLIC_SITE_URL` | canonical URLs, sitemap, `robots.txt`, OG tags | Must be the full origin with no trailing slash. Set this to the real domain once it is bought. If it is missing the build falls back to `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL`, so a deployment still emits absolute URLs rather than `http://localhost:3000` — but only this variable survives a move to a custom domain. |
 | `NEXT_PUBLIC_ADMIN_PASSCODE` | the `/admin` gate | Defaults to `demo1234`. Change it before the site is public. |
 | `NEXT_PUBLIC_GA4_ID` | Google Analytics | Optional. Analytics stays off until the visitor accepts the cookie banner, whatever this is set to. |
 

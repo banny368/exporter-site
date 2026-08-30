@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { absoluteUrl, withBase } from "@/lib/paths";
+import { absoluteUrl, canonicalFor, siteOrigin, withBase } from "@/lib/paths";
 
 const ORIGINAL_BASE = process.env.NEXT_PUBLIC_BASE_PATH;
 const ORIGINAL_SITE = process.env.NEXT_PUBLIC_SITE_URL;
@@ -74,5 +74,51 @@ describe("absoluteUrl", () => {
     process.env.NEXT_PUBLIC_SITE_URL = "https://acme.github.io/";
     setBase("/exporter-site");
     expect(absoluteUrl("/contact")).toBe("https://acme.github.io/exporter-site/contact");
+  });
+});
+
+describe("siteOrigin", () => {
+  const KEYS = ["NEXT_PUBLIC_SITE_URL", "VERCEL_PROJECT_PRODUCTION_URL", "VERCEL_URL"] as const;
+  const saved: Record<string, string | undefined> = {};
+
+  beforeEach(() => {
+    for (const key of KEYS) {
+      saved[key] = process.env[key];
+      delete process.env[key];
+    }
+  });
+
+  afterEach(() => {
+    for (const key of KEYS) {
+      if (saved[key] === undefined) delete process.env[key];
+      else process.env[key] = saved[key];
+    }
+  });
+
+  it("prefers the real domain over anything Vercel provides", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://example.com";
+    process.env.VERCEL_PROJECT_PRODUCTION_URL = "proj.vercel.app";
+    expect(siteOrigin()).toBe("https://example.com");
+  });
+
+  it("drops a trailing slash so paths do not double up", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://example.com/";
+    expect(siteOrigin()).toBe("https://example.com");
+  });
+
+  it("falls back to the Vercel production domain", () => {
+    process.env.VERCEL_PROJECT_PRODUCTION_URL = "proj.vercel.app";
+    process.env.VERCEL_URL = "proj-abc123.vercel.app";
+    expect(siteOrigin()).toBe("https://proj.vercel.app");
+  });
+
+  it("falls back to the deployment URL on a preview", () => {
+    process.env.VERCEL_URL = "proj-abc123.vercel.app";
+    expect(siteOrigin()).toBe("https://proj-abc123.vercel.app");
+  });
+
+  it("returns empty when no origin can be known, so canonicals are omitted", () => {
+    expect(siteOrigin()).toBe("");
+    expect(canonicalFor("/about/")).toBeUndefined();
   });
 });

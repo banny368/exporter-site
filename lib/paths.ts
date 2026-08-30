@@ -27,9 +27,35 @@ export function withBase(path: string): string {
   return `${base}${normalized}`;
 }
 
+/**
+ * The origin this deployment is reachable at, or "" if it cannot be known.
+ *
+ * NEXT_PUBLIC_SITE_URL is the real domain and always wins. Without it, Vercel's own
+ * system variables still describe the deployment — and using them matters, because a
+ * build with no origin at all leaves metadataBase unset, at which point Next resolves
+ * og:image against http://localhost:3000 and every share card points at a dead image.
+ *
+ * Server-only: VERCEL_* are not NEXT_PUBLIC_, so this must not be called from a client
+ * component. Every caller today is metadata, robots, sitemap or JSON-LD.
+ */
+export function siteOrigin(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) return explicit.replace(/\/$/, "");
+
+  // The project's stable production domain, set on every Vercel deployment.
+  const production = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (production) return `https://${production}`;
+
+  // Failing that, this specific deployment — which is the right answer for a preview.
+  const deployment = process.env.VERCEL_URL;
+  if (deployment) return `https://${deployment}`;
+
+  return "";
+}
+
 /** Absolute URL for canonicals, OG tags and WhatsApp deep links. */
 export function absoluteUrl(path: string): string {
-  const origin = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
+  const origin = siteOrigin();
   const withBasePath = withBase(path);
   if (!origin) return withBasePath;
   return `${origin}${withBasePath}`;
