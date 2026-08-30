@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useReveal } from "@/components/reveal";
+import { useReveal } from "@/lib/use-reveal";
 import { usePrefersReducedMotion } from "@/lib/client-hooks";
 import type { StatCounter } from "@/lib/types";
 

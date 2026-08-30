@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingActions } from "@/components/floating-actions";
 import { CookieConsent } from "@/components/cookie-consent";
+import { RevealObserver } from "@/components/reveal-observer";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
 import { getCategories, getProductsByCategory } from "@/lib/products";
 
@@ -41,6 +42,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       <Footer />
       <FloatingActions />
       <CookieConsent />
+      <RevealObserver />
     </>
   );
 }
