@@ -28,42 +28,65 @@ export function FeaturedProducts({ seed }: { seed: ProductSummary[] }) {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
 
+  // Card width is read once per layout, not per scroll event. Reading it inside the
+  // scroll handler forced a synchronous layout on every frame, which is exactly the kind
+  // of thing that shows up as blocking time on a throttled phone.
+  const step = useRef(1);
+
+  const measureStep = useCallback(() => {
+    const node = scroller.current;
+    const card = node?.querySelector("li");
+    step.current = card ? card.getBoundingClientRect().width + 20 : 1;
+  }, []);
+
   const measure = useCallback(() => {
     const node = scroller.current;
     if (!node) return;
 
+    // scrollLeft / scrollWidth / clientWidth are cheap reads; no geometry is measured here.
     const max = node.scrollWidth - node.clientWidth;
     const ratio = max > 0 ? node.scrollLeft / max : 0;
 
     setProgress(ratio);
     setAtStart(node.scrollLeft <= 2);
     setAtEnd(node.scrollLeft >= max - 2);
-
-    // Which card is under the left edge — the manifest position, not a page number.
-    const card = node.querySelector("li");
-    const step = card ? card.getBoundingClientRect().width + 20 : 1;
-    setIndex(Math.min(shown.length, Math.round(node.scrollLeft / step) + 1));
+    setIndex(Math.min(shown.length, Math.round(node.scrollLeft / step.current) + 1));
   }, [shown.length]);
 
   useEffect(() => {
     const node = scroller.current;
     if (!node) return;
 
-    measure();
-    node.addEventListener("scroll", measure, { passive: true });
-    window.addEventListener("resize", measure);
-    return () => {
-      node.removeEventListener("scroll", measure);
-      window.removeEventListener("resize", measure);
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        measure();
+      });
     };
-  }, [measure]);
+
+    const onResize = () => {
+      measureStep();
+      measure();
+    };
+
+    measureStep();
+    measure();
+
+    node.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      node.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [measure, measureStep]);
 
   function page(direction: 1 | -1) {
     const node = scroller.current;
     if (!node) return;
-    const card = node.querySelector("li");
-    const step = card ? card.getBoundingClientRect().width + 20 : node.clientWidth;
-    node.scrollBy({ left: step * direction, behavior: "smooth" });
+    node.scrollBy({ left: step.current * direction, behavior: "smooth" });
   }
 
   return (
