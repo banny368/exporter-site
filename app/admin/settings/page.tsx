@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Download } from "lucide-react";
 import { AdminHeader } from "@/components/admin/admin-shell";
 import { Button } from "@/components/ui/button";
 import { useStore } from "@/components/providers/store-provider";
+import { downloadTextFile, listMedia } from "@/lib/store";
 import type { SiteSettings } from "@/lib/types";
 
 const FIELD =
@@ -299,6 +300,69 @@ export default function AdminSettingsPage() {
           ) : null}
         </div>
       </form>
+
+      {/*
+        The bridge between "edited in this browser" and "live for everyone". Everything
+        the admin panel changes lives in localStorage; this writes it back out as the
+        same data/site.json the site is built from.
+      */}
+      <section className="mt-12 border-t border-brass/25 pt-8">
+        <h2 className="mono-label mb-3">Publish these changes</h2>
+        <p className="mb-5 max-w-2xl text-[0.9375rem] leading-relaxed">
+          Everything you change here is saved in this browser, so only you can see it.
+          Export the settings file, drop it into <span className="font-mono">data/site.json</span>{" "}
+          in the repository, and deploy — then every visitor sees it.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => {
+              downloadTextFile(
+                "site.json",
+                JSON.stringify(settings, null, 2) + "\n",
+                "application/json",
+              );
+            }}
+          >
+            <Download className="size-4" aria-hidden="true" />
+            Export settings file
+          </Button>
+
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={async () => {
+              const media = (await listMedia()) ?? [];
+              downloadTextFile(
+                "media-manifest.json",
+                JSON.stringify(
+                  media.map((record) => ({
+                    id: record.id,
+                    name: record.name,
+                    width: record.width,
+                    height: record.height,
+                    bytes: record.bytes,
+                    dataUrl: record.dataUrl,
+                  })),
+                  null,
+                  2,
+                ) + "\n",
+                "application/json",
+              );
+            }}
+          >
+            Export uploaded images
+          </Button>
+        </div>
+
+        <p className="mono-label mt-4 normal-case tracking-[0.04em]">
+          Uploaded images export separately because they are stored as data URLs and the
+          file is large. Save them into <span className="font-mono">public/</span> and point
+          the settings at those paths before deploying.
+        </p>
+      </section>
     </>
   );
 }

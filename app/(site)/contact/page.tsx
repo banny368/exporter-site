@@ -105,7 +105,11 @@ export default function ContactPage() {
 
               <div className="border-t border-brass/25 pt-6">
                 <h3 className="mono-label mb-4">Find us</h3>
-                <MapEmbed query={site.contact.map_query} addressLines={site.contact.address_lines} />
+                <MapEmbed
+                  query={site.contact.map_query}
+                  addressLines={site.contact.address_lines}
+                  embedUrl={site.contact.map_embed_url}
+                />
               </div>
 
               <dl className="grid gap-2 border-t border-brass/25 pt-6">

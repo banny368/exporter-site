@@ -27,7 +27,7 @@ export function Footer() {
       <div className="page-shell py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <Logo name={settings.company.name} onDark />
+            <Logo onDark />
             <p className="mt-5 max-w-sm text-[0.9375rem] leading-relaxed">
               {settings.company.blurb}
             </p>

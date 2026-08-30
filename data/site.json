@@ -22,7 +22,8 @@
       "Your City, Your State, PIN",
       "India"
     ],
-    "map_query": "Nhava Sheva Port, Navi Mumbai, Maharashtra, India"
+    "map_query": "Nhava Sheva Port, Navi Mumbai, Maharashtra, India",
+    "map_embed_url": ""
   },
   "registrations": [
     {
@@ -692,5 +693,25 @@
       "question": "How do I start?",
       "answer": "Send the product, quantity, destination port and Incoterm through the contact form or on WhatsApp. A complete inquiry is quoted within 48 hours. If we cannot supply what you need, you will hear that in the same window rather than a week later."
     }
+  ],
+  "theme": {
+    "colors": {}
+  },
+  "typography": {
+    "pair_id": "harbour"
+  },
+  "branding": {
+    "logo_media_id": null,
+    "logo_text": "",
+    "show_mark": true
+  },
+  "packing_types": [
+    "carton",
+    "bag",
+    "bale",
+    "pallet",
+    "punnet",
+    "crate",
+    "drum"
   ]
 }

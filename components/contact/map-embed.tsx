@@ -11,7 +11,16 @@ import { useClientValue } from "@/lib/client-hooks";
  * analytics — or asks for it explicitly here. Until then the panel shows the address
  * and a link out, which is what most buyers want anyway.
  */
-export function MapEmbed({ query, addressLines }: { query: string; addressLines: string[] }) {
+export function MapEmbed({
+  query,
+  addressLines,
+  embedUrl,
+}: {
+  query: string;
+  addressLines: string[];
+  /** A full Google Maps embed URL pasted into the admin panel. Wins when present. */
+  embedUrl?: string;
+}) {
   const consented = useClientValue(() => readConsent() === "accepted", false);
   const [allowedHere, setAllowedHere] = useState(false);
 
@@ -21,7 +30,7 @@ export function MapEmbed({ query, addressLines }: { query: string; addressLines:
     return (
       <iframe
         title="Facility location on Google Maps"
-        src={`https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`}
+        src={embedUrl || `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         className="aspect-4/3 w-full rounded-crate border border-harbour/15"

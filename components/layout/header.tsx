@@ -77,7 +77,7 @@ export function Header({ categoryCounts = {} }: { categoryCounts?: Record<string
       )}
     >
       <div className="page-shell flex h-18 items-center justify-between gap-6">
-        <Logo name={settings.company.name} onDark />
+        <Logo onDark />
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           <div ref={productsRef} className="relative">

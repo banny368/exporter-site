@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 /**
  * Reading browser-only state without a hydration mismatch.
@@ -68,4 +68,38 @@ export function useModalOpen(): boolean {
     () => document.body.style.pointerEvents === "none",
     () => false,
   );
+}
+
+/**
+ * Resolve an uploaded image from IndexedDB to a data URL.
+ *
+ * Uploads live in IndexedDB rather than localStorage because a single photo can exceed
+ * the 5MB localStorage budget on its own. Returns null until the read resolves, and on
+ * any failure, so callers fall back to whatever they shipped with.
+ */
+export function useMediaDataUrl(mediaId: string | null | undefined): string | null {
+  // Keyed by id so a stale resolution for a previous id is never shown, and so the
+  // no-id case is derived rather than written back into state from an effect.
+  const [loaded, setLoaded] = useState<{ id: string; url: string | null } | null>(null);
+
+  useEffect(() => {
+    if (!mediaId) return;
+
+    let cancelled = false;
+    void import("@/lib/store")
+      .then((store) => store.getMedia(mediaId))
+      .then((record) => {
+        if (!cancelled) setLoaded({ id: mediaId, url: record?.dataUrl ?? null });
+      })
+      .catch(() => {
+        if (!cancelled) setLoaded({ id: mediaId, url: null });
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [mediaId]);
+
+  if (!mediaId) return null;
+  return loaded?.id === mediaId ? loaded.url : null;
 }

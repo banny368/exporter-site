@@ -15,7 +15,7 @@ import {
 } from "@/lib/products";
 import type { CategorySlug } from "@/lib/types";
 import { monthLabels } from "@/lib/utils";
-import { useMergedSummaries } from "@/components/providers/store-provider";
+import { useMergedSummaries, useSiteSettings } from "@/components/providers/store-provider";
 import type { ProductSummary } from "@/lib/products";
 
 const SORTS: { value: SortMode; label: string }[] = [
@@ -54,11 +54,14 @@ function CheckboxRow({
 function FilterFields({
   subCategories,
   certifications,
+  packingTypes,
   filters,
   setFilters,
 }: {
   subCategories: string[];
   certifications: string[];
+  /** Editable in the admin panel rather than hardcoded. */
+  packingTypes: string[];
   filters: ProductFilters;
   setFilters: (next: ProductFilters) => void;
 }) {
@@ -148,7 +151,7 @@ function FilterFields({
       <fieldset>
         <legend className="mono-label mb-3">Packing type</legend>
         <div className="flex flex-wrap gap-2">
-          {["carton", "bag", "bale", "pallet", "punnet"].map((value) => {
+          {packingTypes.map((value) => {
             const active = filters.packing === value;
             return (
               <button
@@ -183,6 +186,7 @@ export function ProductBrowser({
   source: string;
 }) {
   const products = useMergedSummaries(seed);
+  const packingTypes = useSiteSettings().packing_types ?? [];
   const [filters, setFilters] = useState<ProductFilters>({});
   const [sort, setSort] = useState<SortMode>("curated");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -231,6 +235,7 @@ export function ProductBrowser({
           <FilterFields
             subCategories={subCategories}
             certifications={certifications}
+            packingTypes={packingTypes}
             filters={filters}
             setFilters={setFilters}
           />
@@ -275,6 +280,7 @@ export function ProductBrowser({
                     <FilterFields
                       subCategories={subCategories}
                       certifications={certifications}
+                      packingTypes={packingTypes}
                       filters={filters}
                       setFilters={setFilters}
                     />

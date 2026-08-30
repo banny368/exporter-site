@@ -223,8 +223,24 @@ export interface SocialLink {
   emphasis?: boolean;
 }
 
+/** Admin-chosen colour overrides. Only changed roles are stored. */
+export type ThemeColorOverrides = Record<string, string>;
+
 /** SQL: site_settings (key, value jsonb). Flattened here for ergonomics. */
 export interface SiteSettings {
+  /** Colour roles the client has changed. Empty means the shipped palette. */
+  theme: { colors: ThemeColorOverrides };
+  /** Which curated font pair is active. See lib/fonts.ts. */
+  typography: { pair_id: string };
+  branding: {
+    /** Media id of an uploaded logo, or null to use the drawn mark. */
+    logo_media_id: string | null;
+    /** Shown beside the mark. Falls back to the company name. */
+    logo_text: string;
+    show_mark: boolean;
+  };
+  /** Packing formats offered in the catalogue filter rail. */
+  packing_types: string[];
   company: {
     name: string;
     legal_name: string;
@@ -249,6 +265,8 @@ export interface SiteSettings {
     hours_note: string;
     address_lines: string[];
     map_query: string;
+    /** A Google Maps embed URL pasted by the client. Overrides map_query when set. */
+    map_embed_url: string;
   };
   registrations: { label: string; value: string }[];
   loading_ports: string[];
