@@ -4,9 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ClipboardList } from "lucide-react";
 import { useStore } from "@/components/providers/store-provider";
-import { buildWhatsAppLink, buildWhatsAppMessage } from "@/lib/whatsapp";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { useWhatsAppDialog } from "./whatsapp/whatsapp-dialog-provider";
 import { useClientValue, useModalOpen, usePrefersReducedMotion } from "@/lib/client-hooks";
 import { WhatsAppIcon } from "./whatsapp/whatsapp-icon";
 
@@ -53,7 +52,7 @@ export function FloatingActions() {
   const { settings, rfq, hydrated, trackEvent } = useStore();
   const modalOpen = useModalOpen();
   const pulse = useFirstVisitPulse();
-  const [previewOpen, setPreviewOpen] = useState(false);
+  const { openPreview } = useWhatsAppDialog();
 
   if (modalOpen) return null;
 
@@ -66,7 +65,7 @@ export function FloatingActions() {
   function handleClick() {
     trackEvent("whatsapp_click", { source: "floating-button" });
     if (!settings.contact.whatsapp_configured) {
-      setPreviewOpen(true);
+      openPreview(options, "Export inquiry");
       return;
     }
     window.open(buildWhatsAppLink(options), "_blank", "noopener,noreferrer");
@@ -112,21 +111,6 @@ export function FloatingActions() {
         </p>
       </div>
 
-      <Dialog open={previewOpen} onOpenChange={setPreviewOpen}>
-        <DialogContent
-          title="WhatsApp message preview"
-          description="Add a real WhatsApp number in Site Settings and this button will open WhatsApp with this message."
-        >
-          <pre className="rounded-crate border border-brass/25 bg-harbour/[0.03] p-4 font-mono text-[0.8125rem] leading-relaxed whitespace-pre-wrap text-harbour">
-            {buildWhatsAppMessage(options)}
-          </pre>
-          <div className="mt-5">
-            <Button variant="outline" size="sm" asChild>
-              <a href={`mailto:${settings.contact.email}`}>Email us instead</a>
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }

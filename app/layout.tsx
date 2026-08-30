@@ -3,6 +3,7 @@ import { FONT_VARIABLES } from "@/lib/fonts";
 import type { ReactNode } from "react";
 import { StoreProvider } from "@/components/providers/store-provider";
 import { ThemeStyle } from "@/components/providers/theme-style";
+import { WhatsAppDialogProvider } from "@/components/whatsapp/whatsapp-dialog-provider";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex min-h-full flex-col">
         <StoreProvider>
           <ThemeStyle />
-          {children}
+          <WhatsAppDialogProvider>{children}</WhatsAppDialogProvider>
         </StoreProvider>
       </body>
     </html>
