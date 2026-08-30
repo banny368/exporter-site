@@ -8,7 +8,7 @@ import { Chip } from "@/components/ui/chip";
 import { Reveal } from "@/components/reveal";
 import { Rule, Section, SectionHead } from "@/components/ui/section";
 import { FeaturedProducts } from "@/components/home/featured-products";
-import { WorldMap } from "@/components/global/world-map";
+import { LazyWorldMap } from "@/components/global/world-map-lazy";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { CustomSections, SectionGate } from "@/components/home/section-gate";
 import {
@@ -240,7 +240,7 @@ export default function HomePage() {
           lead="Six loading ports on both Indian coasts, into twelve markets across five regions."
         />
 
-        <WorldMap markets={site.markets} ports={site.ports} />
+        <LazyWorldMap markets={site.market_points} ports={site.ports} />
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {site.ports.map((port) => (

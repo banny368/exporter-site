@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
-import { WorldMap } from "@/components/global/world-map";
+import { LazyWorldMap } from "@/components/global/world-map-lazy";
 import { Chip } from "@/components/ui/chip";
 import { Section, SectionHead } from "@/components/ui/section";
 import { site } from "@/lib/site";
@@ -40,7 +40,7 @@ export default function GlobalReachPage() {
         }
       >
         <div className="mt-12">
-          <WorldMap markets={site.markets} ports={site.ports} />
+          <LazyWorldMap markets={site.market_points} ports={site.ports} />
         </div>
       </PageHero>
 

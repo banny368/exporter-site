@@ -208,6 +208,15 @@ export interface RegionReach {
   verticals: string[];
 }
 
+/** A destination pin on the world map. Editable in the admin panel. */
+export interface MapPoint {
+  name: string;
+  lat: number;
+  lon: number;
+  /** Name as world-atlas spells it, when it differs from the display name. */
+  geo_name?: string;
+}
+
 export interface PortRoute {
   port: string;
   code: string;
@@ -304,6 +313,8 @@ export interface SiteSettings {
   infrastructure: InfrastructureItem[];
   regions: RegionReach[];
   ports: PortRoute[];
+  /** Destination markets with coordinates, for the world map. */
+  market_points: MapPoint[];
   story: string[];
   vision: string;
   mission: { title: string; body: string }[];
