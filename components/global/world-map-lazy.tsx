@@ -25,7 +25,8 @@ function MapPlaceholder() {
       className="flex w-full items-center justify-center rounded-crate border border-kraft/15 bg-kraft/[0.03]"
       style={{ aspectRatio: "980 / 430" }}
     >
-      <span className="mono-label text-kraft/45">Loading the route map…</span>
+      {/* 45% opacity measured 3.35:1 on the harbour ground. 75% clears AA. */}
+      <span className="mono-label text-kraft/75">Loading the route map…</span>
     </div>
   );
 }

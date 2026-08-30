@@ -37,7 +37,9 @@ export function Logo({
     <Link
       href="/"
       className={cn("group inline-flex items-center gap-3", className)}
-      aria-label={`${label} — home`}
+      // No aria-label: it would override the accessible name and stop it containing the
+      // visible "Export House", which fails label-content-name-mismatch. The link text
+      // already names the company.
     >
       {uploaded ? (
         <Image
