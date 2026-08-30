@@ -10,6 +10,7 @@ import { Rule, Section, SectionHead } from "@/components/ui/section";
 import { FeaturedProducts } from "@/components/home/featured-products";
 import { WorldMap } from "@/components/global/world-map";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
+import { CustomSections, SectionGate } from "@/components/home/section-gate";
 import {
   getCategories,
   getFeaturedProducts,
@@ -29,7 +30,8 @@ export default function HomePage() {
   const categories = getCategories();
 
   return (
-    <>
+    <div className="flex flex-col">
+      <SectionGate id="hero">
       {/* 1 — Hero. The image slot is a placeholder graphic today; drop a real
           photograph in and the scrim and type still work. */}
       <section className="relative isolate flex min-h-[min(88vh,46rem)] items-end overflow-hidden bg-harbour">
@@ -77,6 +79,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      </SectionGate>
+
+      <SectionGate id="trust-bar">
       {/* 2 — Trust bar. */}
       <div className="border-y border-brass/25 bg-kraft">
         <div className="page-shell flex flex-wrap items-center gap-x-8 gap-y-3 py-5">
@@ -95,6 +100,9 @@ export default function HomePage() {
         </div>
       </div>
 
+      </SectionGate>
+
+      <SectionGate id="verticals">
       {/* 3 — Three verticals. */}
       <Section>
         <SectionHead
@@ -141,6 +149,9 @@ export default function HomePage() {
         </div>
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="catalogue">
       {/* 4 — Featured products. */}
       <Section tone="kraft">
         <SectionHead
@@ -159,6 +170,9 @@ export default function HomePage() {
         <FeaturedProducts seed={toProductSummaries(getFeaturedProducts(8))} />
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="capability">
       {/* 5 — Why choose us. Hard numbers only. */}
       <Section>
         <SectionHead
@@ -180,6 +194,9 @@ export default function HomePage() {
         </div>
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="process">
       {/* 6 — Export process teaser. Numbering is justified: this is a real sequence. */}
       <Section tone="harbour">
         <SectionHead
@@ -211,6 +228,9 @@ export default function HomePage() {
         </ol>
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="reach">
       {/* 7 — Global reach. */}
       <Section tone="harbour" className="pt-0">
         <SectionHead
@@ -242,6 +262,9 @@ export default function HomePage() {
         </div>
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="documents">
       {/* 8 — Documents. Buyers scan for this. */}
       <Section tone="kraft">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
@@ -281,6 +304,9 @@ export default function HomePage() {
         </div>
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="testimonials">
       {/* 9 — Testimonials. Demo content: replace with buyers who have given permission. */}
       <Section>
         <SectionHead
@@ -311,6 +337,9 @@ export default function HomePage() {
         </div>
       </Section>
 
+      </SectionGate>
+
+      <SectionGate id="cta">
       {/* 10 — Inquiry band. */}
       <section className="bg-harbour-deep py-20 md:py-24">
         <div className="page-shell grid gap-10 lg:grid-cols-12 lg:items-center">
@@ -334,6 +363,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </>
+      </SectionGate>
+
+      <CustomSections />
+    </div>
   );
 }

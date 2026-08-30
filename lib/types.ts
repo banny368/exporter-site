@@ -223,6 +223,24 @@ export interface SocialLink {
   emphasis?: boolean;
 }
 
+/**
+ * One block on the home page. Built-in sections map to components that already exist;
+ * custom blocks are content the client adds from the admin panel.
+ */
+export interface SectionConfig {
+  id: string;
+  kind: "builtin" | "rich-text" | "image-text";
+  enabled: boolean;
+  /** Custom blocks only. */
+  eyebrow?: string;
+  heading?: string;
+  body?: string;
+  image_slot?: string;
+  cta_label?: string;
+  cta_href?: string;
+  tone?: "paper" | "kraft" | "harbour";
+}
+
 /** Admin-chosen colour overrides. Only changed roles are stored. */
 export type ThemeColorOverrides = Record<string, string>;
 
@@ -241,6 +259,8 @@ export interface SiteSettings {
   };
   /** Packing formats offered in the catalogue filter rail. */
   packing_types: string[];
+  /** Home page blocks, in display order. */
+  sections: SectionConfig[];
   company: {
     name: string;
     legal_name: string;

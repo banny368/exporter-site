@@ -713,5 +713,57 @@
     "punnet",
     "crate",
     "drum"
+  ],
+  "sections": [
+    {
+      "id": "hero",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "trust-bar",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "verticals",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "catalogue",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "capability",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "process",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "reach",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "documents",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "testimonials",
+      "kind": "builtin",
+      "enabled": true
+    },
+    {
+      "id": "cta",
+      "kind": "builtin",
+      "enabled": true
+    }
   ]
 }

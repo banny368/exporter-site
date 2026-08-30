@@ -6,6 +6,7 @@ import { useState, type ReactNode } from "react";
 import {
   Images,
   LayoutDashboard,
+  LayoutTemplate,
   LogOut,
   Mail,
   Package,
@@ -27,6 +28,7 @@ const NAV = [
   { href: "/admin/categories", label: "Categories", icon: Tags },
   { href: "/admin/inquiries", label: "Inquiries", icon: Mail },
   { href: "/admin/branding", label: "Branding", icon: Palette },
+  { href: "/admin/sections", label: "Sections", icon: LayoutTemplate },
   { href: "/admin/settings", label: "Site settings", icon: Settings },
   { href: "/admin/media", label: "Media library", icon: Images },
   { href: "/admin/activity", label: "Activity log", icon: ScrollText },
