@@ -67,20 +67,31 @@ export function createId(prefix: string): string {
 }
 
 /**
- * Seed catalogue, with admin edits applied and deletions removed.
- * Deletion is applied last so a stale edit can never resurrect a deleted product.
+ * Seed records, with admin edits applied and deletions removed.
+ *
+ * Deletion is applied last so a stale edit can never resurrect a deleted record. Kept
+ * generic because the site now passes trimmed product summaries where it used to pass
+ * whole records, and both need identical merge behaviour.
  */
-export function mergeProducts(seed: Product[], state: StoreState): Product[] {
-  const overrides = new Map(state.products.map((product) => [product.id, product]));
-  const deleted = new Set(state.deletedProductIds);
+export function mergeById<T extends { id: string; sort_order: number }>(
+  seed: T[],
+  overrides: T[],
+  deletedIds: string[],
+): T[] {
+  const byId = new Map(overrides.map((record) => [record.id, record]));
+  const deleted = new Set(deletedIds);
+  const seedIds = new Set(seed.map((record) => record.id));
 
-  const merged = seed.map((product) => overrides.get(product.id) ?? product);
-  const seedIds = new Set(seed.map((product) => product.id));
-  const created = state.products.filter((product) => !seedIds.has(product.id));
+  const merged = seed.map((record) => byId.get(record.id) ?? record);
+  const created = overrides.filter((record) => !seedIds.has(record.id));
 
   return [...merged, ...created]
-    .filter((product) => !deleted.has(product.id))
+    .filter((record) => !deleted.has(record.id))
     .sort((a, b) => a.sort_order - b.sort_order);
+}
+
+export function mergeProducts(seed: Product[], state: StoreState): Product[] {
+  return mergeById(seed, state.products, state.deletedProductIds);
 }
 
 export function mergeCategories(seed: Category[], state: StoreState): Category[] {

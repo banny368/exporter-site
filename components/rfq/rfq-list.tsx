@@ -7,10 +7,11 @@ import { CheckCircle2, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { useStore } from "@/components/providers/store-provider";
-import { getPrimaryImage } from "@/lib/products";
 import { INCOTERMS } from "@/lib/countries";
 import { productPath, site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
+import { useMergedSummaries } from "@/components/providers/store-provider";
+import type { ProductSummary } from "@/lib/products";
 
 const FIELD =
   "w-full rounded-crate border border-harbour/20 bg-paper px-3 py-2.5 text-[0.9375rem] " +
@@ -21,8 +22,8 @@ const FIELD =
  * message rather than one per product, and the same list is saved as a single RFQ
  * inquiry so it lands in the admin pipeline.
  */
-export function RfqList() {
-  const { products, rfq, hydrated, updateRfqQuantity, removeFromRfq, clearRfq, addInquiry } =
+export function RfqList({ seed }: { seed: ProductSummary[] }) {
+  const { rfq, hydrated, updateRfqQuantity, removeFromRfq, clearRfq, addInquiry } =
     useStore();
 
   const [destinationPort, setDestinationPort] = useState("");
@@ -30,6 +31,8 @@ export function RfqList() {
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [saved, setSaved] = useState(false);
+
+  const products = useMergedSummaries(seed);
 
   const items = rfq
     .map((item) => ({
@@ -83,7 +86,7 @@ export function RfqList() {
       <div className="lg:col-span-7">
         <ul className="grid gap-px overflow-hidden rounded-crate border border-harbour/12 bg-harbour/10" role="list">
           {items.map(({ product, quantity }) => {
-            const image = getPrimaryImage(product);
+            const image = product.image;
 
             return (
               <li key={product.id} className="grid gap-4 bg-paper p-5 sm:grid-cols-[6rem_1fr]">

@@ -20,9 +20,9 @@ const LINKS = [
   { href: "/contact", label: "Contact" },
 ];
 
-export function Header() {
+export function Header({ categoryCounts = {} }: { categoryCounts?: Record<string, number> }) {
   const pathname = usePathname();
-  const { categories, settings, products } = useStore();
+  const { categories, settings } = useStore();
 
   // Only the home page has a full-bleed hero for the header to sit over.
   const overHero = pathname === "/";
@@ -102,9 +102,7 @@ export function Header() {
               >
                 <div className="grid grid-cols-3 gap-3">
                   {categories.map((category) => {
-                    const count = products.filter(
-                      (product) => product.category_id === category.slug,
-                    ).length;
+                    const count = categoryCounts[category.slug] ?? 0;
 
                     return (
                       <Link

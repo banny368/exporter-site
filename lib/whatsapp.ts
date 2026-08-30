@@ -1,4 +1,14 @@
-import type { Product } from "./types";
+/**
+ * The four fields a WhatsApp message quotes. Declared structurally rather than as
+ * `Product` so a trimmed ProductSummary from a card can open a chat without dragging
+ * the whole record — and the full record still satisfies it.
+ */
+export interface WhatsAppProduct {
+  name: string;
+  variety: string;
+  hs_code: string;
+  slug: string;
+}
 
 /**
  * Every wa.me URL on the site is built here. Nothing string-concatenates a WhatsApp
@@ -27,9 +37,9 @@ export interface WhatsAppOptions {
   phone: string;
   companyName: string;
   /** Single-product inquiry, from a card or a product page. */
-  product?: Product;
+  product?: WhatsAppProduct;
   /** Multi-product RFQ list. Takes precedence over `product` when both are given. */
-  items?: { product: Product; quantity?: string }[];
+  items?: { product: WhatsAppProduct; quantity?: string }[];
   requirement?: WhatsAppRequirement;
   inquiry?: WhatsAppInquiry;
   /** Absolute URL of the page the buyer was on. */

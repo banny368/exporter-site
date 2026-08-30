@@ -19,6 +19,7 @@ import {
   getProductBySlug,
   getProducts,
   getRelatedProducts,
+  toProductSummary,
 } from "@/lib/products";
 import { canonicalFor, withBase } from "@/lib/paths";
 import { categoryPath, productPath } from "@/lib/site";
@@ -260,7 +261,11 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4" role="list">
           {related.map((item) => (
             <li key={item.id} className="flex">
-              <ProductCard product={item} source={`related-${product.slug}`} className="w-full" />
+              <ProductCard
+                product={toProductSummary(item)}
+                source={`related-${product.slug}`}
+                className="w-full"
+              />
             </li>
           ))}
         </ul>

@@ -7,9 +7,8 @@ import { useClientValue } from "@/lib/client-hooks";
 import { Chip } from "@/components/ui/chip";
 import { WhatsAppIconAction } from "@/components/whatsapp/whatsapp-action";
 import { useStore } from "@/components/providers/store-provider";
-import { getPrimaryImage } from "@/lib/products";
+import type { ProductSummary } from "@/lib/products";
 import { productPath } from "@/lib/site";
-import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { withBase } from "@/lib/paths";
 
@@ -18,12 +17,12 @@ export function ProductCard({
   source,
   className,
 }: {
-  product: Product;
+  product: ProductSummary;
   source: string;
   className?: string;
 }) {
   const { rfq, addToRfq, hydrated } = useStore();
-  const image = getPrimaryImage(product);
+  const image = product.image;
   const inRfq = hydrated && rfq.some((item) => item.product_id === product.id);
 
   // "In season" depends on today's date, so it is resolved on the client rather than

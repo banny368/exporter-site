@@ -9,6 +9,7 @@ import { MapEmbed } from "@/components/contact/map-embed";
 import { Section, SectionHead } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { site } from "@/lib/site";
+import { getProducts, toProductSummaries } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -48,7 +49,10 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <h2 className="mono-label border-t border-brass/30 pt-4">Inquiry form</h2>
             <div className="mt-8">
-              <InquiryForm source="contact-page" />
+              <InquiryForm
+                source="contact-page"
+                productOptions={toProductSummaries(getProducts())}
+              />
             </div>
           </div>
 

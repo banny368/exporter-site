@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { RfqList } from "@/components/rfq/rfq-list";
 import { Section } from "@/components/ui/section";
+import { getProducts, toProductSummaries } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Your RFQ list",
@@ -30,7 +31,7 @@ export default function RfqPage() {
       />
 
       <Section>
-        <RfqList />
+        <RfqList seed={toProductSummaries(getProducts())} />
       </Section>
     </>
   );

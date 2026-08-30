@@ -8,13 +8,13 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
-import { getAllProducts, getCategories } from "@/lib/products";
+import { getCategories, toProductSummary, type ProductSummary } from "@/lib/products";
 import { site as seedSite } from "@/lib/site";
 import {
   addRfqItem,
   createId,
+  mergeById,
   mergeCategories,
-  mergeProducts,
   mergeSettings,
   removeRfqItem,
   setRfqQuantity,
@@ -46,7 +46,13 @@ import type { Category, Inquiry, Product, SiteSettings } from "@/lib/types";
 
 interface StoreContextValue {
   hydrated: boolean;
-  products: Product[];
+  /**
+   * Admin edits and admin-created products only — never the catalogue. Pages pass the
+   * products they render and merge through useMergedProducts / useMergedSummaries, so a
+   * visitor downloads the eight cards on the home page rather than all sixteen records.
+   */
+  productOverrides: Product[];
+  deletedProductIds: string[];
   categories: Category[];
   settings: SiteSettings;
   inquiries: Inquiry[];
@@ -73,7 +79,6 @@ interface StoreContextValue {
 
 const StoreContext = createContext<StoreContextValue | null>(null);
 
-const SEED_PRODUCTS = getAllProducts();
 const SEED_CATEGORIES = getCategories();
 
 export function StoreProvider({ children }: { children: ReactNode }) {
@@ -106,13 +111,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   );
 
   const value = useMemo<StoreContextValue>(() => {
-    const products = mergeProducts(SEED_PRODUCTS, state);
     const categories = mergeCategories(SEED_CATEGORIES, state);
     const settings = mergeSettings(seedSite, state);
 
     return {
       hydrated,
-      products,
+      productOverrides: state.products,
+      deletedProductIds: state.deletedProductIds,
       categories,
       settings,
       inquiries: state.inquiries,
@@ -232,4 +237,27 @@ export function useStore(): StoreContextValue {
 /** Settings for client components, with any admin edits already applied. */
 export function useSiteSettings(): SiteSettings {
   return useStore().settings;
+}
+
+/**
+ * Merge admin edits over the products a server component handed in.
+ *
+ * Pages pass only what they render — eight summaries on the home page, one full record
+ * plus four summaries on a product page — so the catalogue never reaches the client
+ * bundle whole. `mergeById` is the same tested rule the admin panel uses.
+ */
+export function useMergedProducts(seed: Product[]): Product[] {
+  const { productOverrides, deletedProductIds } = useStore();
+  return useMemo(
+    () => mergeById(seed, productOverrides, deletedProductIds),
+    [seed, productOverrides, deletedProductIds],
+  );
+}
+
+export function useMergedSummaries(seed: ProductSummary[]): ProductSummary[] {
+  const { productOverrides, deletedProductIds } = useStore();
+  return useMemo(
+    () => mergeById(seed, productOverrides.map(toProductSummary), deletedProductIds),
+    [seed, productOverrides, deletedProductIds],
+  );
 }

@@ -3,7 +3,7 @@ import { PageHero } from "@/components/layout/page-hero";
 import { ProductBrowser } from "@/components/product/product-browser";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Section } from "@/components/ui/section";
-import { getProducts } from "@/lib/products";
+import { getProducts, toProductSummaries } from "@/lib/products";
 import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 
@@ -44,7 +44,7 @@ export default function ProductsPage() {
       />
 
       <Section>
-        <ProductBrowser source="catalogue" />
+        <ProductBrowser seed={toProductSummaries(getProducts())} source="catalogue" />
       </Section>
 
       <Section tone="kraft" className="py-16 md:py-20">

@@ -5,7 +5,6 @@ import { SlidersHorizontal, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { ProductCard } from "./product-card";
 import { Button } from "@/components/ui/button";
-import { useStore } from "@/components/providers/store-provider";
 import {
   filterProducts,
   getCertifications,
@@ -16,6 +15,8 @@ import {
 } from "@/lib/products";
 import type { CategorySlug } from "@/lib/types";
 import { monthLabels } from "@/lib/utils";
+import { useMergedSummaries } from "@/components/providers/store-provider";
+import type { ProductSummary } from "@/lib/products";
 
 const SORTS: { value: SortMode; label: string }[] = [
   { value: "curated", label: "Our display order" },
@@ -172,13 +173,16 @@ function FilterFields({
 }
 
 export function ProductBrowser({
+  seed,
   category,
   source,
 }: {
+  /** Trimmed summaries from the server component that renders this browser. */
+  seed: ProductSummary[];
   category?: CategorySlug;
   source: string;
 }) {
-  const { products } = useStore();
+  const products = useMergedSummaries(seed);
   const [filters, setFilters] = useState<ProductFilters>({});
   const [sort, setSort] = useState<SortMode>("curated");
   const [drawerOpen, setDrawerOpen] = useState(false);

@@ -84,16 +84,28 @@ export function getRelatedProducts(product: Product, limit = 4): Product[] {
 }
 
 /** All sub-category values present in a set of products, for the filter rail. */
-export function getSubCategories(products: Product[]): string[] {
+/**
+ * The filter and sort helpers read only fields that survive into a ProductSummary, so
+ * they are generic over both. A category page filters trimmed summaries; the admin panel
+ * filters whole records; the logic is identical.
+ */
+type Filterable = Pick<
+  Product,
+  "name" | "variety" | "hs_code" | "origin" | "sub_category" | "certifications" | "season_months" | "packing"
+>;
+
+type Sortable = Pick<Product, "name" | "sort_order" | "created_at">;
+
+export function getSubCategories(products: Pick<Product, "sub_category">[]): string[] {
   return [...new Set(products.map((product) => product.sub_category))].sort();
 }
 
 /** All certifications present in a set of products, for the filter rail. */
-export function getCertifications(products: Product[]): string[] {
+export function getCertifications(products: Pick<Product, "certifications">[]): string[] {
   return [...new Set(products.flatMap((product) => product.certifications))].sort();
 }
 
-function matchesSearch(product: Product, term: string): boolean {
+function matchesSearch(product: Filterable, term: string): boolean {
   const haystack = [
     product.name,
     product.variety,
@@ -108,7 +120,7 @@ function matchesSearch(product: Product, term: string): boolean {
 }
 
 /** Filters combine as AND — a buyer narrowing on two axes expects the intersection. */
-export function filterProducts(products: Product[], filters: ProductFilters): Product[] {
+export function filterProducts<T extends Filterable>(products: T[], filters: ProductFilters): T[] {
   const term = filters.search?.trim().toLowerCase();
   const packing = filters.packing?.trim().toLowerCase();
 
@@ -138,7 +150,7 @@ export function filterProducts(products: Product[], filters: ProductFilters): Pr
   });
 }
 
-export function sortProducts(products: Product[], mode: SortMode): Product[] {
+export function sortProducts<T extends Sortable>(products: T[], mode: SortMode): T[] {
   const sorted = [...products];
 
   switch (mode) {
@@ -174,4 +186,63 @@ export function getPrimaryImage(product: Product): ProductImage {
       shot: "hero" as const,
     }
   );
+}
+
+/**
+ * The subset of a product that a card, a filter or the RFQ list actually reads.
+ *
+ * The full record carries three paragraphs of description, a spec table, quality
+ * parameters, a document list and four images — roughly 7KB each. Shipping sixteen of
+ * those to every visitor on every page was the largest single item in the client bundle.
+ * Server components summarise before handing products to client components; only the
+ * product detail page and the admin panel ever see a whole record.
+ */
+export interface ProductSummary {
+  id: string;
+  name: string;
+  slug: string;
+  category_id: CategorySlug;
+  sub_category: string;
+  variety: string;
+  origin: string;
+  hs_code: string;
+  short_description: string;
+  moq: string;
+  season: string;
+  season_months: number[];
+  packing: string;
+  certifications: string[];
+  image: ProductImage;
+  is_featured: boolean;
+  is_published: boolean;
+  sort_order: number;
+  created_at: string;
+}
+
+export function toProductSummary(product: Product): ProductSummary {
+  return {
+    id: product.id,
+    name: product.name,
+    slug: product.slug,
+    category_id: product.category_id,
+    sub_category: product.sub_category,
+    variety: product.variety,
+    origin: product.origin,
+    hs_code: product.hs_code,
+    short_description: product.short_description,
+    moq: product.moq,
+    season: product.season,
+    season_months: product.season_months,
+    packing: product.packing,
+    certifications: product.certifications,
+    image: getPrimaryImage(product),
+    is_featured: product.is_featured,
+    is_published: product.is_published,
+    sort_order: product.sort_order,
+    created_at: product.created_at,
+  };
+}
+
+export function toProductSummaries(products: Product[]): ProductSummary[] {
+  return products.map(toProductSummary);
 }

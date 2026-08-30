@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/fix-segment-prefetch.mjs",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
     "gen:images": "node scripts/gen-placeholders.mjs",
-    "serve": "npx --yes serve out -l 3000",
-    "deploy": "node scripts/deploy-gh-pages.mjs"
+    "serve": "next start",
+    "deploy": "vercel deploy --prod",
+    "deploy:preview": "vercel deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

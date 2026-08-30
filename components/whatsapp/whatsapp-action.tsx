@@ -5,8 +5,7 @@ import { Copy, Check } from "lucide-react";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useStore } from "@/components/providers/store-provider";
-import { buildWhatsAppLink, buildWhatsAppMessage, type WhatsAppOptions } from "@/lib/whatsapp";
-import type { Product } from "@/lib/types";
+import { buildWhatsAppLink, buildWhatsAppMessage, type WhatsAppOptions, type WhatsAppProduct } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
@@ -132,7 +131,7 @@ export function WhatsAppIconAction({
   source,
   className,
 }: {
-  product: Product;
+  product: WhatsAppProduct;
   source: string;
   className?: string;
 }) {

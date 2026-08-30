@@ -10,8 +10,8 @@ import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { useStore } from "@/components/providers/store-provider";
 import { COUNTRIES, INCOTERMS } from "@/lib/countries";
 import { site } from "@/lib/site";
-import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import type { ProductSummary } from "@/lib/products";
 
 /**
  * The inquiry form, used on the contact page and inside the Request-a-quote modal.
@@ -78,13 +78,16 @@ function Field({
 export function InquiryForm({
   source,
   presetProducts = [],
+  productOptions = [],
   className,
 }: {
   source: string;
-  presetProducts?: Product[];
+  presetProducts?: ProductSummary[];
+  /** Every product the buyer may pick. Omitted in the quote modal, which presets one. */
+  productOptions?: ProductSummary[];
   className?: string;
 }) {
-  const { products, addInquiry } = useStore();
+  const { addInquiry } = useStore();
   const [selected, setSelected] = useState<string[]>(presetProducts.map((p) => p.id));
   const [submitted, setSubmitted] = useState<FormValues | null>(null);
 
@@ -94,7 +97,8 @@ export function InquiryForm({
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
-  const chosenProducts = products.filter((product) => selected.includes(product.id));
+  const catalogue = productOptions.length ? productOptions : presetProducts;
+  const chosenProducts = catalogue.filter((product) => selected.includes(product.id));
 
   function onSubmit(values: FormValues) {
     addInquiry({
@@ -231,7 +235,7 @@ export function InquiryForm({
         </legend>
 
         <div className="max-h-56 overflow-y-auto rounded-crate border border-harbour/15 p-3">
-          {products
+          {catalogue
             .filter((product) => product.is_published)
             .map((product) => (
               <label

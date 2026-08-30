@@ -7,9 +7,10 @@ import { AdminHeader } from "@/components/admin/admin-shell";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useStore } from "@/components/providers/store-provider";
+import { useMergedProducts } from "@/components/providers/store-provider";
 import { deleteMedia, listMedia, type MediaRecord } from "@/lib/store";
 import { withBase } from "@/lib/paths";
+import { getAllProducts } from "@/lib/products";
 
 function formatBytes(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -18,7 +19,7 @@ function formatBytes(bytes: number): string {
 }
 
 export default function AdminMediaPage() {
-  const { products } = useStore();
+  const products = useMergedProducts(getAllProducts());
   const [media, setMedia] = useState<MediaRecord[] | null>(null);
   const [search, setSearch] = useState("");
   const [blocked, setBlocked] = useState<MediaRecord | null>(null);

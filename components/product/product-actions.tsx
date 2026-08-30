@@ -8,6 +8,7 @@ import { InquiryForm } from "@/components/forms/inquiry-form";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { useStore } from "@/components/providers/store-provider";
 import type { Product } from "@/lib/types";
+import { toProductSummary } from "@/lib/products";
 
 /** The three actions in the buy column: WhatsApp, a quote form, and the RFQ list. */
 export function ProductActions({ product }: { product: Product }) {
@@ -37,7 +38,7 @@ export function ProductActions({ product }: { product: Product }) {
             description="Send the quantity, destination port and Incoterm. You will have a written quotation within 48 hours."
             className="max-w-2xl"
           >
-            <InquiryForm source={`quote-modal-${product.slug}`} presetProducts={[product]} />
+            <InquiryForm source={`quote-modal-${product.slug}`} presetProducts={[toProductSummary(product)]} />
           </DialogContent>
         </Dialog>
 

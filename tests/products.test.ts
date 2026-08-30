@@ -11,6 +11,8 @@ import {
   getProductsByCategory,
   getRelatedProducts,
   sortProducts,
+  toProductSummaries,
+  toProductSummary,
 } from "@/lib/products";
 
 describe("seed catalogue", () => {
@@ -232,5 +234,68 @@ describe("getPrimaryImage", () => {
     expect(image).toBeDefined();
     expect(image.url).toBe("/site/no-image.svg");
     expect(image.alt_text).not.toBe("");
+  });
+});
+
+describe("toProductSummary", () => {
+  const full = getProductBySlug("alphonso-mango")!;
+  const summary = toProductSummary(full);
+
+  it("keeps every field a card, a filter or the RFQ list reads", () => {
+    for (const key of [
+      "id",
+      "name",
+      "slug",
+      "category_id",
+      "sub_category",
+      "variety",
+      "origin",
+      "hs_code",
+      "short_description",
+      "moq",
+      "season",
+      "season_months",
+      "packing",
+      "certifications",
+      "is_featured",
+      "is_published",
+      "sort_order",
+      "created_at",
+    ] as const) {
+      expect(summary[key], key).toEqual(full[key]);
+    }
+  });
+
+  it("carries exactly one image — the primary", () => {
+    expect(summary.image).toEqual(getPrimaryImage(full));
+  });
+
+  it("drops the heavy fields that never reach a card", () => {
+    for (const key of [
+      "long_description",
+      "specs",
+      "quality_params",
+      "documents",
+      "loadability",
+      "images",
+      "meta_description",
+      "packing_note",
+    ]) {
+      expect(key in summary, key).toBe(false);
+    }
+  });
+
+  it("is materially smaller than the full record", () => {
+    const fullBytes = JSON.stringify(full).length;
+    const summaryBytes = JSON.stringify(summary).length;
+    // The whole point of the type. Guards against someone widening it back out.
+    expect(summaryBytes).toBeLessThan(fullBytes * 0.45);
+  });
+
+  it("summarises the whole catalogue without losing a product", () => {
+    const all = getAllProducts();
+    const summaries = toProductSummaries(all);
+    expect(summaries).toHaveLength(all.length);
+    expect(summaries.map((s) => s.slug)).toEqual(all.map((p) => p.slug));
   });
 });

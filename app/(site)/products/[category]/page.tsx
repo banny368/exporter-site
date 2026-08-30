@@ -9,7 +9,12 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
-import { getCategories, getCategoryBySlug, getProductsByCategory } from "@/lib/products";
+import {
+  getCategories,
+  getCategoryBySlug,
+  getProductsByCategory,
+  toProductSummaries,
+} from "@/lib/products";
 import { canonicalFor, withBase } from "@/lib/paths";
 import type { CategorySlug } from "@/lib/types";
 
@@ -66,7 +71,11 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
       />
 
       <Section>
-        <ProductBrowser category={category.slug as CategorySlug} source={`category-${category.slug}`} />
+        <ProductBrowser
+          seed={toProductSummaries(products)}
+          category={category.slug as CategorySlug}
+          source={`category-${category.slug}`}
+        />
       </Section>
 
       <Section tone="kraft">

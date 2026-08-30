@@ -32,7 +32,9 @@ export function PageHero({
   className?: string;
 }) {
   return (
-    <section className={cn("relative isolate overflow-hidden bg-harbour", className)}>
+    // pt-18 clears the fixed header. It lives here rather than on <main> so the harbour
+    // ground runs all the way to the top of the viewport and the header sits on it.
+    <section className={cn("relative isolate overflow-hidden bg-harbour pt-18", className)}>
       {image ? (
         <>
           <Image src={withBase(image)} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />

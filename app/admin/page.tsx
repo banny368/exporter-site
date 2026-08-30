@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { AdminHeader } from "@/components/admin/admin-shell";
-import { useStore } from "@/components/providers/store-provider";
+import { useStore, useMergedProducts } from "@/components/providers/store-provider";
 import { useClientValue } from "@/lib/client-hooks";
 import { STATUS_LABELS } from "@/lib/store-core";
 import { formatDate } from "@/lib/utils";
 import { INQUIRY_STATUSES } from "@/lib/types";
+import { getAllProducts } from "@/lib/products";
 
 function Tile({ label, value, note }: { label: string; value: string | number; note?: string }) {
   return (
@@ -21,7 +22,8 @@ function Tile({ label, value, note }: { label: string; value: string | number; n
 }
 
 export default function AdminDashboard() {
-  const { products, categories, inquiries, events } = useStore();
+  const { categories, inquiries, events } = useStore();
+  const products = useMergedProducts(getAllProducts());
 
   // Read the clock as a date string rather than a timestamp: the snapshot has to be
   // stable across renders, and this one only changes at midnight.

@@ -4,15 +4,17 @@ import { useState } from "react";
 import { Pencil } from "lucide-react";
 import { AdminHeader } from "@/components/admin/admin-shell";
 import { Button } from "@/components/ui/button";
-import { useStore } from "@/components/providers/store-provider";
+import { useStore, useMergedProducts } from "@/components/providers/store-provider";
 import type { Category } from "@/lib/types";
 import { monthLabels } from "@/lib/utils";
+import { getAllProducts } from "@/lib/products";
 
 const FIELD =
   "w-full rounded-crate border border-harbour/20 bg-paper px-3 py-2.5 text-[0.9375rem] focus-visible:border-brass";
 
 export default function AdminCategoriesPage() {
-  const { categories, products, saveCategory } = useStore();
+  const { categories, saveCategory } = useStore();
+  const products = useMergedProducts(getAllProducts());
   const [editing, setEditing] = useState<Category | null>(null);
 
   if (editing) {

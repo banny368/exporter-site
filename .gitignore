@@ -41,4 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # ...but the example is documentation, and the README points at it.
+
+.vercel
+.env*
 !.env.example

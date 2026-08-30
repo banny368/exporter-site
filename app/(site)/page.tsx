@@ -10,7 +10,12 @@ import { Rule, Section, SectionHead } from "@/components/ui/section";
 import { FeaturedProducts } from "@/components/home/featured-products";
 import { WorldMap } from "@/components/global/world-map";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
-import { getCategories, getProductsByCategory } from "@/lib/products";
+import {
+  getCategories,
+  getFeaturedProducts,
+  getProductsByCategory,
+  toProductSummaries,
+} from "@/lib/products";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -151,7 +156,7 @@ export default function HomePage() {
             </Button>
           }
         />
-        <FeaturedProducts />
+        <FeaturedProducts seed={toProductSummaries(getFeaturedProducts(8))} />
       </Section>
 
       {/* 5 — Why choose us. Hard numbers only. */}

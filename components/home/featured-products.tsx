@@ -1,18 +1,22 @@
 "use client";
 
 import { ProductCard } from "@/components/product/product-card";
-import { useStore } from "@/components/providers/store-provider";
+import { useMergedSummaries } from "@/components/providers/store-provider";
+import type { ProductSummary } from "@/lib/products";
 
 /**
- * Reads through the store rather than the seed import, so a product the client adds in
- * the admin panel shows up here immediately. On first render the store is empty and the
- * merge returns the seed catalogue unchanged, which is what keeps the static HTML and
- * the hydrated markup identical.
+ * The seed arrives as a prop from the server component that renders this, already
+ * trimmed to card fields and already limited. Admin edits are merged over it on the
+ * client, so a product the client adds in the admin panel still appears here — but a
+ * visitor downloads eight summaries rather than the whole catalogue.
+ *
+ * On first render the store is empty and the merge returns the seed unchanged, which is
+ * what keeps the server HTML and the hydrated markup identical.
  */
-export function FeaturedProducts({ limit = 8 }: { limit?: number }) {
-  const { products } = useStore();
+export function FeaturedProducts({ seed }: { seed: ProductSummary[] }) {
+  const products = useMergedSummaries(seed);
   const featured = products.filter((product) => product.is_featured && product.is_published);
-  const shown = (featured.length ? featured : products).slice(0, limit);
+  const shown = featured.length ? featured : products;
 
   return (
     // Two layers on purpose: the inner element scrolls, the outer one clips.

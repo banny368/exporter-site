@@ -8,8 +8,8 @@ import { ProductEditor, emptyProduct } from "@/components/admin/product-editor";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useStore } from "@/components/providers/store-provider";
-import { getPrimaryImage } from "@/lib/products";
+import { useStore, useMergedProducts } from "@/components/providers/store-provider";
+import { getPrimaryImage, getAllProducts } from "@/lib/products";
 import { createId } from "@/lib/store-core";
 import type { Product } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
@@ -19,7 +19,8 @@ const FIELD =
   "rounded-crate border border-harbour/20 bg-paper px-3 py-2 text-[0.875rem] focus-visible:border-brass";
 
 export default function AdminProductsPage() {
-  const { products, categories, saveProduct, deleteProduct, hydrated } = useStore();
+  const { categories, saveProduct, deleteProduct, hydrated } = useStore();
+  const products = useMergedProducts(getAllProducts());
 
   const [editing, setEditing] = useState<Product | null>(null);
   const [search, setSearch] = useState("");
