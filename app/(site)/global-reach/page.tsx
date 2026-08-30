@@ -40,7 +40,7 @@ export default function GlobalReachPage() {
         }
       >
         <div className="mt-12">
-          <LazyWorldMap markets={site.market_points} ports={site.ports} />
+          <LazyWorldMap />
         </div>
       </PageHero>
 

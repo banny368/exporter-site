@@ -240,7 +240,7 @@ export default function HomePage() {
           lead="Six loading ports on both Indian coasts, into twelve markets across five regions."
         />
 
-        <LazyWorldMap markets={site.market_points} ports={site.ports} />
+        <LazyWorldMap />
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {site.ports.map((port) => (

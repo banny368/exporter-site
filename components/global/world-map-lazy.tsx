@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useReveal } from "@/lib/use-reveal";
+import { useSiteSettings } from "@/components/providers/store-provider";
 import type { MapPoint, PortRoute } from "@/lib/types";
 
 /**
@@ -29,20 +30,34 @@ function MapPlaceholder() {
   );
 }
 
+/**
+ * Coordinates come from settings rather than props, so a location added in the admin
+ * panel redraws the public map too. The map renders client-only, so there is no
+ * server-rendered markup for this to disagree with.
+ */
 export function LazyWorldMap({
   markets,
   ports,
   className,
 }: {
-  markets: MapPoint[];
-  ports: Pick<PortRoute, "port" | "lat" | "lon">[];
+  /** Optional overrides. Normally the map reads settings itself. */
+  markets?: MapPoint[];
+  ports?: Pick<PortRoute, "port" | "lat" | "lon">[];
   className?: string;
 }) {
+  const settings = useSiteSettings();
   const { ref, visible } = useReveal<HTMLDivElement>();
+
+  const resolvedMarkets = markets ?? settings.market_points ?? [];
+  const resolvedPorts = ports ?? settings.ports ?? [];
 
   return (
     <div ref={ref} className={className}>
-      {visible ? <WorldMap markets={markets} ports={ports} /> : <MapPlaceholder />}
+      {visible ? (
+        <WorldMap markets={resolvedMarkets} ports={resolvedPorts} />
+      ) : (
+        <MapPlaceholder />
+      )}
     </div>
   );
 }
