@@ -22,6 +22,7 @@ import {
   toProductSummary,
 } from "@/lib/products";
 import { canonicalFor, withBase } from "@/lib/paths";
+import { truncateAtWord } from "@/lib/seo";
 import { categoryPath, productPath } from "@/lib/site";
 
 type Params = { category: string; slug: string };
@@ -43,8 +44,11 @@ export async function generateMetadata({
   if (!product) return {};
 
   return {
-    title: product.meta_title,
-    description: product.meta_description,
+    // meta_title is authored to stand on its own at around sixty characters. The root
+    // template would append the company name and push every product past what a result
+    // shows — truncating the origin detail at the end, which is the part buyers search.
+    title: { absolute: product.meta_title },
+    description: truncateAtWord(product.meta_description, 158),
     openGraph: { images: [withBase(product.og_image)], title: product.meta_title },
     alternates: canonicalFor(productPath(product.category_id, product.slug)),
   };

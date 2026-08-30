@@ -8,13 +8,14 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHead } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { site } from "@/lib/site";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Quality assurance & certifications",
   description:
-    "Six-stage quality process from sourcing to loading supervision, NABL-accredited lab testing before dispatch, and third-party inspection by SGS, Bureau Veritas or Intertek welcome.",
+    "Six-stage quality process from sourcing to loading, NABL-accredited lab testing before dispatch, and third-party inspection by SGS, Bureau Veritas or Intertek.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/quality/"),
 };
 
 export default function QualityPage() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonicalFor } from "@/lib/paths";
 import { PageHero } from "@/components/layout/page-hero";
 import { Section } from "@/components/ui/section";
 import { site } from "@/lib/site";
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   title: "Terms",
   description:
     "Terms of use for this website, and the commercial terms that apply to quotations, orders, inspection, claims and shipment.",
+  alternates: canonicalFor("/terms/"),
 };
 
 const SECTIONS: { heading: string; body: string[] }[] = [

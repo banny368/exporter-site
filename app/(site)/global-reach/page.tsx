@@ -5,13 +5,14 @@ import { LazyWorldMap } from "@/components/global/world-map-lazy";
 import { Chip } from "@/components/ui/chip";
 import { Section, SectionHead } from "@/components/ui/section";
 import { site } from "@/lib/site";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Global reach",
   description:
     "Twelve markets across the Middle East, Europe, North America, Southeast Asia and the CIS, loaded from six Indian ports with published transit times.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/global-reach/"),
 };
 
 export default function GlobalReachPage() {

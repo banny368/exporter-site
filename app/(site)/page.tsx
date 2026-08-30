@@ -1,4 +1,4 @@
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, FileText } from "lucide-react";
@@ -20,10 +20,13 @@ import { site } from "@/lib/site";
 import { SiteImage } from "@/components/site-image";
 
 export const metadata: Metadata = {
-  title: `${site.company.name} — Fresh produce, spices and furniture exporter from India`,
+  title: {
+    absolute: `${site.company.name} — Indian produce, spice & furniture exporter`,
+  },
   description:
-    "Indian export house shipping fresh fruit and vegetables, dehydrated products and spices, and solid wood furniture. Real HS codes, container loadability and MOQ published for every product.",
+    "Indian export house shipping fresh fruit and vegetables, dehydrated spices, and solid wood furniture. HS codes, loadability and MOQ published per product.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/"),
 };
 
 export default function HomePage() {

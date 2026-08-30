@@ -4,13 +4,14 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHead } from "@/components/ui/section";
 import { site } from "@/lib/site";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Vision, mission & motive",
   description:
-    "Why this company exports: connecting Indian growers and workshops directly to overseas buyers, with a verifiable source and a specification that holds from sample to container.",
+    "Connecting Indian growers and workshops directly to overseas buyers, with a verifiable source and a specification that holds from sample to container.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/vision-mission/"),
 };
 
 export default function VisionMissionPage() {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 import { Clock, Mail, Phone } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description:
     "Send a product, quantity, destination port and Incoterm and get a written quotation within 48 hours. WhatsApp, phone and email, Mon–Sat 9:30 AM – 7:00 PM IST.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/contact/"),
 };
 
 export default function ContactPage() {

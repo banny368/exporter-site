@@ -16,6 +16,7 @@ import {
   toProductSummaries,
 } from "@/lib/products";
 import { canonicalFor, withBase } from "@/lib/paths";
+import { truncateAtWord } from "@/lib/seo";
 import type { CategorySlug } from "@/lib/types";
 
 type Params = { category: string };
@@ -35,7 +36,7 @@ export async function generateMetadata({
 
   return {
     title: category.name,
-    description: category.description.slice(0, 180),
+    description: truncateAtWord(category.description, 158),
     openGraph: { images: [withBase(`/og/categories/${category.slug}.png`)] },
     alternates: canonicalFor(`/products/${category.slug}/`),
   };

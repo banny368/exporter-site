@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 import { PageHero } from "@/components/layout/page-hero";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { StatCounters } from "@/components/stat-counters";
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description:
     "How the company grew from a single container of turmeric to three export verticals, and the pack house, cold storage and warehouse capacity behind it today.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/about/"),
 };
 
 export default function AboutPage() {

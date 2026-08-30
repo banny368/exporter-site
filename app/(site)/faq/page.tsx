@@ -7,13 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { site } from "@/lib/site";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Buyer FAQs",
   description:
     "Minimum order quantities, Incoterms, payment terms, samples, lead times, inspection, documentation and private labelling — answered for first-time buyers.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/faq/"),
 };
 
 export default function FaqPage() {

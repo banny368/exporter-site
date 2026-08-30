@@ -5,7 +5,7 @@ import { FloatingActions } from "@/components/floating-actions";
 import { CookieConsent } from "@/components/cookie-consent";
 import { RevealObserver } from "@/components/reveal-observer";
 import { ScrollRail } from "@/components/scroll-rail";
-import { OrganizationJsonLd } from "@/components/seo/json-ld";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
 import { getCategories, getProductsByCategory } from "@/lib/products";
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
@@ -19,6 +19,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <OrganizationJsonLd />
+      <WebSiteJsonLd />
 
       <a
         href="#main"

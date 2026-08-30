@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { withBase } from "@/lib/paths";
+import { canonicalFor, withBase } from "@/lib/paths";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
@@ -13,8 +13,9 @@ import { SiteImage } from "@/components/site-image";
 export const metadata: Metadata = {
   title: "Infrastructure",
   description:
-    "Pack house at 12 MT per day, 600 MT of cold storage across four independently controlled chambers, 1,500 MT dry warehouse, on-site fumigation and a dock-level loading bay.",
+    "Pack house at 12 MT per day, 600 MT cold storage across four chambers, 1,500 MT dry warehouse, on-site fumigation and a dock-level loading bay.",
   openGraph: { images: [withBase("/og/default.png")] },
+  alternates: canonicalFor("/infrastructure/"),
 };
 
 export default function InfrastructurePage() {
