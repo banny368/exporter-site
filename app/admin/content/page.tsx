@@ -14,8 +14,26 @@ export default function AdminContentPage() {
     <>
       <AdminHeader
         title="Content"
-        lead="Every list of copy on the site — capability points, certifications, the timeline, FAQs and the rest. Changes appear immediately; Export settings publishes them."
+        lead="Every list of copy on the site — capability points, certifications, the timeline, FAQs and the rest."
       />
+
+      {/*
+        Saying plainly where this copy applies. Unlike colours, images and the map — which
+        the browser resolves and so change instantly — these lists are rendered on the
+        server so that search engines read them. The FAQ list in particular is emitted as
+        FAQPage structured data, which only works from server-rendered markup. That is
+        worth keeping, and it means edits here reach visitors on the next deploy.
+      */}
+      <p className="mb-8 max-w-3xl rounded-crate border border-brass/35 bg-brass/5 p-4 text-[0.9375rem] leading-relaxed">
+        Edits here are saved as you type and go live on the next deploy. This copy is
+        rendered on the server so search engines can read it — the FAQs are published as
+        structured data — which is why it does not swap instantly the way colours and
+        images do. Use{" "}
+        <Link href="/admin/settings" className="underline underline-offset-4">
+          Export settings
+        </Link>{" "}
+        when you are finished.
+      </p>
 
       {/*
         A list of lists is easier to navigate than thirteen screens in the sidebar, and it
