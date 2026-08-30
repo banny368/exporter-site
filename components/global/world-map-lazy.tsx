@@ -22,7 +22,7 @@ function MapPlaceholder() {
   return (
     <div
       className="flex w-full items-center justify-center rounded-crate border border-kraft/15 bg-kraft/[0.03]"
-      style={{ aspectRatio: "980 / 460" }}
+      style={{ aspectRatio: "980 / 430" }}
     >
       <span className="mono-label text-kraft/45">Loading the route map…</span>
     </div>

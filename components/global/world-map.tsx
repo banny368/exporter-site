@@ -49,9 +49,11 @@ export function WorldMap({
     <figure className={cn("overflow-hidden", className)}>
       <ComposableMap
         projection="geoEqualEarth"
-        projectionConfig={{ scale: 165, center: [30, 12] }}
+        // Centred on the trade lanes rather than the globe: India sits mid-frame and the
+        // empty southern ocean is cropped out.
+        projectionConfig={{ scale: 185, center: [42, 22] }}
         width={980}
-        height={460}
+        height={430}
         style={{ width: "100%", height: "auto" }}
         role="img"
         aria-label={`Markets served: ${markets.map((m) => m.name).join(", ")}`}
