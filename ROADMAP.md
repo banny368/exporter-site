@@ -62,48 +62,53 @@ This is what separates an exporter site from a brochure.
 
 ## Performance
 
-Measured with Lighthouse (mobile profile) against the **deployed site on Vercel**, which
-is the only measurement worth quoting — a local file server without compression
-understates the score by roughly twenty points.
+Measured with Lighthouse (mobile profile) against the **deployed site on Vercel**. A local
+file server without compression understates the score by roughly twenty points, so it is
+not worth quoting.
 
-| Page | Performance | Accessibility | Best practices | SEO | JS shipped |
-|---|---|---|---|---|---|
-| Home | 75 | 100 | 100 | 100 | 218 KB |
-| Products listing | 88 | 100 | 100 | 100 | 224 KB |
-| Product detail | 79 | 100 | 100 | 100 | 224 KB |
-| Contact | 79 | 100 | 100 | 100 | 295 KB |
+| Page | Performance | Accessibility | Best practices | SEO |
+|---|---|---|---|---|
+| Home | 72–78 | 100 | 100 | 100 |
+| Products listing | 76–88 | 100 | 100 | 100 |
+| Global reach | 74–81 | 100 | 100 | 100 |
+| Product detail | 77–79 | 100 | 100 | 100 |
+| Contact | 75–79 | 100 | 100 | 100 |
 
-Baseline before the move off static export was 68 with 600 KB of JavaScript. Accessibility,
-best practices and SEO are at target. Performance is not yet at 90 on three of the four.
+Performance is quoted as a range on purpose: repeated runs of the same build vary by up to
+ten points on a throttled mobile profile. Treat a single number as noise and re-measure
+before acting on it.
 
-What produced the gain, in case it needs repeating elsewhere:
+Baseline before the move off static export was 68 with 600 KB of JavaScript, and around
+220–255 KB now. Accessibility, best practices and SEO are at target on every page.
+Performance is not.
+
+What produced the gain:
 
 - **The catalogue left the client bundle.** `store-provider` imported `getAllProducts()`
-  at module scope, so all sixteen full records reached every visitor on every page.
-  Server components now pass only the products a page renders, trimmed to `ProductSummary`.
-- **Reveal stopped being a client component.** One shared IntersectionObserver replaced
-  one React tree per revealed block. This alone took home-page blocking time from 1,090ms
-  to about 490ms.
-- **The quote form loads on demand.** zod and react-hook-form were in every product page
-  bundle for a modal that starts closed. `next/dynamic` took the product page from 302 KB
-  to 224 KB.
-- **Images are optimised.** AVIF with a real srcset per device width, which static export
-  could not do.
+  at module scope, so all sixteen full records reached every visitor on every page. Server
+  components now pass only what a page renders, trimmed to `ProductSummary`.
+- **Reveal stopped being a client component.** One shared IntersectionObserver replaced one
+  React tree per revealed block — home-page blocking time fell from 1,090ms to about 490ms.
+- **The quote form loads on demand**, taking the product page from 302 KB to 224 KB.
+- **The world map is lazy.** react-simple-maps and its topology are around 130 KB and load
+  only when the section scrolls into view, on the two pages that show it.
+- **Images are optimised** — AVIF with a real srcset per device width.
 
 What is left, in order of value:
 
 | Item | Where it costs | Fix |
 |---|---|---|
-| `ProductCard` is a client component | 8 instances on the home page, 16 on the products listing, each hydrating its own tree and its own WhatsApp dialog | Split it: server-render the card body, keep a small client island for the RFQ and WhatsApp buttons. This is the largest remaining item. |
+| `ProductCard` is a client component | 8 instances on the home page, 16 on the products listing, each hydrating its own tree and its own WhatsApp dialog | Split it: server-render the card body, keep a small client island for the RFQ and WhatsApp buttons. Largest remaining item. |
 | One WhatsApp dialog per card | Same pages | Lift to a single app-level dialog driven by context. |
 | React and the App Router client runtime | Every page, ~150 KB | Structural. Only fewer client components move it. |
 
 Ruled out by measurement, so nobody repeats the work: the placeholder artwork, the fonts
-(all three families load inside 1.7s), and CSS (11 KB total).
+(all load inside 1.7s), and CSS at 11 KB.
 
-A note on measuring SEO: Vercel adds `X-Robots-Tag: noindex` to generated `*.vercel.app`
-URLs so they do not compete with the real domain. Lighthouse reads that as "blocked from
-indexing" and scores SEO 66 regardless of the markup. Measure on the custom domain.
+Measuring SEO: Vercel adds `X-Robots-Tag: noindex` to generated `*.vercel.app` URLs so they
+do not compete with the real domain. Lighthouse reads that as "blocked from indexing" and
+scores SEO 66 regardless of the markup. Measure on the custom domain, or on the stable
+project alias.
 
 ## Known limitations in this build
 
