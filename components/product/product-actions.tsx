@@ -4,11 +4,23 @@ import { useState } from "react";
 import { Check, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { InquiryForm } from "@/components/forms/inquiry-form";
+import dynamic from "next/dynamic";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { useStore } from "@/components/providers/store-provider";
 import type { Product } from "@/lib/types";
 import { toProductSummary } from "@/lib/products";
+
+/**
+ * The quote form pulls in zod and react-hook-form — around 80KB that a visitor reading a
+ * product page never needs unless they open the modal. Loading it on demand keeps it out
+ * of the product page bundle entirely.
+ */
+const InquiryForm = dynamic(
+  () => import("@/components/forms/inquiry-form").then((m) => m.InquiryForm),
+  {
+    loading: () => <p className="mono-label py-8 text-center">Loading the form…</p>,
+  },
+);
 
 /** The three actions in the buy column: WhatsApp, a quote form, and the RFQ list. */
 export function ProductActions({ product }: { product: Product }) {

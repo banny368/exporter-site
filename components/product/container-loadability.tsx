@@ -108,7 +108,10 @@ export function ContainerLoadability({
                 "rounded-crate border p-4 md:p-5",
                 tile.span === 2 ? "col-span-2" : "col-span-1",
                 onDark ? "border-kraft/20 bg-kraft/[0.04]" : "border-harbour/15 bg-harbour/[0.02]",
-                muted && "opacity-60",
+                // No opacity here. Fading the whole tile also faded its text, which
+                // dropped the label and the dimension note below AA contrast. The
+                // dashed, lighter silhouette already says "not offered" on its own.
+                muted && "border-dashed",
               )}
             >
               <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
