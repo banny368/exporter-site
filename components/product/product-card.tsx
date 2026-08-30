@@ -35,7 +35,9 @@ export function ProductCard({
   return (
     <article
       className={cn(
-        "group flex flex-col overflow-hidden rounded-crate border border-harbour/12 bg-paper transition-colors hover:border-brass/50",
+        "group flex flex-col overflow-hidden rounded-crate border border-harbour/12 bg-paper",
+        "transition-[transform,border-color] duration-300 ease-out hover:-translate-y-0.5 hover:border-brass/50",
+        "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         className,
       )}
     >

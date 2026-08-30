@@ -140,6 +140,62 @@
     border-top: 1px solid color-mix(in srgb, var(--color-brass) 30%, transparent);
   }
 
+
+  /*
+    The catalogue row. The scrollbar is hidden because the arrows, the position readout
+    and the travel rail already say where you are; a raw scrollbar under a photograph
+    was the thing that read as unfinished. The mask lets cards fade at the gutters so it
+    is obvious the row continues rather than ending.
+  */
+  .carousel-fade {
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 2.5%,
+      #000 97.5%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 2.5%,
+      #000 97.5%,
+      transparent 100%
+    );
+  }
+
+  .carousel-fade::-webkit-scrollbar {
+    display: none;
+  }
+
+  /*
+    Reading progress. Two pixels of brass across the top of the viewport — a vessel's
+    passage, and the only ambient motion on the site. Transform only, so it never
+    triggers layout.
+  */
+  .scroll-rail {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 50;
+    height: 2px;
+    transform-origin: left;
+    background: var(--color-brass);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-fade {
+      scroll-behavior: auto;
+    }
+
+    .scroll-rail {
+      display: none;
+    }
+  }
+
   /* Scroll reveal. Elements are server-rendered with [data-reveal]; one shared
      observer in RevealObserver flips data-visible as they scroll in. */
   .reveal {

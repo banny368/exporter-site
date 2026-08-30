@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/footer";
 import { FloatingActions } from "@/components/floating-actions";
 import { CookieConsent } from "@/components/cookie-consent";
 import { RevealObserver } from "@/components/reveal-observer";
+import { ScrollRail } from "@/components/scroll-rail";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
 import { getCategories, getProductsByCategory } from "@/lib/products";
 
@@ -43,6 +44,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       <FloatingActions />
       <CookieConsent />
       <RevealObserver />
+      <ScrollRail />
     </>
   );
 }
