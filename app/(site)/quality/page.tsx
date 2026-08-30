@@ -30,7 +30,7 @@ export default function QualityPage() {
       <PageHero
         eyebrow="Quality assurance"
         title="Checked at six stages, not once at the end"
-        image="/site/quality.webp"
+        imageSlot="site.quality"
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Quality", href: "/quality" },

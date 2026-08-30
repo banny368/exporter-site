@@ -270,6 +270,8 @@ export interface SiteSettings {
   packing_types: string[];
   /** Home page blocks, in display order. */
   sections: SectionConfig[];
+  /** Image slot id -> uploaded media id, or a path. See lib/image-slots.ts. */
+  images: Record<string, string>;
   company: {
     name: string;
     legal_name: string;

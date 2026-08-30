@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { withBase } from "@/lib/paths";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -18,6 +17,7 @@ import {
   toProductSummaries,
 } from "@/lib/products";
 import { site } from "@/lib/site";
+import { SiteImage } from "@/components/site-image";
 
 export const metadata: Metadata = {
   title: `${site.company.name} — Fresh produce, spices and furniture exporter from India`,
@@ -35,8 +35,8 @@ export default function HomePage() {
       {/* 1 — Hero. The image slot is a placeholder graphic today; drop a real
           photograph in and the scrim and type still work. */}
       <section className="relative isolate flex min-h-[min(88vh,46rem)] items-end overflow-hidden bg-harbour">
-        <Image
-          src={withBase(site.hero.image)}
+        <SiteImage
+          slot="site.hero"
           alt=""
           fill
           priority
@@ -122,8 +122,8 @@ export default function HomePage() {
                   className="group flex h-full flex-col overflow-hidden rounded-crate border border-harbour/12 bg-paper transition-colors hover:border-brass/60"
                 >
                   <div className="relative aspect-3/2 overflow-hidden bg-harbour/5">
-                    <Image
-                      src={withBase(category.banner_url)}
+                    <SiteImage
+                      slot={`category.${category.slug}.banner`}
                       alt=""
                       fill
                       sizes="(min-width: 1024px) 33vw, 90vw"

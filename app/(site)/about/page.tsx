@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { withBase } from "@/lib/paths";
-import Image from "next/image";
 import { PageHero } from "@/components/layout/page-hero";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { StatCounters } from "@/components/stat-counters";
 import { Reveal } from "@/components/reveal";
 import { Section, SectionHead } from "@/components/ui/section";
 import { site } from "@/lib/site";
+import { SiteImage } from "@/components/site-image";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow={`Established ${site.company.established}`}
         title="An export house built around what arrives, not what is promised"
-        image="/site/about.webp"
+        imageSlot="site.about"
         crumbs={[
           { name: "Home", href: "/" },
           { name: "About", href: "/about" },
@@ -72,8 +72,8 @@ export default function AboutPage() {
             <Reveal key={item.name} delay={index * 70}>
               <article className="flex h-full flex-col overflow-hidden rounded-crate border border-harbour/12">
                 <div className="relative aspect-4/3 bg-harbour/5">
-                  <Image
-                    src={withBase(item.photo)}
+                  <SiteImage
+                    slot={`infra.${index}.photo`}
                     alt=""
                     fill
                     sizes="(min-width: 1024px) 25vw, 45vw"
@@ -100,11 +100,11 @@ export default function AboutPage() {
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {site.team.map((member) => (
+          {site.team.map((member, index) => (
             <div key={member.role} className="overflow-hidden rounded-crate border border-kraft/15">
               <div className="relative aspect-3/4 bg-kraft/5">
-                <Image
-                  src={withBase(member.photo)}
+                <SiteImage
+                  slot={`team.${index}.photo`}
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 25vw, 45vw"

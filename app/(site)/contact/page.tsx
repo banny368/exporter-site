@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { withBase } from "@/lib/paths";
-import Image from "next/image";
 import { Clock, Mail, Phone } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -10,6 +9,7 @@ import { Section, SectionHead } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { site } from "@/lib/site";
 import { getProducts, toProductSummaries } from "@/lib/products";
+import { SiteImage } from "@/components/site-image";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -135,11 +135,11 @@ export default function ContactPage() {
         />
 
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
-          {site.infrastructure.map((item) => (
+          {site.infrastructure.map((item, index) => (
             <li key={item.name}>
               <div className="relative aspect-4/3 overflow-hidden rounded-crate border border-harbour/12 bg-harbour/5">
-                <Image
-                  src={withBase(item.photo)}
+                <SiteImage
+                  slot={`infra.${index}.photo`}
                   alt={`${item.name} placeholder image`}
                   fill
                   sizes="(min-width: 1024px) 25vw, 45vw"

@@ -3,6 +3,7 @@ import { withBase } from "@/lib/paths";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { SiteImage } from "@/components/site-image";
 
 export interface Crumb {
   name: string;
@@ -19,6 +20,7 @@ export function PageHero({
   title,
   lead,
   image,
+  imageSlot,
   crumbs,
   children,
   className,
@@ -27,6 +29,8 @@ export function PageHero({
   title: string;
   lead?: ReactNode;
   image?: string;
+  /** Registry slot, so the banner can be replaced from the admin panel. */
+  imageSlot?: string;
   crumbs?: Crumb[];
   children?: ReactNode;
   className?: string;
@@ -35,9 +39,20 @@ export function PageHero({
     // pt-18 clears the fixed header. It lives here rather than on <main> so the harbour
     // ground runs all the way to the top of the viewport and the header sits on it.
     <section className={cn("relative isolate overflow-hidden bg-harbour pt-18", className)}>
-      {image ? (
+      {image || imageSlot ? (
         <>
-          <Image src={withBase(image)} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />
+          {imageSlot ? (
+            <SiteImage
+              slot={imageSlot}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-70"
+            />
+          ) : (
+            <Image src={withBase(image!)} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />
+          )}
           <div
             className="absolute inset-0 bg-gradient-to-t from-harbour-deep via-harbour-deep/80 to-harbour-deep/50"
             aria-hidden="true"

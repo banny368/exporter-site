@@ -61,7 +61,7 @@ export default async function CategoryPage({ params }: { params: Promise<Params>
       <PageHero
         eyebrow={`${products.length} products`}
         title={category.name}
-        image={category.banner_url}
+        imageSlot={`category.${category.slug}.banner`}
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Products", href: "/products" },

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { withBase } from "@/lib/paths";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
@@ -9,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHead } from "@/components/ui/section";
 import { WhatsAppAction } from "@/components/whatsapp/whatsapp-action";
 import { site } from "@/lib/site";
+import { SiteImage } from "@/components/site-image";
 
 export const metadata: Metadata = {
   title: "Infrastructure",
@@ -30,7 +30,7 @@ export default function InfrastructurePage() {
       <PageHero
         eyebrow="Facilities"
         title="The capacity behind the specification"
-        image="/site/packhouse.webp"
+        imageSlot="site.packhouse"
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Infrastructure", href: "/infrastructure" },
@@ -56,8 +56,8 @@ export default function InfrastructurePage() {
                   index % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >
-                <Image
-                  src={withBase(item.photo)}
+                <SiteImage
+                  slot={`infra.${index}.photo`}
                   alt={`${item.name} placeholder image`}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

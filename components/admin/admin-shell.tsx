@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import {
   Images,
+  Image as ImageIcon,
   LayoutDashboard,
   LayoutTemplate,
   LogOut,
@@ -31,6 +32,7 @@ const NAV = [
   { href: "/admin/branding", label: "Branding", icon: Palette },
   { href: "/admin/sections", label: "Sections", icon: LayoutTemplate },
   { href: "/admin/map", label: "Map", icon: Map },
+  { href: "/admin/images", label: "Images", icon: ImageIcon },
   { href: "/admin/settings", label: "Site settings", icon: Settings },
   { href: "/admin/media", label: "Media library", icon: Images },
   { href: "/admin/activity", label: "Activity log", icon: ScrollText },
