@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import {
+  FileText,
   Images,
   Image as ImageIcon,
   LayoutDashboard,
@@ -33,6 +34,7 @@ const NAV = [
   { href: "/admin/sections", label: "Sections", icon: LayoutTemplate },
   { href: "/admin/map", label: "Map", icon: Map },
   { href: "/admin/images", label: "Images", icon: ImageIcon },
+  { href: "/admin/content", label: "Content", icon: FileText },
   { href: "/admin/settings", label: "Site settings", icon: Settings },
   { href: "/admin/media", label: "Media library", icon: Images },
   { href: "/admin/activity", label: "Activity log", icon: ScrollText },
