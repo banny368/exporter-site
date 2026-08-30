@@ -94,13 +94,23 @@ What produced the gain:
   only when the section scrolls into view, on the two pages that show it.
 - **Images are optimised** — AVIF with a real srcset per device width.
 
-What is left, in order of value:
+What is left — and what was tried and did not work:
 
-| Item | Where it costs | Fix |
-|---|---|---|
-| `ProductCard` is a client component | 8 instances on the home page, 16 on the products listing, each hydrating its own tree and its own WhatsApp dialog | Split it: server-render the card body, keep a small client island for the RFQ and WhatsApp buttons. Largest remaining item. |
-| One WhatsApp dialog per card | Same pages | Lift to a single app-level dialog driven by context. |
-| React and the App Router client runtime | Every page, ~150 KB | Structural. Only fewer client components move it. |
+| Attempted | Result |
+|---|---|
+| Lift the WhatsApp dialog to one app-level instance instead of one per card | **No measurable change.** 24 Radix dialog roots became one. JS went 227KB to 226KB, blocking time was unchanged. Kept anyway: one dialog is the right structure. |
+| Set a modern browserslist to drop legacy polyfills | **No measurable change.** The polyfills are inside the Next runtime chunk and Turbopack does not drop them for a narrower target. Config kept because declaring a target is correct, but it buys nothing here. |
+
+| Still untried | Where it costs |
+|---|---|
+| `ProductCard` as a server component with a small client island | 8 cards on the home page, 16 on the products listing. Blocked by its parents: FeaturedProducts and ProductBrowser are client components because they merge admin edits and run filters, and a server component cannot render inside one except as `children`. Doing this properly means restructuring how seed and overrides meet. |
+| React and the App Router client runtime | ~150KB, and 794ms of evaluation on a throttled phone. This is the floor. |
+
+An honest read of the remaining gap: blocking time sits around 700-900ms and most of it is
+React evaluating plus style and layout on a content-heavy page. Reaching 90 means
+materially less client React — and the interactive features this site was asked for
+(catalogue filters, the carousel, the RFQ list, admin-driven theming) are exactly what
+require it. The trade is real and worth making deliberately rather than by accident.
 
 Ruled out by measurement, so nobody repeats the work: the placeholder artwork, the fonts
 (all load inside 1.7s), and CSS at 11 KB.
