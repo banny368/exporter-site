@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { geoEqualEarth } from "d3-geo";
 import {
   ComposableMap,
   Geographies,
@@ -31,6 +32,35 @@ const GEO_URL = withBase("/geo/countries-110m.json");
 /** The origin every route is drawn from. */
 const INDIA: [number, number] = [78.9, 20.6];
 
+/**
+ * The origin country, named as the topology names it.
+ *
+ * It needs its own fill. Only destination markets were highlighted, so the country the
+ * whole map is about drew at the same 9% as the countries nobody ships to — which left
+ * the amber loading ports apparently floating in the Arabian Sea.
+ */
+const ORIGIN_COUNTRY = "India";
+
+/**
+ * Antarctica is dropped rather than drawn.
+ *
+ * Nothing ships there, and on an equal-earth projection it is a band wide enough to
+ * dominate the frame: with it in, the drawn content ran 110px past the bottom of the
+ * viewBox while 111px sat empty on the right. Removing it lets the trade lanes centre.
+ */
+const OMITTED = new Set(["Antarctica"]);
+
+const WIDTH = 980;
+const HEIGHT = 430;
+
+/**
+ * Room kept clear inside the frame.
+ *
+ * Right is widest because a hovered market writes its name to the right of its dot; the
+ * rest is enough that a marker never touches an edge.
+ */
+const PADDING = { top: 34, right: 132, bottom: 40, left: 44 };
+
 export function WorldMap({
   markets,
   ports,
@@ -42,18 +72,41 @@ export function WorldMap({
 }) {
   const [active, setActive] = useState<string | null>(null);
 
+  /**
+   * The frame is fitted to the locations actually plotted, not hardcoded.
+   *
+   * A fixed scale and centre cannot know where the client has put things. The previous
+   * one was centred at 42°E, which cut 114px off the left edge — and the USA and Canada
+   * markers with it — while 111px of empty ocean sat on the right. Fitting to the points
+   * means every port, market and the origin is inside the frame with room to spare, and
+   * adding a location in the admin panel reframes the map instead of pushing a marker
+   * off the edge.
+   */
+  const projection = useMemo(() => {
+    const coordinates: [number, number][] = [
+      INDIA,
+      ...ports.map((port): [number, number] => [port.lon, port.lat]),
+      ...markets.map((market): [number, number] => [market.lon, market.lat]),
+    ];
+
+    return geoEqualEarth().fitExtent(
+      [
+        [PADDING.left, PADDING.top],
+        [WIDTH - PADDING.right, HEIGHT - PADDING.bottom],
+      ],
+      { type: "MultiPoint", coordinates },
+    );
+  }, [markets, ports]);
+
   // Countries to fill differently. Falls back to the display name when no geo name is set.
   const served = new Set(markets.map((market) => market.geo_name ?? market.name));
 
   return (
     <figure className={cn("overflow-hidden", className)}>
       <ComposableMap
-        projection="geoEqualEarth"
-        // Centred on the trade lanes rather than the globe: India sits mid-frame and the
-        // empty southern ocean is cropped out.
-        projectionConfig={{ scale: 185, center: [42, 22] }}
-        width={980}
-        height={430}
+        projection={projection}
+        width={WIDTH}
+        height={HEIGHT}
         style={{ width: "100%", height: "auto" }}
         role="img"
         aria-label={`Markets served: ${markets.map((m) => m.name).join(", ")}`}
@@ -62,21 +115,32 @@ export function WorldMap({
 
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
-            geographies.map((geo) => {
-              const isServed = served.has(String(geo.properties?.name ?? ""));
-              return (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill={isServed ? "var(--color-brass)" : "var(--color-kraft)"}
-                  fillOpacity={isServed ? 0.32 : 0.09}
-                  stroke="var(--color-kraft)"
-                  strokeOpacity={0.22}
-                  strokeWidth={0.4}
-                  style={{ outline: "none" }}
-                />
-              );
-            })
+            geographies
+              .filter((geo) => !OMITTED.has(String(geo.properties?.name ?? "")))
+              .map((geo) => {
+                const name = String(geo.properties?.name ?? "");
+                const isOrigin = name === ORIGIN_COUNTRY;
+                const isServed = served.has(name);
+
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={
+                      isOrigin
+                        ? "var(--color-brass-bright)"
+                        : isServed
+                          ? "var(--color-brass)"
+                          : "var(--color-kraft)"
+                    }
+                    fillOpacity={isOrigin ? 0.55 : isServed ? 0.32 : 0.09}
+                    stroke="var(--color-kraft)"
+                    strokeOpacity={isOrigin ? 0.5 : 0.22}
+                    strokeWidth={isOrigin ? 0.7 : 0.4}
+                    style={{ outline: "none" }}
+                  />
+                );
+              })
           }
         </Geographies>
 
