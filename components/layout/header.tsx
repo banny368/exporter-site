@@ -1,16 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./logo";
+import { SiteImage } from "@/components/site-image";
 import { useStore } from "@/components/providers/store-provider";
 import { useScrolledPast } from "@/lib/client-hooks";
 import { cn } from "@/lib/utils";
-import { withBase } from "@/lib/paths";
 
 const LINKS = [
   { href: "/about", label: "About" },
@@ -111,8 +110,16 @@ export function Header({ categoryCounts = {} }: { categoryCounts?: Record<string
                         className="group rounded-crate border border-transparent p-3 transition-colors hover:border-brass/30 hover:bg-kraft/50"
                       >
                         <div className="relative mb-3 aspect-4/3 overflow-hidden rounded-crate bg-harbour/5">
-                          <Image
-                            src={withBase(category.banner_url)}
+                          {/*
+                            Through the slot registry, not the raw banner_url. This was
+                            the one image on the site still reading its shipped path
+                            directly, so replacing a category banner in the admin panel
+                            changed the home page and the category page and left this
+                            menu showing the placeholder.
+                          */}
+                          <SiteImage
+                            slot={`category.${category.slug}.banner`}
+                            fallback={category.banner_url}
                             alt=""
                             fill
                             sizes="240px"
