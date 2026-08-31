@@ -452,10 +452,28 @@ async function generateOgImages(products, categories) {
     });
   }
 
-  for (const name of ["about", "quality", "packhouse"]) {
+  // One banner per inner page. Every page that opens with a PageHero needs its own file,
+  // because each is an image slot the client can replace independently — sharing one
+  // would mean replacing the Contact banner also changed the FAQ. The category tint just
+  // keeps them from all looking identical before real photography arrives.
+  const pageBanners = [
+    ["about", "furniture"],
+    ["quality", "dehydrated"],
+    ["packhouse", "fresh-produce"],
+    ["products", "fresh-produce"],
+    ["export-process", "furniture"],
+    ["global-reach", "dehydrated"],
+    ["contact", "fresh-produce"],
+    ["faq", "dehydrated"],
+    ["vision-mission", "furniture"],
+    ["privacy", "dehydrated"],
+    ["terms", "furniture"],
+  ];
+
+  for (const [name, category] of pageBanners) {
     targets.push({
       out: `site/${name}.webp`,
-      svg: bannerSvg({ title: "", subtitle: "", category: "furniture", w: 2400, h: 900 }),
+      svg: bannerSvg({ title: "", subtitle: "", category, w: 2400, h: 900 }),
       format: "webp",
       width: 1600,
     });

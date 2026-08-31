@@ -25,6 +25,7 @@ export default function VisionMissionPage() {
       />
 
       <PageHero
+        imageSlot="site.vision"
         eyebrow="Vision · Mission · Motive · Values"
         title="What the company is for"
         crumbs={[

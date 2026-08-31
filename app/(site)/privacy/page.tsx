@@ -84,6 +84,7 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHero
+        imageSlot="site.privacy"
         eyebrow="Legal"
         title="Privacy policy"
         crumbs={[

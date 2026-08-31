@@ -30,6 +30,7 @@ export default function ContactPage() {
       />
 
       <PageHero
+        imageSlot="site.contact"
         eyebrow="Contact"
         title="Send the specification, get a quotation"
         crumbs={[

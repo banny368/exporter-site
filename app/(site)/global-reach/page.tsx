@@ -26,6 +26,7 @@ export default function GlobalReachPage() {
       />
 
       <PageHero
+        imageSlot="site.global_reach"
         eyebrow={`${site.markets.length} markets · ${site.loading_ports.length} loading ports`}
         title="Where the containers go, and how long they take"
         crumbs={[

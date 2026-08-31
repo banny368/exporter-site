@@ -29,6 +29,7 @@ export default function FaqPage() {
       <FaqJsonLd faqs={site.faqs} />
 
       <PageHero
+        imageSlot="site.faq"
         eyebrow="Buyer FAQs"
         title="The questions a first container raises"
         crumbs={[

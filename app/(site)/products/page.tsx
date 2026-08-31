@@ -28,6 +28,7 @@ export default function ProductsPage() {
       />
 
       <PageHero
+        imageSlot="site.products"
         eyebrow={`${count} products · 3 verticals`}
         title="The full export catalogue"
         crumbs={[

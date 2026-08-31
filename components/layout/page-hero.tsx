@@ -35,12 +35,28 @@ export function PageHero({
   children?: ReactNode;
   className?: string;
 }) {
+  const hasBanner = Boolean(image || imageSlot);
+
   return (
     // pt-18 clears the fixed header. It lives here rather than on <main> so the harbour
     // ground runs all the way to the top of the viewport and the header sits on it.
     <section className={cn("relative isolate overflow-hidden bg-harbour pt-18", className)}>
-      {image || imageSlot ? (
-        <>
+      {/*
+        The photograph gets a band of its own rather than sitting behind the text.
+
+        It used to be full-bleed at 70% opacity under a scrim that reached full opacity
+        at the bottom, which meant a replaced banner came out at roughly the same
+        brightness as the placeholder — clients replaced an image and saw no change.
+        Thinning that scrim is not an option: the eyebrow and breadcrumbs are brass on
+        harbour, and brass needs about 90% scrim coverage to hold 4.5:1 over a bright
+        photograph. Text over a client-supplied image can therefore never be relied on.
+
+        Giving the image its own band settles both. The photograph is fully visible
+        because nothing is written on it, and the text below sits on solid harbour, at
+        exactly the contrast the pages without a banner already pass at.
+      */}
+      {hasBanner ? (
+        <div className="relative h-40 w-full overflow-hidden sm:h-52 lg:h-64">
           {imageSlot ? (
             <SiteImage
               slot={imageSlot}
@@ -48,19 +64,32 @@ export function PageHero({
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-70"
+              className="object-cover"
             />
           ) : (
-            <Image src={withBase(image!)} alt="" fill priority sizes="100vw" className="object-cover opacity-70" />
+            <Image src={withBase(image!)} alt="" fill priority sizes="100vw" className="object-cover" />
           )}
+
+          {/* A light wash sits the photograph in the palette. No text is over it, so it
+              carries no contrast burden and can stay this gentle. */}
+          <div className="absolute inset-0 bg-harbour-deep/20" aria-hidden="true" />
+
+          {/* Softens the join, so the band and the text below read as one surface. */}
           <div
-            className="absolute inset-0 bg-gradient-to-t from-harbour-deep via-harbour-deep/80 to-harbour-deep/50"
+            className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-harbour to-transparent"
             aria-hidden="true"
           />
-        </>
+        </div>
       ) : null}
 
-      <div className="page-shell relative z-10 py-16 md:py-24">
+      {/* The image band already carries the top of the section, so the text needs less
+          room above it than it does on a page that opens straight onto the ground. */}
+      <div
+        className={cn(
+          "page-shell relative z-10 pb-16 md:pb-24",
+          hasBanner ? "pt-10 md:pt-14" : "pt-16 md:pt-24",
+        )}
+      >
         {crumbs?.length ? (
           <nav aria-label="Breadcrumb" className="mb-8">
             <ol className="flex flex-wrap items-center gap-x-2 gap-y-1" role="list">

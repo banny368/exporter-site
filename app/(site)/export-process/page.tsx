@@ -84,6 +84,7 @@ export default function ExportProcessPage() {
       <FaqJsonLd faqs={faqs} />
 
       <PageHero
+        imageSlot="site.export_process"
         eyebrow="How we work"
         title="Inquiry to shipment, with a timeline on every step"
         crumbs={[

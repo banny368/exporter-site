@@ -81,6 +81,7 @@ export default function TermsPage() {
   return (
     <>
       <PageHero
+        imageSlot="site.terms"
         eyebrow="Legal"
         title="Terms"
         crumbs={[
