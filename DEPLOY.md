@@ -46,6 +46,32 @@ Set in the Vercel dashboard, or with `vercel env add <NAME> <environment>`.
 
 After changing any of these, redeploy — they are read at build time.
 
+## Publishing what the client changes in the admin panel
+
+The admin panel saves into one browser: settings in `localStorage`, uploaded images in
+`IndexedDB`. Nothing the client changes there is visible to anyone else until it is
+committed — send someone the link mid-edit and they see the shipped placeholders. That is
+the trade for having no database and no monthly bill.
+
+1. In the panel, go to **Site settings → Publish these changes** and click **Download
+   publish file**. It carries the settings, the product edits and every uploaded image.
+2. In the project folder:
+
+   ```bash
+   npm run apply-export ~/Downloads/exporter-publish.json
+   ```
+
+   It writes the uploads into `public/uploads/` as real image files, repoints the image
+   slots and product photographs at those paths, and rewrites `data/site.json`,
+   `data/categories.json` and `data/products/*.json`.
+
+3. Check it locally, then commit and push. Vercel deploys and every visitor sees it.
+
+Images live in the repository on purpose. Every hosted free tier can pause, expire or
+start charging — Supabase pauses a free project after seven days of low traffic, with a
+90-day window to restore it — while a file in `public/` is served by the same CDN as the
+rest of the site, for as long as the site exists, at no cost.
+
 ## Adding the custom domain
 
 1. Vercel dashboard → the project → **Settings → Domains** → add the domain.

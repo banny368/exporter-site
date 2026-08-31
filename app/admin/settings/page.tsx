@@ -34,7 +34,9 @@ function Field({
 }
 
 export default function AdminSettingsPage() {
-  const { settings, saveSettings } = useStore();
+  const { settings, saveSettings, productOverrides, deletedProductIds, categories } =
+    useStore();
+  const [busy, setBusy] = useState(false);
   const [draft, setDraft] = useState<SiteSettings>(settings);
   const [saved, setSaved] = useState(false);
 
@@ -318,49 +320,59 @@ export default function AdminSettingsPage() {
           <Button
             type="button"
             variant="outline"
-            onClick={() => {
-              downloadTextFile(
-                "site.json",
-                JSON.stringify(settings, null, 2) + "\n",
-                "application/json",
-              );
+            disabled={busy}
+            onClick={async () => {
+              setBusy(true);
+              try {
+                const media = (await listMedia()) ?? [];
+                downloadTextFile(
+                  "exporter-publish.json",
+                  JSON.stringify(
+                    {
+                      version: 1,
+                      exportedAt: new Date().toISOString(),
+                      settings,
+                      products: productOverrides,
+                      deletedProductIds,
+                      categories,
+                      media: media.map((record) => ({
+                        id: record.id,
+                        name: record.name,
+                        width: record.width,
+                        height: record.height,
+                        bytes: record.bytes,
+                        dataUrl: record.dataUrl,
+                      })),
+                    },
+                    null,
+                    2,
+                  ) + "\n",
+                  "application/json",
+                );
+              } finally {
+                setBusy(false);
+              }
             }}
           >
             <Download className="size-4" aria-hidden="true" />
-            Export settings file
-          </Button>
-
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={async () => {
-              const media = (await listMedia()) ?? [];
-              downloadTextFile(
-                "media-manifest.json",
-                JSON.stringify(
-                  media.map((record) => ({
-                    id: record.id,
-                    name: record.name,
-                    width: record.width,
-                    height: record.height,
-                    bytes: record.bytes,
-                    dataUrl: record.dataUrl,
-                  })),
-                  null,
-                  2,
-                ) + "\n",
-                "application/json",
-              );
-            }}
-          >
-            Export uploaded images
+            {busy ? "Preparing…" : "Download publish file"}
           </Button>
         </div>
 
+        <ol className="mt-5 grid max-w-2xl gap-2 text-[0.9375rem] leading-relaxed">
+          <li>1. Download the publish file above. It holds your settings, your product
+            edits and every image you have uploaded.</li>
+          <li>
+            2. In the project folder, run{" "}
+            <span className="font-mono text-[0.875rem]">npm run apply-export ~/Downloads/exporter-publish.json</span>
+          </li>
+          <li>3. Commit the changed files and push. The deploy makes it live for everyone.</li>
+        </ol>
+
         <p className="mono-label mt-4 normal-case tracking-[0.04em]">
-          Uploaded images export separately because they are stored as data URLs and the
-          file is large. Save them into <span className="font-mono">public/</span> and point
-          the settings at those paths before deploying.
+          The script writes your uploads into <span className="font-mono">public/uploads/</span>{" "}
+          as real image files and points the site at them, so they are served like every
+          other image and cost nothing to host.
         </p>
       </section>
     </>

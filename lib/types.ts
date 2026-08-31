@@ -262,6 +262,12 @@ export interface SiteSettings {
   branding: {
     /** Media id of an uploaded logo, or null to use the drawn mark. */
     logo_media_id: string | null;
+    /**
+     * A logo committed to `public/`, which is what `apply-export` writes when the
+     * uploaded one is published. Takes precedence: an id only resolves in the browser
+     * that did the upload, a path resolves for every visitor.
+     */
+    logo_path?: string | null;
     /** Shown beside the mark. Falls back to the company name. */
     logo_text: string;
     show_mark: boolean;

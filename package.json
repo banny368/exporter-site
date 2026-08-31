@@ -12,7 +12,8 @@
     "gen:images": "node scripts/gen-placeholders.mjs",
     "serve": "next start",
     "deploy": "vercel deploy --prod",
-    "deploy:preview": "vercel deploy"
+    "deploy:preview": "vercel deploy",
+    "apply-export": "node scripts/apply-export.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",

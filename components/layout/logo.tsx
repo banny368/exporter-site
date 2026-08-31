@@ -29,6 +29,11 @@ export function Logo({
   const settings = useSiteSettings();
   const uploaded = useMediaDataUrl(settings.branding?.logo_media_id);
 
+  // A published logo is a file in public/, which every visitor can load. An uploaded id
+  // only resolves in the browser that uploaded it, so the path wins when both are set.
+  const published = settings.branding?.logo_path || null;
+  const logoSrc = published ?? uploaded;
+
   const wordmark = name ?? settings.branding?.logo_text ?? "";
   const label = wordmark || settings.company.name;
   const showMark = settings.branding?.show_mark ?? true;
@@ -41,13 +46,13 @@ export function Logo({
       // visible "Export House", which fails label-content-name-mismatch. The link text
       // already names the company.
     >
-      {uploaded ? (
+      {logoSrc ? (
         <Image
-          src={uploaded}
+          src={logoSrc}
           alt={label}
           width={200}
           height={48}
-          unoptimized
+          unoptimized={!published}
           priority
           className="h-11 w-auto object-contain"
         />
