@@ -15,6 +15,7 @@ import {
   createId,
   mergeById,
   mergeCategories,
+  mergeOneById,
   mergeSettings,
   removeRfqItem,
   setRfqQuantity,
@@ -250,6 +251,20 @@ export function useMergedProducts(seed: Product[]): Product[] {
   const { productOverrides, deletedProductIds } = useStore();
   return useMemo(
     () => mergeById(seed, productOverrides, deletedProductIds),
+    [seed, productOverrides, deletedProductIds],
+  );
+}
+
+/**
+ * The single record a product page renders, with admin edits applied.
+ *
+ * Returns null once the client has deleted the product, so the page can say so rather
+ * than keep serving a record the admin panel no longer lists.
+ */
+export function useMergedProduct(seed: Product): Product | null {
+  const { productOverrides, deletedProductIds } = useStore();
+  return useMemo(
+    () => mergeOneById(seed, productOverrides, deletedProductIds),
     [seed, productOverrides, deletedProductIds],
   );
 }

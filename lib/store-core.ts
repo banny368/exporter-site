@@ -90,6 +90,22 @@ export function mergeById<T extends { id: string; sort_order: number }>(
     .sort((a, b) => a.sort_order - b.sort_order);
 }
 
+/**
+ * One seed record with admin edits applied, or null once it has been deleted.
+ *
+ * A product page renders a single record, and it must not go through mergeById with a
+ * one-record seed: that function treats any override whose id is absent from the seed as
+ * a newly created record, so every other edited product would leak onto this page.
+ */
+export function mergeOneById<T extends { id: string }>(
+  seed: T,
+  overrides: T[],
+  deletedIds: string[],
+): T | null {
+  if (deletedIds.includes(seed.id)) return null;
+  return overrides.find((record) => record.id === seed.id) ?? seed;
+}
+
 export function mergeProducts(seed: Product[], state: StoreState): Product[] {
   return mergeById(seed, state.products, state.deletedProductIds);
 }

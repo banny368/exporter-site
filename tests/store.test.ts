@@ -4,6 +4,7 @@ import {
   emptyStore,
   inquiriesToCsv,
   mergeCategories,
+  mergeOneById,
   mergeProducts,
   mergeSettings,
   removeRfqItem,
@@ -185,5 +186,35 @@ describe("inquiriesToCsv", () => {
 
   it("returns just the header for an empty list", () => {
     expect(inquiriesToCsv([]).trim().split("\n")).toHaveLength(1);
+  });
+});
+
+describe("mergeOneById", () => {
+  const seedProduct = draftProduct({ id: "prd-1", slug: "one", name: "One", sort_order: 1 });
+
+  it("returns the seed record when nothing has been edited", () => {
+    expect(mergeOneById(seedProduct, [], [])?.name).toBe("One");
+  });
+
+  it("applies an edit made to that record", () => {
+    const edited = { ...seedProduct, name: "Edited" };
+    expect(mergeOneById(seedProduct, [edited], [])?.name).toBe("Edited");
+  });
+
+  // The trap: mergeById() treats any override whose id is not in the seed as a newly
+  // created record. Passing a single-record seed to it would make every other edited
+  // product leak onto this one's page.
+  it("ignores edits belonging to a different record", () => {
+    const otherProduct = draftProduct({ id: "prd-2", slug: "two", name: "Two" });
+    expect(mergeOneById(seedProduct, [otherProduct], [])?.name).toBe("One");
+  });
+
+  it("returns null once the record has been deleted", () => {
+    expect(mergeOneById(seedProduct, [], ["prd-1"])).toBeNull();
+  });
+
+  it("treats deletion as final, even with a later edit stored", () => {
+    const edited = { ...seedProduct, name: "Edited" };
+    expect(mergeOneById(seedProduct, [edited], ["prd-1"])).toBeNull();
   });
 });
