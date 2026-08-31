@@ -456,26 +456,33 @@ async function generateOgImages(products, categories) {
   // because each is an image slot the client can replace independently — sharing one
   // would mean replacing the Contact banner also changed the FAQ. The category tint just
   // keeps them from all looking identical before real photography arrives.
+  // Only the dark-grounded themes. The furniture theme is grounded in kraft, which was
+  // invisible while these sat under a heavy scrim and read as a washed-out cream slab the
+  // moment the photograph was allowed to show at full opacity. A banner sits on the
+  // harbour ground, so its placeholder has to be dark to begin with.
   const pageBanners = [
-    ["about", "furniture"],
+    ["about", "fresh-produce"],
     ["quality", "dehydrated"],
     ["packhouse", "fresh-produce"],
-    ["products", "fresh-produce"],
-    ["export-process", "furniture"],
+    ["products", "dehydrated"],
+    ["export-process", "fresh-produce"],
     ["global-reach", "dehydrated"],
     ["contact", "fresh-produce"],
     ["faq", "dehydrated"],
-    ["vision-mission", "furniture"],
+    ["vision-mission", "fresh-produce"],
     ["privacy", "dehydrated"],
-    ["terms", "furniture"],
+    ["terms", "fresh-produce"],
   ];
 
   for (const [name, category] of pageBanners) {
     targets.push({
       out: `site/${name}.webp`,
-      svg: bannerSvg({ title: "", subtitle: "", category, w: 2400, h: 900 }),
+      // 4:3, the shape PageHero actually renders these at. Generated wide, the corner
+      // ticks and the "placeholder image" stamp were cropped away by object-cover, and
+      // the artwork quietly stopped admitting what it was.
+      svg: bannerSvg({ title: "", subtitle: "", category, w: 1600, h: 1200 }),
       format: "webp",
-      width: 1600,
+      width: 1200,
     });
   }
 
